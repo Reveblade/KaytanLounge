@@ -508,6 +508,9 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
 
     // Screen-space clustering, re-run on every camera frame: markers closer than a
     // marker's width fold into one, and split again as soon as the zoom separates them.
+    /** Which partner venues each live badge is currently stepping around, by member key. */
+    const pushedByKey = new Map<string, MapNode[]>();
+
     const cluster = () => {
       const active = latest.current.activeNodeId;
       const R = 58;
@@ -515,7 +518,9 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
       // than a marker's width merge, and merging repeats until nothing is close any more.
       // That way a chain of near neighbours folds into one badge instead of several
       // overlapping ones, and the count keeps growing as the camera pulls back.
-      type Group = { members: MapNode[]; x: number; y: number };
+      // `pushedBy` names the partner venues this group had to step around — what the
+      // badge's tap reads to widen its frame.
+      type Group = { members: MapNode[]; x: number; y: number; pushedBy?: MapNode[] };
       // Partner venues are held out of the grouping entirely. They are the places the
       // routes are built around, and a count badge over one of them would hide exactly
       // what is meant to stand out — so they stay on the map at every zoom, alone.
@@ -550,9 +555,11 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
       // and the cluster moves to the nearest point where both can be read. The gap clears
       // the partner's disc, its ring and the name plate hanging under it.
       const CLEARANCE = 92;
-      const anchors = latest.current.nodes.filter((n) => standalone.has(n.id)).map((n) => map.project([n.location.lng, n.location.lat]));
+      const anchors = latest.current.nodes
+        .filter((n) => standalone.has(n.id))
+        .map((n) => ({ node: n, p: map.project([n.location.lng, n.location.lat]) }));
       for (const g of groups) {
-        for (const a of anchors) {
+        for (const { node: venue, p: a } of anchors) {
           let dx = g.x - a.x, dy = g.y - a.y;
           const d = Math.hypot(dx, dy);
           if (d >= CLEARANCE) continue;
@@ -561,8 +568,17 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
           const scale = CLEARANCE / Math.max(d, 0.5);
           g.x = a.x + dx * scale;
           g.y = a.y + dy * scale;
+          (g.pushedBy ??= []).push(venue);
         }
       }
+      /*
+       * The click handler below is bound once, when the badge is first created, but which
+       * venues a badge is dodging changes as the camera moves. So the handler asks this at
+       * the moment of the tap rather than closing over a stale list, keyed by the group's
+       * membership — the same key the badge itself is stored under.
+       */
+      for (const g of groups) pushedByKey.set(g.members.map((m) => m.id).join("|"), g.pushedBy ?? []);
+
       // This runs on every frame of a pan, so nothing is written that is already true:
       // reassigning `display` on every marker costs a style recalculation each frame.
       const show = (el: HTMLElement | undefined, visible: boolean) => {
@@ -602,10 +618,19 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
             e.stopPropagation();
             // Frame every member: fit their bounds with room to breathe, zooming as far as it
             // takes for them to stand apart. Co-located places just step in two levels.
+            //
+            // A badge that was pushed off a partner venue is framed together with that
+            // venue, not just with its own members. The badge is sitting somewhere it does
+            // not belong precisely because the venue is underneath it, so the camera has to
+            // land somewhere both are legible — otherwise the zoom re-crowds the pair and
+            // the badge is shoved aside again on arrival. Nothing about the venue changes:
+            // it keeps its position and its own tap, and only widens what the camera fits.
+            const key = members.map((m) => m.id).join("|");
+            const framed = [...members, ...(pushedByKey.get(key) ?? [])].map((m) => m.location);
             let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
-            for (const m of members) {
-              minX = Math.min(minX, m.location.lng); maxX = Math.max(maxX, m.location.lng);
-              minY = Math.min(minY, m.location.lat); maxY = Math.max(maxY, m.location.lat);
+            for (const p of framed) {
+              minX = Math.min(minX, p.lng); maxX = Math.max(maxX, p.lng);
+              minY = Math.min(minY, p.lat); maxY = Math.max(maxY, p.lat);
             }
             const degenerate = maxX - minX < 1e-5 && maxY - minY < 1e-5;
             if (degenerate) {
@@ -633,6 +658,9 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
           clusters.current.delete(key);
         }
       }
+      // Groupings churn on every frame of a pan; without this the key map would keep a
+      // row for every combination the camera has ever passed through.
+      for (const key of pushedByKey.keys()) if (!used.has(key)) pushedByKey.delete(key);
     };
     cluster();
     map.on("move", cluster);

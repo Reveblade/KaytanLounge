@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import type { AttractionDto, BusinessDto, GeoPoint, RouteNodeKind } from "@/lib/contract/api";
 import { markerThumb, placeKind } from "@/lib/place";
-import { RouteMap } from "./route-map";
+import { RouteMap } from "./lazy-route-map";
 
 interface Props {
   location: GeoPoint;

@@ -2,12 +2,13 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { clsx } from "clsx";
 import { ArrowRight, SidebarSimple } from "@phosphor-icons/react";
 import type { AttractionDto, BusinessDto, RouteCardDto, RouteDetailDto, RouteNodeKind } from "@/lib/contract/api";
 import { fareFrom, formatMoney } from "@/lib/format";
 import { useI18n } from "@/lib/i18n/context";
 import { markerThumb } from "@/lib/place";
-import { RouteMap, type MapNode } from "@/components/map/route-map";
+import { RouteMap, type MapNode } from "@/components/map/lazy-route-map";
 import { AllPlacesPanel, type OverviewPlace } from "./all-places-panel";
 import { DeparturesSheet } from "./departures-sheet";
 import { MapChrome } from "./map-chrome";
@@ -15,6 +16,7 @@ import { NodeSheet } from "./node-sheet";
 import { ReadingSheet, type Snap } from "./reading-sheet";
 import { DecideBar, RoutePanel } from "./route-panel";
 import { RouteSwitcher } from "./route-switcher";
+import { LOADING_CYCLE_MS, LoadingScreen } from "@/components/chrome/loading-screen";
 import { Wordmark } from "@/components/chrome/wordmark";
 
 interface Props {
@@ -78,6 +80,10 @@ export function ExploreApp({ cards, initialRoute, initialStop, places, startInOv
   // which the map's controls ride above.
   const [sheet, setSheet] = useState({ height: 0, mapInset: 0 });
   const [isWide, setIsWide] = useState(true);
+  // "up" until the map has drawn a city AND the word has finished writing itself.
+  const [curtain, setCurtain] = useState<"up" | "lifting" | "gone">("up");
+  const [cityDrawn, setCityDrawn] = useState(false);
+  const curtainSince = useRef(0);
   const cache = useRef(new Map<string, RouteDetailDto>(initialRoute ? [[initialRoute.slug, initialRoute]] : []));
 
   useEffect(() => {
@@ -87,6 +93,46 @@ export function ExploreApp({ cards, initialRoute, initialStop, places, startInOv
     mq.addEventListener("change", apply);
     return () => mq.removeEventListener("change", apply);
   }, []);
+
+  /**
+   * The Suspense fallback ends when the route data lands, which on this screen is far
+   * too early: MapLibre has yet to boot, fetch a style and paint anything at all, so
+   * the page arrives as an empty stage. The curtain covers that gap with the same
+   * loading screen, and comes down on the same signal the house radio waits for.
+   *
+   * The map fires `biy-map-ready` from its own `load`, always later than this effect,
+   * so there is no event to miss. If it never fires, `.map-curtain` fades itself out
+   * anyway — see globals.css.
+   */
+  useEffect(() => {
+    curtainSince.current = performance.now();
+    const drawn = () => setCityDrawn(true);
+    window.addEventListener("biy-map-ready", drawn);
+    return () => window.removeEventListener("biy-map-ready", drawn);
+  }, []);
+
+  /**
+   * Two things have to be true before the curtain goes: the city is drawn, and the
+   * word has finished writing itself. Cutting away mid-word is what made this look
+   * broken, so a ready map waits for the end of the cycle it is in — the curtain
+   * starts its fade at 86%, exactly as the word starts its own, and both are gone
+   * together on the boundary.
+   */
+  useEffect(() => {
+    if (!cityDrawn || curtain !== "up") return;
+    const EXIT_AT = 0.86;
+    const elapsed = (performance.now() - curtainSince.current) % LOADING_CYCLE_MS;
+    const wait = (LOADING_CYCLE_MS * EXIT_AT - elapsed + LOADING_CYCLE_MS) % LOADING_CYCLE_MS;
+    const id = window.setTimeout(() => setCurtain("lifting"), wait);
+    return () => window.clearTimeout(id);
+  }, [cityDrawn, curtain]);
+
+  /** Unmount once the fade is over, rather than leaving a full-screen layer running. */
+  useEffect(() => {
+    if (curtain !== "lifting") return;
+    const id = window.setTimeout(() => setCurtain("gone"), 420);
+    return () => window.clearTimeout(id);
+  }, [curtain]);
 
   /**
    * Where the drawer came to rest, published to the page: everything that floats over
@@ -306,6 +352,15 @@ export function ExploreApp({ cards, initialRoute, initialStop, places, startInOv
       <AnimatePresence>
         {sheetTarget ? <NodeSheet key={sheetNode} kind={sheetTarget.kind} place={sheetTarget.place} wide={isWide} onClose={closeNode} /> : null}
       </AnimatePresence>
+
+      {curtain === "gone" ? null : (
+        <div
+          className={clsx("map-curtain absolute inset-0 z-[60]", curtain === "lifting" && "map-curtain-out")}
+          aria-hidden={curtain === "lifting"}
+        >
+          <LoadingScreen label={t.common.loading} immediate />
+        </div>
+      )}
     </div>
   );
 }

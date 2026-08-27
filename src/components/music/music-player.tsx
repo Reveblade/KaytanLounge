@@ -121,18 +121,33 @@ export function MusicPlayer() {
   const wantPlayRef = useRef(false);
   /** True while a thumb is down on the seek bar, so timeupdate stops fighting it. */
   const scrubRef = useRef(false);
+  /** Set once sound has started, or once the visitor has taken the controls: either
+   *  way the radio never tries to start itself again. */
+  const selfStartDoneRef = useRef(false);
 
   const track = TRACKS[index];
 
   /* ---------- audio graph ---------- */
 
-  const applyVolume = useCallback((v: number, m: boolean) => {
+  const applyVolume = useCallback((v: number, m: boolean, fade = 0) => {
     const audio = audioRef.current;
     if (!audio) return;
-    if (gainRef.current) {
+    const gain = gainRef.current;
+    const ctx = ctxRef.current;
+    if (gain && ctx) {
       /* Squared, because loudness is heard closer to the square of amplitude:
          a slider at half should sound half, not a shade under full. */
-      gainRef.current.gain.value = m ? 0 : v * v;
+      const level = m ? 0 : v * v;
+      const now = ctx.currentTime;
+      /* Always cancel first: a drag of the slider mid-fade must win outright, not
+         blend with a ramp that is still scheduled. */
+      gain.gain.cancelScheduledValues(now);
+      if (fade > 0) {
+        gain.gain.setValueAtTime(0, now);
+        gain.gain.linearRampToValueAtTime(level, now + fade);
+      } else {
+        gain.gain.setValueAtTime(level, now);
+      }
       return;
     }
     audio.volume = v;
@@ -165,26 +180,41 @@ export function MusicPlayer() {
     }
   }, []);
 
-  const play = useCallback(async () => {
-    const audio = audioRef.current;
-    if (!audio) return;
-    ensureGraph();
-    applyVolume(volume, muted);
-    try {
-      /* play() goes first and unawaited: Safari counts the user gesture only for calls
-         made synchronously inside it, and an `await resume()` ahead of this would spend
-         the gesture and get the playback refused. Resuming alongside is enough. */
-      const started = audio.play();
-      if (ctxRef.current?.state === "suspended") void ctxRef.current.resume();
-      await started;
-      setFailed(false);
-    } catch {
-      /* Refused (no gesture yet) or unplayable: fall back to the paused truth. */
-      setPlaying(false);
-    }
-  }, [applyVolume, ensureGraph, muted, volume]);
+  const play = useCallback(
+    async (fade = false) => {
+      const audio = audioRef.current;
+      if (!audio) return;
+      ensureGraph();
+      applyVolume(volume, muted, fade ? FADE_IN : 0);
+      try {
+        /* play() goes first and unawaited: Safari counts the user gesture only for calls
+           made synchronously inside it, and an `await resume()` ahead of this would spend
+           the gesture and get the playback refused. Resuming alongside is enough. */
+        const started = audio.play();
+        if (ctxRef.current?.state === "suspended") void ctxRef.current.resume();
+        await started;
+        setFailed(false);
+      } catch {
+        /* Refused (no gesture yet) or unplayable: fall back to the paused truth. */
+        setPlaying(false);
+      }
+    },
+    [applyVolume, ensureGraph, muted, volume],
+  );
 
   const pause = useCallback(() => audioRef.current?.pause(), []);
+
+  /**
+   * Start on our own, once, and only into silence.
+   *
+   * Nothing here overrides the visitor: if a piece is already playing this is a no-op,
+   * and the moment they touch a transport control the radio stops trying forever.
+   */
+  const selfStart = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio || selfStartDoneRef.current || !audio.paused) return;
+    void play(true);
+  }, [play]);
 
   /* ---------- track selection ---------- */
 
@@ -229,6 +259,8 @@ export function MusicPlayer() {
   }, [advance, play]);
 
   const toggle = useCallback(() => {
+    /* The visitor has an opinion now; the radio defers to it from here on. */
+    selfStartDoneRef.current = true;
     if (playing) pause();
     else void play();
   }, [pause, play, playing]);
@@ -274,7 +306,10 @@ export function MusicPlayer() {
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
-    const onPlay = () => setPlaying(true);
+    const onPlay = () => {
+      selfStartDoneRef.current = true;
+      setPlaying(true);
+    };
     const onPause = () => setPlaying(false);
     const onTime = () => {
       if (!scrubRef.current) setTime(audio.currentTime);
@@ -330,6 +365,39 @@ export function MusicPlayer() {
     }
   }, [mounted, track, locale, t.brand, playing, play, pause, previous, advance]);
 
+  /* The cue: the first map to finish drawing. The city appears, the music is already
+     there. Any later map (a route, the explore page) finds the radio playing and the
+     guards below turn it into a no-op. */
+  useEffect(() => {
+    if (!mounted) return;
+    window.addEventListener("biy-map-ready", selfStart);
+    return () => window.removeEventListener("biy-map-ready", selfStart);
+  }, [mounted, selfStart]);
+
+  /*
+   * The safety net. Autoplay policy refuses sound on a cold first visit — no gesture
+   * has been spent on this origin yet — so the cue above is silently declined and the
+   * dock would just sit there paused. Take the visitor's first touch anywhere as the
+   * gesture instead, and try once more. Touches on the player itself are ignored: its
+   * own buttons already say what to do, and starting underneath them would fight the
+   * click that is about to land.
+   */
+  useEffect(() => {
+    if (!mounted) return;
+    const onGesture = (e: Event) => {
+      if (e.target instanceof Element && e.target.closest("[data-music-player]")) return;
+      if (selfStartDoneRef.current) return detach();
+      selfStart();
+    };
+    const detach = () => {
+      window.removeEventListener("pointerdown", onGesture);
+      window.removeEventListener("keydown", onGesture);
+    };
+    window.addEventListener("pointerdown", onGesture);
+    window.addEventListener("keydown", onGesture);
+    return detach;
+  }, [mounted, selfStart]);
+
   useEffect(() => {
     if (!expanded) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setExpanded(false);
@@ -342,6 +410,15 @@ export function MusicPlayer() {
   /* Checkout parks a fixed summary bar at the bottom on small screens; the dock
      steps over it rather than landing on the pay button. */
   const lifted = pathname.startsWith("/book/");
+  /*
+   * The explore map parks its 3D switch and its zoom stack in this same corner — a
+   * 36px column at right:16px. On a desk they share the bottom edge, so the dock steps
+   * in past that column rather than landing on top of it. On a phone those controls
+   * ride up above the reading drawer instead (see globals.css), so the two never meet
+   * and the dock keeps the corner.
+   */
+  const besideMapControls = pathname.startsWith("/explore");
+  const rightEdge = besideMapControls ? "right-5 sm:right-8 lg:right-[4.75rem]" : "right-5 sm:right-8";
   /* The map screen parks a whole drawer there and publishes how tall it is, so the
      dock rides on top of it — but never so high that it reaches the floating chrome. */
   const onMap = pathname.startsWith("/explore");
@@ -373,12 +450,15 @@ export function MusicPlayer() {
         {expanded ? (
           <motion.aside
             key="panel"
+            data-music-player
             role="dialog"
             aria-label={t.music.title}
             className={clsx(
               "glass-strong fixed inset-x-0 bottom-0 z-[45] flex max-h-[88dvh] flex-col overflow-hidden rounded-t-[28px]",
               "pb-[max(0.75rem,env(safe-area-inset-bottom))]",
-              "sm:inset-x-auto sm:bottom-5 sm:right-5 sm:w-[380px] sm:rounded-panel sm:pb-4",
+              "sm:inset-x-auto sm:bottom-5 sm:w-[380px] sm:rounded-panel sm:pb-4",
+              /* Opened, it keeps the dock's column so it grows straight up out of the pill. */
+              besideMapControls ? "sm:right-8 lg:right-[4.75rem]" : "sm:right-8",
             )}
             initial={reduce ? { opacity: 0 } : { opacity: 0, y: 28, scale: 0.985 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -569,8 +649,10 @@ export function MusicPlayer() {
         ) : (
           <motion.div
             key="dock"
+            data-music-player
             className={clsx(
-              "glass fixed right-3 z-40 flex items-center gap-1 rounded-pill p-1.5 transition-[bottom] duration-300 sm:right-5",
+              "glass fixed z-40 flex items-center gap-1 rounded-pill p-1.5 transition-[bottom] duration-300",
+              rightEdge,
               onMap
                 ? "bottom-[min(calc(var(--sheet-rest,52dvh)+0.75rem),calc(100dvh-8.5rem))] lg:bottom-5"
                 : lifted
@@ -586,20 +668,36 @@ export function MusicPlayer() {
               type="button"
               onClick={toggle}
               aria-label={playing ? t.music.pause : t.music.play}
-              className="player-art grid h-10 w-10 shrink-0 place-items-center rounded-pill border border-line text-ink transition-transform duration-200 active:scale-95"
+              className="btn btn-primary btn-icon relative !h-10 !w-10 !min-h-0 shrink-0"
             >
-              {playing ? <Pause size={17} weight="fill" /> : <Play size={17} weight="fill" className="ml-0.5" />}
+              {/* Playing is already said by the pause glyph; this ring only gives the dock
+                  a pulse of life at a glance, and never moves anything around it. */}
+              {playing ? (
+                <span
+                  className="pointer-events-none absolute -inset-px rounded-pill border-2 border-[color-mix(in_srgb,var(--accent)_55%,transparent)] motion-safe:animate-pulse"
+                  aria-hidden
+                />
+              ) : null}
+              {/* Optical centring, not geometric: a triangle's mass sits left of its
+                  bounding box, so a mathematically centred play glyph reads as too far
+                  left. The pause bars are symmetrical and need no such nudge. */}
+              {playing ? <Pause size={16} weight="fill" /> : <Play size={16} weight="fill" className="translate-x-[1px]" />}
             </button>
 
             <button
               type="button"
               onClick={() => setExpanded(true)}
-              className="hidden min-w-0 items-center gap-2.5 rounded-pill px-2 py-1 text-left transition-colors duration-200 hover:bg-ink/6 sm:flex"
+              className="hidden min-w-0 flex-col justify-center rounded-pill px-2.5 py-1 text-left transition-colors duration-200 hover:bg-ink/6 sm:flex"
             >
-              <Eq on={playing} className="h-3.5 w-2.5 shrink-0" />
-              <span className="min-w-0 max-w-[148px]">
-                <span className="block truncate text-[0.8rem] font-medium leading-tight">{track.title}</span>
-                <span className="block truncate text-[0.68rem] leading-tight text-ink-faint">{t.music.nowPlaying}</span>
+              {/*
+                The two lines are their own column and start at the same left edge. The
+                equaliser used to sit inside this button ahead of the text, which pushed
+                both lines right and — because it is only as tall as one line — left them
+                looking centred against nothing. It lives with the artwork now.
+              */}
+              <span className="block max-w-[150px] truncate text-[0.8rem] font-medium leading-tight">{track.title}</span>
+              <span className="block max-w-[150px] truncate text-[0.68rem] leading-tight text-ink-faint">
+                {playing ? t.music.nowPlaying : track.note[locale]}
               </span>
             </button>
 

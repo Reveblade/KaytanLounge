@@ -58,17 +58,17 @@ export function NodeSheet({ kind, place, wide, onClose }: { kind: RouteNodeKind;
         dragElastic={{ top: 0, bottom: 0.7 }}
         onDragEnd={onDragEnd}
       >
-        <button type="button" onClick={onClose} className="btn btn-glass btn-icon absolute right-4 top-4 z-20" aria-label={t.common.close}>
+        <button type="button" onClick={onClose} className="btn btn-scrim btn-icon absolute right-4 top-4 z-20" aria-label={t.common.close}>
           <X size={18} weight="bold" />
         </button>
         {!wide ? (
           /* The grip rides over the gallery, on a scrim so it reads against any photograph. */
           <div
             onPointerDown={(e) => handle.start(e)}
-            className="sticky top-0 z-10 -mb-[37px] flex touch-none justify-center bg-gradient-to-b from-bg/55 to-transparent pb-5 pt-3"
+            className="sticky top-0 z-10 -mb-[37px] flex touch-none justify-center bg-gradient-to-b from-black/35 to-transparent pb-5 pt-3"
             aria-hidden
           >
-            <span className="grab-handle" />
+            <span className="grab-handle on-scrim" />
           </div>
         ) : null}
         <PlaceDetail kind={kind} place={place} inSheet />

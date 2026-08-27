@@ -1,30 +1,37 @@
 /**
- * What the visitor sees between pages, at full screen and with nothing to read:
- * the route no longer wanders — it writes the city's name. One continuous stroke
- * spells "İstanbul" in a monoline hand across the middle of the dark field, the
- * brand's accent dot travels along it as the pen, and the logotype settles in
- * underneath in the same script the brand signs with. A hairline of progress grows
- * along the top edge. Everything is CSS/SMIL, so it costs nothing and can never be
- * left stuck hidden by a script that failed to run.
+ * What the visitor sees between pages, at full screen and with nothing to read: the
+ * route does not wander, it writes the city's name. One continuous stroke spells
+ * "İstanbul" in a monoline hand across the middle of the dark field, the brand's
+ * accent dot travels along it as the pen, and the logotype settles in underneath in
+ * the same script the brand signs with. A hairline of progress grows along the top
+ * edge. Everything is CSS/SMIL, so it costs nothing and can never be left stuck
+ * hidden by a script that failed to run.
  *
  * It is a normal viewport-high block rather than `position: fixed`, so it cannot be
  * trapped by a transformed ancestor.
  *
- * It does not appear straight away. As a Suspense fallback it lives exactly as long
- * as the data takes, and most navigations resolve inside a few hundred milliseconds —
- * long enough to flash a fragment of the animation, not long enough to read as one.
- * `.loading-screen` holds it invisible for that window (see globals.css), so a quick
- * page never shows it and a slow one gets all of it.
+ * As a Suspense fallback it does not appear straight away: it lives exactly as long as
+ * the data takes, and a navigation that resolves in under --loading-delay would only
+ * flash. `.loading-screen` holds it invisible for that window (see globals.css), so a
+ * quick page never shows it and a slow one gets all of it.
+ *
+ * `immediate` drops that hold, for the one caller that is not waiting on data but
+ * covering for something already on screen — the map screen, whose curtain takes over
+ * the moment the page mounts and stays up until the city has actually drawn itself.
  */
 
 /**
- * "İstanbul", drawn the way a hand would: one stroke, entered at the baseline on the
+ * "İstanbul" written the way a hand would: one stroke, entered at the baseline on the
  * left and left again on the right, with only the two marks a hand goes back for —
- * the dot over the İ and the bar across the t — lifted out into WORD_MARKS below.
+ * the dot over the İ and the bar across the t — lifted out below.
  *
- * Authored against a 1200x400 field: baseline 292, x-height top 218, ascenders 128.
- * Kept as one path so `pathLength` can draw the whole word with a single dash, and so
- * the rider has an unbroken line to travel.
+ * Authored by hand against a 1200x400 field: baseline 292, x-height 218, ascenders
+ * 128. A later rewrite put every letter on strictly shared metrics with a measured
+ * shear and ligatures between them; it was more even and it read worse, so this is
+ * the hand that stays. Do not "correct" it back.
+ *
+ * Kept as one path so `pathLength` can write the whole word with a single dash, and
+ * so the rider has an unbroken line to travel.
  */
 const WORD = [
   "M 112 272",
@@ -50,30 +57,47 @@ const WORD = [
 const T_BAR = "M 372 196 C 396 186, 424 190, 448 182";
 const I_DOT = { cx: 250, cy: 76, r: 8 };
 
-export function LoadingScreen({ label = "Loading" }: { label?: string }) {
+/**
+ * One write, one hold, one fade. Must match --loading-cycle in globals.css; the
+ * animateMotion below cannot read a custom property, so it carries the number too.
+ *
+ * The map curtain uses this to lift on a cycle boundary rather than mid-word — the
+ * screen is never cut off half-written, it is left when it has just finished.
+ */
+export const LOADING_CYCLE_MS = 2600;
+
+export function LoadingScreen({ label = "Loading", immediate = false }: { label?: string; immediate?: boolean }) {
   return (
-    <div className="loading-screen ambient relative min-h-[100dvh] overflow-hidden bg-bg" role="status" aria-live="polite" aria-label={label}>
+    <div
+      className={`loading-screen ambient relative min-h-[100dvh] overflow-hidden bg-bg${immediate ? " loading-screen-now" : ""}`}
+      role="status"
+      aria-live="polite"
+      aria-label={label}
+    >
       <span className="loading-bar absolute inset-x-0 top-0 h-[2px] bg-accent" aria-hidden />
 
       <div className="absolute inset-0 grid place-items-center">
         <div className="relative w-[min(112vw,1240px)]" style={{ aspectRatio: "1200 / 400" }}>
           <svg className="absolute inset-0 h-full w-full overflow-visible" viewBox="0 0 1200 400" fill="none" aria-hidden>
-            {/* The word sits there as a faint casing the whole time, so even a half-second
-                appearance still shows a name rather than a fragment of a squiggle. */}
+            {/* The word sits there as a faint casing the whole time, so even the shortest
+                appearance shows a name rather than a fragment. */}
             <path d={WORD} className="loading-route-casing" />
             <path d={T_BAR} className="loading-route-casing" />
             <circle {...I_DOT} className="loading-mark-casing" />
 
-            {/* The accent draws over the casing, letter by letter. */}
+            {/* The accent writes over the casing, letter by letter. */}
             <path d={WORD} className="loading-route" pathLength={1} />
-            <path d={T_BAR} className="loading-route loading-mark" pathLength={1} />
+            {/* Each mark lights as the pen leaves its letter — the İ ends 14% of the way
+                along the stroke, the t 32%, and the delays in globals.css are those two
+                numbers mapped onto the write. */}
+            <path d={T_BAR} className="loading-route loading-mark-bar" pathLength={1} />
             <circle {...I_DOT} className="loading-mark-dot" />
 
             {/* The pen: the brand dot riding the stroke as it is written. */}
             <g className="loading-rider">
               <circle r="22" className="loading-rider-halo" />
               <circle r="7" className="loading-rider-dot" />
-              <animateMotion dur="3.6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.62;1" path={WORD} />
+              <animateMotion dur="2.6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.58;1" path={WORD} />
             </g>
           </svg>
         </div>

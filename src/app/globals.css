@@ -1,4 +1,11 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+/*
+  Sources are pinned. This app sits in a workspace beside the backend, its uploads
+  folder and the raw partner photography, and with no .git at the root Tailwind's
+  automatic detection walks up into all of it — scanning binaries and emitting
+  utility classes built from the bytes it finds, which then fail to parse.
+*/
+@source "../../src";
 
 /*
   Başka İstanbul Yok — visual system
@@ -240,11 +247,17 @@ a {
   border: 1px solid var(--line);
 }
 
+/*
+  Never hand-write `-webkit-backdrop-filter` beside `backdrop-filter`. Lightning CSS
+  collapses the pair and keeps only the prefixed one, which current Chrome does not
+  support — every glass surface silently loses its blur and the text behind it shows
+  through. Author the standard property alone; the build adds prefixes where targets
+  need them.
+*/
 .glass {
   background: var(--glass);
   border: 1px solid var(--glass-line);
   backdrop-filter: blur(28px) saturate(170%);
-  -webkit-backdrop-filter: blur(28px) saturate(170%);
   box-shadow:
     var(--shadow-panel),
     inset 0 1px 0 var(--glass-highlight);
@@ -254,7 +267,6 @@ a {
   background: var(--glass-strong);
   border: 1px solid var(--glass-line);
   backdrop-filter: blur(32px) saturate(170%);
-  -webkit-backdrop-filter: blur(32px) saturate(170%);
   box-shadow:
     var(--shadow-panel),
     inset 0 1px 0 var(--glass-highlight);
@@ -291,7 +303,11 @@ a {
   .glass-strong {
     background: var(--surface);
     backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+  }
+  /* Still over a photograph, so it stays dark rather than becoming a surface. */
+  .btn-scrim {
+    background: rgba(10, 10, 12, 0.82);
+    backdrop-filter: none;
   }
 }
 
@@ -442,12 +458,46 @@ a {
   border: 1px solid var(--line-strong);
   box-shadow: inset 0 1px 0 var(--glass-highlight);
   backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
 }
 .btn-ghost:hover,
 .btn-glass:hover {
   border-color: var(--ink);
   background: color-mix(in srgb, var(--ink) 8%, transparent);
+}
+
+/*
+  A control that floats over photography cannot know what is behind it — a white sky, a
+  night skyline, a bed of tulips — and a glass button that borrows the page's ink will
+  disappear into half of them. This one carries its own ground instead: the backdrop is
+  blurred, drained of colour and darkened underneath, which leaves a white glyph legible
+  over anything. Deliberately the same in both themes; a photograph does not have one.
+*/
+.btn-scrim {
+  color: #fff;
+  background: rgba(10, 10, 12, 0.26);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  box-shadow:
+    0 2px 14px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(14px) saturate(0.45) brightness(0.42);
+}
+.btn-scrim:hover {
+  color: #fff;
+  background: rgba(10, 10, 12, 0.46);
+  border-color: rgba(255, 255, 255, 0.42);
+}
+
+/* No backdrop filter: the darkening has to come from the fill itself. */
+@supports not (backdrop-filter: blur(1px)) {
+  .btn-scrim {
+    background: rgba(10, 10, 12, 0.66);
+  }
+}
+
+/* The grip that rides over a gallery has the same problem, and the same answer. */
+.grab-handle.on-scrim {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
 }
 
 .btn-quiet {
@@ -740,7 +790,6 @@ select.field {
   opacity: 0.55;
   padding: 6px 2px 0 !important;
   backdrop-filter: none;
-  -webkit-backdrop-filter: none;
 }
 .maplibregl-ctrl-attrib a {
   color: var(--ink-faint) !important;
@@ -754,7 +803,6 @@ select.field {
   border-radius: 14px !important;
   overflow: hidden;
   backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
   box-shadow: var(--shadow-card) !important;
 }
 .maplibregl-ctrl-group button {
@@ -949,13 +997,26 @@ select.field {
   /* Above the attraction pins and above a cluster badge that drifts over one. */
   z-index: 3;
 }
+/*
+  Shape carries the rank, not size alone. Every attraction on the map is a circle, so a
+  venue that is merely a larger circle reads as "another stop, nearer the camera". The
+  squircle is the one silhouette nothing else on the map wears: recognisable at a glance,
+  at any zoom, and still recognisable to someone who cannot separate the accent from the
+  ink. The accent ring and the glow then say "and this one is lit", on top of a difference
+  that already holds without them.
+*/
 .node-marker[data-kind="BUSINESS"] {
-  --size: 76px;
+  --size: 78px;
+  border-radius: 30px;
   border-color: var(--accent);
   box-shadow:
     0 0 0 4px color-mix(in srgb, var(--accent) 85%, transparent),
-    0 0 26px -2px color-mix(in srgb, var(--accent) 60%, transparent),
+    0 0 30px -2px color-mix(in srgb, var(--accent) 65%, transparent),
     0 12px 28px -10px rgba(0, 0, 0, 0.8);
+}
+/* The photo has to follow the disc into the new shape or it corners out of the frame. */
+.node-marker[data-kind="BUSINESS"] .node-marker-photo {
+  border-radius: 28px;
 }
 /* The house shadow on the light map is softer and ink-tinted, not black. */
 [data-theme="light"] .node-marker[data-kind="BUSINESS"] {
@@ -965,7 +1026,56 @@ select.field {
     0 12px 28px -12px rgba(29, 29, 31, 0.5);
 }
 .node-marker[data-kind="BUSINESS"][data-variant="pin"] {
-  --size: 72px;
+  --size: 74px;
+  border-radius: 28px;
+}
+.node-marker[data-kind="BUSINESS"][data-variant="pin"] .node-marker-photo {
+  border-radius: 26px;
+}
+/*
+  A slow accent pulse, on the venues only. It is the one thing on the map that moves on
+  its own, which is what pulls the eye to the two doors the day is built around before
+  anything is tapped. Kept to a ring so the photo never dims, and to 3s so it reads as
+  breathing rather than blinking.
+*/
+@keyframes venue-halo {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 4px color-mix(in srgb, var(--accent) 85%, transparent),
+      0 0 30px -2px color-mix(in srgb, var(--accent) 65%, transparent),
+      0 12px 28px -10px rgba(0, 0, 0, 0.8);
+  }
+  50% {
+    box-shadow:
+      0 0 0 7px color-mix(in srgb, var(--accent) 42%, transparent),
+      0 0 40px 2px color-mix(in srgb, var(--accent) 45%, transparent),
+      0 12px 28px -10px rgba(0, 0, 0, 0.8);
+  }
+}
+.node-marker[data-kind="BUSINESS"] {
+  animation: venue-halo 3s var(--ease-soft) infinite;
+}
+/* Hover, selection and reduced motion each own the ring outright: no pulse underneath. */
+.node-marker[data-kind="BUSINESS"]:hover,
+.node-marker[data-kind="BUSINESS"][data-active="true"] {
+  animation: none;
+}
+/*
+  Chosen. The generic active ring loses to the venue rule above on source order alone —
+  same specificity, later wins — so the selected state has to be restated here or a
+  tapped venue would look identical to an untapped one but for the scale.
+*/
+.node-marker[data-kind="BUSINESS"][data-active="true"] {
+  box-shadow:
+    0 0 0 8px var(--accent-soft),
+    0 0 0 4px var(--accent),
+    0 14px 32px -10px color-mix(in srgb, var(--accent) 70%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .node-marker[data-kind="BUSINESS"] {
+    animation: none;
+  }
 }
 /* The stop number on a partner reads as part of the mark rather than a grey tag. */
 .node-marker[data-kind="BUSINESS"] .node-marker-num {
@@ -1168,10 +1278,15 @@ select.field {
 
 /*
   The loading screen is a Suspense fallback, so it lives exactly as long as the data
-  takes — usually 200-400ms. Shown on that beat it is a flicker of a half-drawn route,
-  which reads as a glitch rather than a loader. So it is held at opacity 0 for
-  --loading-delay: a navigation that resolves inside that window never shows it at
-  all, and anything slower reveals it already in motion and fully formed.
+  takes. Shown for a single beat it is a flicker, which reads as a glitch rather than a
+  loader, so it is held at opacity 0 for --loading-delay: a navigation that resolves
+  inside that window never shows it at all, and anything slower reveals it already in
+  motion and fully formed.
+
+  240ms, down from the 340ms this started at, which was above every warm navigation in
+  the app — the screen was in effect never shown. It can afford to come out earlier now
+  that the line spells a word: the casing is a legible "İstanbul" from the first frame,
+  so a short appearance is still a name rather than a fragment of a squiggle.
 
   The bar and the route deliberately run from t=0 rather than from the reveal, so the
   screen appears mid-stride instead of starting over in front of the visitor. The
@@ -1179,8 +1294,15 @@ select.field {
   name caught halfway through arriving is exactly the thing that looked broken.
 */
 .loading-screen {
-  --loading-delay: 340ms;
+  --loading-delay: 240ms;
+  /* One write, one hold, one fade. LOADING_CYCLE_MS in loading-screen.tsx carries the
+     same number for the SMIL rider and for the curtain, which lifts on a boundary. */
+  --loading-cycle: 2.6s;
   animation: loading-appear 220ms var(--ease-out-quint) var(--loading-delay) backwards;
+}
+/* The map curtain is not waiting on data — it covers a screen that is already here. */
+.loading-screen-now {
+  --loading-delay: 0ms;
 }
 @keyframes loading-appear {
   from {
@@ -1212,19 +1334,20 @@ select.field {
 }
 /*
   The route writes itself (pathLength=1 makes the dash math unit-free), holds the
-  finished word, then fades to a trace and writes it again. 3.6s rather than the old
-  2.6s: the line now spells a name, and a name has to be readable before it goes.
+  finished word, then fades to a trace and writes it again. The whole cycle is 2.6s:
+  brisk enough that a visitor sees the name written from end to end rather than a
+  fragment of one, which is the only way this reads as writing and not as loading.
 */
 @keyframes route-draw {
   0% {
     stroke-dashoffset: 1;
     opacity: 1;
   }
-  62% {
+  58% {
     stroke-dashoffset: 0;
     opacity: 1;
   }
-  88% {
+  86% {
     stroke-dashoffset: 0;
     opacity: 1;
   }
@@ -1242,7 +1365,7 @@ select.field {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
   filter: drop-shadow(0 0 10px var(--map-glow));
-  animation: route-draw 3.6s linear infinite;
+  animation: route-draw var(--loading-cycle) linear infinite;
 }
 /*
   The word is always there as a ghost, so even the shortest appearance shows a name
@@ -1258,32 +1381,25 @@ select.field {
   opacity: 0.34;
 }
 /*
-  The bar of the t and the dot of the İ are the marks a hand goes back for, so they
-  land after the word is written rather than in stroke order.
+  The two marks light as the pen leaves their letter, not at the end of the word: the
+  İ finishes 14.1% of the way along the stroke and the t 32.5%, and the write occupies
+  the first 58% of the cycle, so they land at 8.2% and 18.8%. Rounded to 8% and 19%
+  below, each given a few percent to arrive. Both leave with the word at 86-100%.
 */
-.loading-mark {
-  animation: route-mark 3.6s var(--ease-out-quint) infinite;
-}
 .loading-mark-casing {
   fill: var(--line-strong);
   opacity: 0.34;
 }
-.loading-mark-dot {
-  fill: var(--accent);
-  filter: drop-shadow(0 0 8px var(--accent));
-  animation: route-mark 3.6s var(--ease-out-quint) infinite;
+.loading-mark-bar {
+  animation: mark-t var(--loading-cycle) var(--ease-out-quint) infinite;
 }
-@keyframes route-mark {
+@keyframes mark-t {
   0%,
-  62% {
+  19% {
     stroke-dashoffset: 1;
-    opacity: 0;
   }
-  72% {
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-  88% {
+  25%,
+  86% {
     stroke-dashoffset: 0;
     opacity: 1;
   }
@@ -1292,20 +1408,43 @@ select.field {
     opacity: 0;
   }
 }
+.loading-mark-dot {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 8px var(--accent));
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mark-i var(--loading-cycle) var(--ease-out-quint) infinite;
+}
+@keyframes mark-i {
+  0%,
+  8% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  13%,
+  86% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
 /*
-  The pen keeps pace with the ink: the rider runs the first 62% of the cycle in step
+  The pen keeps pace with the ink: the rider runs the first 58% of the cycle in step
   with route-draw (hence keyPoints on the animateMotion), then lifts off the page so
   the finished name is left to stand on its own before it fades.
 */
 .loading-rider {
-  animation: rider-fade 3.6s linear infinite;
+  animation: rider-fade var(--loading-cycle) linear infinite;
 }
 @keyframes rider-fade {
   0%,
-  62% {
+  58% {
     opacity: 1;
   }
-  74%,
+  70%,
   100% {
     opacity: 0;
   }
@@ -1330,6 +1469,36 @@ select.field {
   transform-box: fill-box;
   transform-origin: center;
   animation: halo 1.3s ease-in-out infinite;
+}
+
+/*
+  The map curtain
+  ---------------
+  A Suspense fallback ends when the server data lands, but the map screen is nowhere
+  near ready at that moment: MapLibre still has to boot, fetch a style and paint a
+  city. That gap is what put an unrendered map on screen. So the map screen keeps its
+  own curtain — the same loading screen — from the moment it mounts until the map says
+  `biy-map-ready` AND the word has finished writing itself, and only then lifts it.
+
+  `curtain-bail` is the floor: whatever happens to the script, the curtain is gone by
+  the time it fires. Nothing on this page may be able to hide it forever.
+*/
+.map-curtain {
+  animation: curtain-bail 300ms var(--ease-out-quint) 10s forwards;
+}
+/* 360ms: the last 14% of a 2.6s cycle, so the curtain fades out on the same beat as
+   the word it is showing, and the map is uncovered exactly as the word finishes. */
+.map-curtain-out {
+  pointer-events: none;
+  animation: curtain-bail 360ms linear forwards;
+}
+@keyframes curtain-bail {
+  to {
+    opacity: 0;
+    /* Discrete, so it flips halfway through the fade — early enough that a curtain
+       nobody can see is never a curtain that swallows a click. */
+    pointer-events: none;
+  }
 }
 
 
@@ -1432,7 +1601,7 @@ select.field {
   .stagger-now > *,
   .loading-bar,
   .loading-route,
-  .loading-mark,
+  .loading-mark-bar,
   .loading-mark-dot,
   .loading-rider-halo {
     animation: none;

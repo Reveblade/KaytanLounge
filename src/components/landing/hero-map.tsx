@@ -1,7 +1,7 @@
 "use client";
 
 import type { GeoJsonLineString } from "@/lib/contract/api";
-import { RouteMap, type MapNode } from "@/components/map/route-map";
+import { RouteMap, type MapNode } from "@/components/map/lazy-route-map";
 
 /** Client boundary for the hero: MapLibre needs the DOM, the hero itself stays a server component. */
 export function HeroMap({ path, nodes }: { path?: GeoJsonLineString; nodes: MapNode[] }) {
