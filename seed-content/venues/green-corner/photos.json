@@ -1,0 +1,37 @@
+{
+  "01-entrance.jpg": {
+    "credit": "Green Corner Cafe & Restaurant",
+    "alt": {
+      "en": "The white arched entrance to Green Corner under old trees, tables visible through the doorway and people passing on the cobbles",
+      "tr": "Yaşlı ağaçların altında Green Corner'ın beyaz kemerli girişi; kapıdan görünen masalar ve kaldırımdan geçen insanlar"
+    }
+  },
+  "02-dining-room.jpg": {
+    "credit": "Green Corner Cafe & Restaurant",
+    "alt": {
+      "en": "The dining room: cane chairs and burgundy banquettes around a stone column hung with painted Turkish plates",
+      "tr": "Salon: hasır sandalyeler ve bordo koltuklar, üzerinde el boyaması çiniler asılı taş kolonun çevresinde"
+    }
+  },
+  "03-iskender.jpg": {
+    "credit": "Green Corner Cafe & Restaurant",
+    "alt": {
+      "en": "A plate of lamb in tomato sauce over yoghurt with grilled pepper and tomato, set down on a table by the garden rail",
+      "tr": "Bahçe korkuluğunun yanındaki masaya konan tabak: yoğurt üzerinde domates soslu kuzu, közlenmiş biber ve domates"
+    }
+  },
+  "04-grill.jpg": {
+    "credit": "Green Corner Cafe & Restaurant",
+    "alt": {
+      "en": "A pistachio kebab skewer turning over the charcoal grill",
+      "tr": "Kömür ateşinin üzerinde çevrilen fıstıklı kebap şişi"
+    }
+  },
+  "05-burger.jpg": {
+    "credit": "Green Corner Cafe & Restaurant",
+    "alt": {
+      "en": "A guest in a green beanie holding a cheeseburger up to the camera",
+      "tr": "Yeşil bereli bir misafirin kameraya doğru tuttuğu cheeseburger"
+    }
+  }
+}

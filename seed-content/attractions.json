@@ -1,0 +1,2267 @@
+[
+  {
+    "slug": "hagia-sophia",
+    "type": "HISTORICAL",
+    "name": {
+      "tr": "Ayasofya",
+      "en": "Hagia Sophia"
+    },
+    "summary": {
+      "tr": "Jüstinyen'in 537'de açtığı katedral, fetihten sonra cami; devasa kubbesi ve altın mozaikleriyle İstanbul silüetinin kalbi.",
+      "en": "Justinian's sixth-century cathedral, later an imperial mosque, whose vast dome and gold mosaics still anchor the Istanbul skyline."
+    },
+    "description": {
+      "tr": "İmparator Jüstinyen bu kiliseyi yalnızca beş yıllık bir inşaatın ardından 537'de açtırdı ve yapı yaklaşık bin yıl boyunca dünyanın en büyük kilisesi olarak kaldı. Fatih Sultan Mehmed 1453'te şehri aldıktan hemen sonra burayı camiye çevirdi; minareler, mihrap ve yapıyı ayakta tutan payandalar Osmanlı döneminde eklendi. 1934'ten 2020'ye kadar müze olarak hizmet veren Ayasofya, o tarihten beri yeniden cami olarak kullanılıyor.\n\nİçeri girince önce başınızı kaldırın. Kubbe, kırk pencereli bir halkanın üzerinde zeminden 55 metre yükseklikte adeta havada asılı durur; mimarlar Anthemios ve İsidoros tam da bu etkiyi istemişti. Üst galeride şehrin en iyi korunmuş Bizans mozaiği olan Deisis ile İmparatoriçe Zoe panosunu yakından inceleyebilirsiniz. Aşağıda ise dev hat levhaları ve mermer zemindeki yüzyılların aşındırdığı izler hikâyenin Osmanlı yarısını anlatır.",
+      "en": "Emperor Justinian opened this church in 537 after only five years of construction, and for nearly a thousand years it remained the largest church in the world. Mehmed II converted it to a mosque immediately after the conquest of 1453, and the Ottomans added the minarets, the mihrab and the buttresses that keep the whole structure standing. It served as a museum from 1934 until 2020, when it returned to use as a mosque.\n\nLook up first. The dome floats 55 metres above the floor on a ring of forty windows, which is exactly the effect the architects Anthemius and Isidore intended. From the upper gallery you can study the Deesis mosaic, the finest surviving Byzantine mosaic in the city, and the marble panel of the Empress Zoe. Downstairs, the giant calligraphic roundels and the wear on the marble floor tell the Ottoman half of the story."
+    },
+    "tips": {
+      "tr": "Turist girişi ayrı bir kapıdan yapılır ve ziyaret üst galeriyle sınırlıdır; en sakin saatler açılış ve 16:00 sonrasıdır. Omuz ve dizler kapalı olmalı, kadınlar için başörtüsü gerekir.",
+      "en": "Tourists use a separate visitor entrance and see the upper gallery only; the quietest times are right at opening and after 16:00. Cover shoulders and knees, and women need a headscarf."
+    },
+    "district": "Fatih",
+    "address": "Sultan Ahmet, Ayasofya Meydanı No:1, 34122 Fatih/İstanbul",
+    "location": {
+      "lat": 41.0086,
+      "lng": 28.9802
+    },
+    "openingHours": "09:00-19:00 for visitors (from 08:00 in summer); closed to tourists during prayer times and Friday midday",
+    "ticket": {
+      "tr": "Yabancı ziyaretçiler için ücretli (25 €, üst galeri); Museum Pass geçerli değil; ibadet ücretsiz",
+      "en": "Paid for foreign visitors (25 EUR, upper gallery); Museum Pass not valid; free for worship"
+    },
+    "visitMinutes": 75,
+    "tags": [
+      "byzantine",
+      "ottoman",
+      "unesco",
+      "mosque",
+      "mosaics"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Hagia_Sophia_Mars_2013.jpg/1920px-Hagia_Sophia_Mars_2013.jpg",
+        "alt": {
+          "tr": "Ayasofya'nın kubbeleri ve dört minaresiyle dış görünümü",
+          "en": "Exterior of Hagia Sophia with its domes and four minarets"
+        },
+        "credit": "Arild Vågen",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Hagia_Sophia_Mars_2013.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Santa_Sof%C3%ADa%2C_Estambul%2C_Turqu%C3%ADa%2C_2024-09-30%2C_DD_04-06_HDR.jpg/1920px-Santa_Sof%C3%ADa%2C_Estambul%2C_Turqu%C3%ADa%2C_2024-09-30%2C_DD_04-06_HDR.jpg",
+        "alt": {
+          "tr": "Ayasofya'nın ana kubbesi ve nefinin üst galeriden görünümü",
+          "en": "Nave and main dome of Hagia Sophia seen from the upper gallery"
+        },
+        "credit": "Diego Delso",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Santa_Sof%C3%ADa,_Estambul,_Turqu%C3%ADa,_2024-09-30,_DD_04-06_HDR.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Hagia_Sophia_Mars_2013_01.jpg/1920px-Hagia_Sophia_Mars_2013_01.jpg",
+        "alt": {
+          "tr": "Sultanahmet Meydanı'ndan Ayasofya",
+          "en": "Hagia Sophia seen from Sultanahmet Square"
+        },
+        "credit": "Arild Vågen",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Hagia_Sophia_Mars_2013_01.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "blue-mosque",
+    "type": "MOSQUE",
+    "name": {
+      "tr": "Sultanahmet Camii",
+      "en": "Blue Mosque"
+    },
+    "summary": {
+      "tr": "Sultan I. Ahmed'in 1617'de tamamlanan altı minareli camisi; 20 binden fazla mavi İznik çinisiyle Ayasofya'nın tam karşısında yükselir.",
+      "en": "Ahmed I's six-minaret mosque of 1617, lined with more than 20,000 blue İznik tiles, faces Hagia Sophia across the park."
+    },
+    "description": {
+      "tr": "Sultan I. Ahmed bu camiyi 1609'da yaptırmaya karar verdiğinde henüz on dokuz yaşındaydı. Yer olarak Bizans Büyük Sarayı'nın kalıntıları üzerinde, Ayasofya'nın tam karşısındaki alan seçildi; bu, eski yapıya bilinçli bir cevaptı. Mimar Sinan'ın öğrencisi Sedefkâr Mehmed Ağa yapıyı 1617'de, sultanın öldüğü yıl tamamladı. Altı minare o dönemde tartışma yarattı, çünkü o güne dek yalnızca Mekke'deki Mescid-i Haram'ın bu kadar minaresi vardı.\n\nCamiye adını veren şey içeridedir. Mavi, yeşil ve turkuaz tonlarında 20 binden fazla İznik çinisi alt duvarları ve mahfilleri kaplar; desenlerde lale, karanfil ve servi motifleri görülür. 260'a yakın pencere harimi ışığa boğar. Hipodrom tarafından yaklaşırken kubbe ve yarım kubbelerin basamak basamak yükselişine, avlu kapısında alçağa asılmış zincire dikkat edin: Bu zincir, at üstünde giren padişahın bile başını eğmesi için konulmuştu.",
+      "en": "Sultan Ahmed I was only nineteen when he commissioned this mosque in 1609, and he chose to build it on the site of the Byzantine Great Palace, directly opposite Hagia Sophia, as a deliberate answer to the older building. The architect Sedefkâr Mehmed Ağa, a pupil of Sinan, finished it in 1617, the year the sultan died. Its six minarets caused a scandal at the time, since only the Great Mosque of Mecca had as many.\n\nThe name comes from inside. More than 20,000 İznik tiles in blue, green and turquoise cover the lower walls and galleries, with tulips, carnations and cypresses in the patterns, and some 260 windows flood the prayer hall with light. Note the cascade of domes and half domes as you approach from the Hippodrome side, and the chain hung low across the courtyard gate, placed so that even the sultan had to bow his head when he rode in."
+    },
+    "tips": {
+      "tr": "Namaz vakitlerinde yaklaşık 90 dakika, cuma günleri ise öğleden sonra 14:30'a kadar ziyarete kapalıdır; en az kalabalık saat sabah 08:30'dur. Ayakkabılar girişte torbaya konur, giriş ücretsizdir.",
+      "en": "Closed to visitors for roughly 90 minutes at each prayer time and until about 14:30 on Fridays; 08:30 is the quietest hour. Shoes go in a bag at the door and entry is free."
+    },
+    "district": "Fatih",
+    "address": "Binbirdirek, At Meydanı Cd. No:7, 34122 Fatih/İstanbul",
+    "location": {
+      "lat": 41.0054,
+      "lng": 28.9768
+    },
+    "openingHours": "08:30-18:30 for visitors; closed about 90 minutes at each prayer time and Friday until 14:30",
+    "ticket": {
+      "tr": "Ücretsiz",
+      "en": "Free"
+    },
+    "visitMinutes": 45,
+    "tags": [
+      "ottoman",
+      "mosque",
+      "unesco",
+      "iznik-tiles"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Exterior_of_Sultan_Ahmed_I_Mosque_in_Istanbul%2C_Turkey_002.jpg/1920px-Exterior_of_Sultan_Ahmed_I_Mosque_in_Istanbul%2C_Turkey_002.jpg",
+        "alt": {
+          "tr": "Altı minareli Sultanahmet Camii'nin gün batımında dış görünümü",
+          "en": "Exterior of the Blue Mosque with its six minarets at sunset"
+        },
+        "credit": "Moonik",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Exterior_of_Sultan_Ahmed_I_Mosque_in_Istanbul,_Turkey_002.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Mezquita_Azul%2C_Estambul%2C_Turqu%C3%ADa%2C_2024-09-30%2C_DD_51-53_HDR.jpg/1920px-Mezquita_Azul%2C_Estambul%2C_Turqu%C3%ADa%2C_2024-09-30%2C_DD_51-53_HDR.jpg",
+        "alt": {
+          "tr": "Sultanahmet Camii'nin mavi çinili iç mekânı ve ana kubbesi",
+          "en": "Interior of the Blue Mosque with its blue tiles and main dome"
+        },
+        "credit": "Diego Delso",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Mezquita_Azul,_Estambul,_Turqu%C3%ADa,_2024-09-30,_DD_51-53_HDR.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/SultanAhmetMosqueCourtyard.jpg/1920px-SultanAhmetMosqueCourtyard.jpg",
+        "alt": {
+          "tr": "Sultanahmet Camii'nin şadırvanlı avlusu",
+          "en": "Courtyard of the Blue Mosque with its ablution fountain"
+        },
+        "credit": "Edal Anton Lefterov",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:SultanAhmetMosqueCourtyard.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "topkapi-palace",
+    "type": "PALACE",
+    "name": {
+      "tr": "Topkapı Sarayı",
+      "en": "Topkapı Palace"
+    },
+    "summary": {
+      "tr": "Dört yüzyıl boyunca Osmanlı padişahlarının evi; hazine, Harem, kutsal emanetler ve Boğaz'a bakan teraslarıyla sur içinde bir şehir.",
+      "en": "Home of the Ottoman sultans for four centuries, with treasury, Harem, sacred relics and terraces high above the Bosphorus."
+    },
+    "description": {
+      "tr": "Fatih Sultan Mehmed, şehri aldıktan altı yıl sonra, 1459'da Haliç ile Boğaz'ın buluştuğu burun üzerinde bu sarayı yaptırmaya başladı. Topkapı tek bir bina değil, avlular, mutfaklar, divan odaları ve köşklerden oluşan, surlarla çevrili küçük bir şehirdi. Abdülmecid 1856'da Dolmabahçe'ye taşınana kadar Osmanlı yönetiminin merkezi olarak kaldı; en kalabalık döneminde içeride dört bine yakın insan yaşayıp çalışıyordu.\n\nBâbüsselâm'dan ikinci avluya girin; Divan-ı Hümayun burada, Adalet Kulesi'nin altında toplanırdı. Üçüncü avludaki Hazine'de Topkapı Hançeri ve 86 kıratlık Kaşıkçı Elması, Mukaddes Emanetler Dairesi'nde ise Hz. Muhammed'in hırkası ve kılıcı sergilenir. Padişah ailesinin yaşadığı, çinili odalardan oluşan labirent gibi Harem için ayrıca zaman ayırın. Turu dördüncü avludaki Bağdat Köşkü terasında bitirin; tarihî yarımadanın en güzel manzarası buradadır.",
+      "en": "Mehmed II began this palace in 1459, six years after taking the city, on the promontory where the Golden Horn meets the Bosphorus. It was less a single building than a walled town of courtyards, kitchens, council chambers and pavilions, and it remained the centre of Ottoman government until Abdülmecid moved to Dolmabahçe in 1856. Around four thousand people lived and worked inside at its peak.\n\nEnter through the Gate of Salutation into the second courtyard, where the Imperial Council met beneath the Tower of Justice. The Treasury in the third courtyard holds the Topkapı Dagger and the 86 carat Spoonmaker's Diamond, and the Chamber of Sacred Relics keeps the mantle and sword of the Prophet. Leave time for the Harem, a maze of tiled rooms where the sultan's family lived, and finish on the fourth courtyard terrace by the Baghdad Kiosk, which has the best view in the old city."
+    },
+    "tips": {
+      "tr": "Salı günleri kapalıdır; 09:00'da gelip tur grupları gelmeden önce doğrudan Harem ve Hazine'ye yönelin. Kombine bileti çevrimiçi alın ve en az iki buçuk saat ayırın.",
+      "en": "Closed on Tuesdays; arrive at 09:00 and go straight to the Harem and Treasury before the tour groups. Buy the combined ticket online, and allow at least two and a half hours."
+    },
+    "district": "Fatih",
+    "address": "Cankurtaran, 34122 Fatih/İstanbul",
+    "location": {
+      "lat": 41.013,
+      "lng": 28.984
+    },
+    "openingHours": "09:00-17:00 (last entry 16:00, later closing in summer); closed Tuesdays",
+    "ticket": {
+      "tr": "Ücretli; yabancılar için saray, Harem ve Aya İrini kombine bilet; Museum Pass yalnızca ana sarayı kapsar",
+      "en": "Paid; combined ticket covers palace, Harem and Hagia Irene; Museum Pass covers the main palace only"
+    },
+    "visitMinutes": 150,
+    "tags": [
+      "ottoman",
+      "palace",
+      "unesco",
+      "museum",
+      "harem"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Topkapi_Palace%2C_Istanbul_%2852115692887%29.jpg/1920px-Topkapi_Palace%2C_Istanbul_%2852115692887%29.jpg",
+        "alt": {
+          "tr": "Topkapı Sarayı'nın kuleli Bâb-üs Selâm (Orta Kapı) girişi",
+          "en": "The twin-towered Gate of Salutation at Topkapı Palace"
+        },
+        "credit": "Ninara",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Topkapi_Palace,_Istanbul_(52115692887).jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Baghdad_Kiosk_at_the_Topkap%C4%B1_Palace_in_Istanbul%2C_Turkey_001.JPG/1920px-Baghdad_Kiosk_at_the_Topkap%C4%B1_Palace_in_Istanbul%2C_Turkey_001.JPG",
+        "alt": {
+          "tr": "Topkapı Sarayı'nın dördüncü avlusundaki Bağdat Köşkü",
+          "en": "The Baghdad Kiosk in the fourth courtyard of Topkapı Palace"
+        },
+        "credit": "Moonik",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Baghdad_Kiosk_at_the_Topkap%C4%B1_Palace_in_Istanbul,_Turkey_001.JPG"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Palacio_de_Topkap%C4%B1%2C_Estambul%2C_Turqu%C3%ADa%2C_2024-09-30%2C_DD_64.jpg/1920px-Palacio_de_Topkap%C4%B1%2C_Estambul%2C_Turqu%C3%ADa%2C_2024-09-30%2C_DD_64.jpg",
+        "alt": {
+          "tr": "Topkapı Sarayı'nda Mermer Teras'taki havuz ve revaklar",
+          "en": "The pool and colonnade on the Marble Terrace of Topkapı Palace"
+        },
+        "credit": "Diego Delso",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Palacio_de_Topkap%C4%B1,_Estambul,_Turqu%C3%ADa,_2024-09-30,_DD_64.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "basilica-cistern",
+    "type": "HISTORICAL",
+    "name": {
+      "tr": "Yerebatan Sarnıcı",
+      "en": "Basilica Cistern"
+    },
+    "summary": {
+      "tr": "Jüstinyen'in 532 tarihli yeraltı su deposu; durgun suyun üzerinde 336 mermer sütundan oluşan bir orman ve iki Medusa başı.",
+      "en": "Justinian's underground reservoir of 532, a forest of 336 marble columns above still water, with two carved Medusa heads."
+    },
+    "description": {
+      "tr": "Jüstinyen bu sarnıcı 532'de Büyük Saray'a su sağlamak için yaptırdı; su, şehrin kuzeyindeki ormanlardan su kemerleriyle taşınıyordu. Yaklaşık 138'e 65 metre ölçülerindeki salon 80 bin metreküp su alabiliyordu. On iki sıra halinde dizilmiş 336 sütun daha eski Roma yapılarından toplanmıştır; bu yüzden sütun başlıkları birbirini tutmaz. Fetihten sonra unutulan sarnıcı 1545'te Fransız bilgin Petrus Gyllius, mahalle sakinlerinin kilerlerindeki deliklerden kova sarkıtıp su ve hatta balık çektiğini fark edince yeniden keşfetti.\n\nYükseltilmiş yürüyüş yollarında acele etmeyin, gözünüzün loşluğa alışmasını bekleyin. Salonun sonunda iki Medusa başı sütun kaidesi olarak kullanılmıştır; biri yan, biri baş aşağı durur ve büyük olasılıkla yalnızca öyle sığdıkları için bu şekilde yerleştirilmişlerdir. Tavus gözü desenli Ağlayan Sütun'u da arayın. 2022'de biten restorasyon eski betonu kaldırıp yeni aydınlatma ve heykeller ekledi; mekân artık hem anıt hem de galeri gibi okunuyor.",
+      "en": "Justinian built this reservoir in 532 to supply the Great Palace, fed by aqueducts from the forests north of the city. The hall measures about 138 by 65 metres and could hold 80,000 cubic metres of water. Its 336 columns, in twelve rows of 28, were salvaged from older Roman buildings, which is why no two capitals quite match. After the conquest the cistern was forgotten until the French scholar Petrus Gyllius noticed in 1545 that locals were drawing water, and even fish, through holes in their cellar floors.\n\nWalk the raised walkways slowly and let your eyes adjust. At the far end two Medusa heads serve as column bases, one on its side and one upside down, probably placed that way simply because they fitted. Look also for the Weeping Column with its peacock-eye carving. The restoration finished in 2022 removed the old concrete and added lighting and sculpture, so the space now reads as both monument and gallery."
+    },
+    "tips": {
+      "tr": "Sarnıç 22:00'ye kadar açıktır; 18:30 sonrası akşam seansı daha sakindir ama ayrı fiyatlandırılır. Yürüyüş yolları nemli, hava serin olabilir; kaymayan ayakkabı giyin.",
+      "en": "Open until 22:00; the evening session after 18:30 is quieter but priced separately. The walkways can be damp and the air is cool, so wear shoes with grip."
+    },
+    "district": "Fatih",
+    "address": "Alemdar, Yerebatan Cd. 1/3, 34110 Fatih/İstanbul",
+    "location": {
+      "lat": 41.0084,
+      "lng": 28.9779
+    },
+    "openingHours": "09:00-22:00 daily (evening session from 18:30 priced separately)",
+    "ticket": {
+      "tr": "Ücretli; Museum Pass geçerli değil (belediye işletmesi)",
+      "en": "Paid; Museum Pass not valid (municipal site)"
+    },
+    "visitMinutes": 40,
+    "tags": [
+      "byzantine",
+      "underground",
+      "roman",
+      "medusa"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Cisterna_Bas%C3%ADlica%2C_Estambul%2C_Turqu%C3%ADa%2C_2024-09-28%2C_DD_52-54_HDR.jpg/1920px-Cisterna_Bas%C3%ADlica%2C_Estambul%2C_Turqu%C3%ADa%2C_2024-09-28%2C_DD_52-54_HDR.jpg",
+        "alt": {
+          "tr": "Yerebatan Sarnıcı'nın suya yansıyan sütun ormanı",
+          "en": "The column forest of the Basilica Cistern reflected in the water"
+        },
+        "credit": "Diego Delso",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Cisterna_Bas%C3%ADlica,_Estambul,_Turqu%C3%ADa,_2024-09-28,_DD_52-54_HDR.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Cisterna_Bas%C3%ADlica%2C_Estambul%2C_Turqu%C3%ADa%2C_2024-09-28%2C_DD_40-42_HDR.jpg/1920px-Cisterna_Bas%C3%ADlica%2C_Estambul%2C_Turqu%C3%ADa%2C_2024-09-28%2C_DD_40-42_HDR.jpg",
+        "alt": {
+          "tr": "Yerebatan Sarnıcı'nda yan yatmış Medusa başı kaidesi",
+          "en": "The sideways Medusa head column base in the Basilica Cistern"
+        },
+        "credit": "Diego Delso",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Cisterna_Bas%C3%ADlica,_Estambul,_Turqu%C3%ADa,_2024-09-28,_DD_40-42_HDR.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Cisterna_Bas%C3%ADlica%2C_Estambul%2C_Turqu%C3%ADa%2C_2024-09-28%2C_DD_73-75_HDR.jpg/1920px-Cisterna_Bas%C3%ADlica%2C_Estambul%2C_Turqu%C3%ADa%2C_2024-09-28%2C_DD_73-75_HDR.jpg",
+        "alt": {
+          "tr": "Yerebatan Sarnıcı'nın tonozlu tavanı ve sütunları",
+          "en": "Vaulted ceiling and columns of the Basilica Cistern"
+        },
+        "credit": "Diego Delso",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Cisterna_Bas%C3%ADlica,_Estambul,_Turqu%C3%ADa,_2024-09-28,_DD_73-75_HDR.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "hippodrome",
+    "type": "LANDMARK",
+    "name": {
+      "tr": "Hipodrom (Sultanahmet Meydanı)",
+      "en": "Hippodrome (Sultanahmet Square)"
+    },
+    "summary": {
+      "tr": "Bizans'ın araba yarışı arenası olan bugünkü Sultanahmet Meydanı; Mısır dikilitaşı, Delphi Yılanlı Sütun ve Alman Çeşmesi hâlâ ayakta.",
+      "en": "The Byzantine chariot-racing arena, now Sultanahmet Square, still lined by an Egyptian obelisk, the Delphi Serpent Column and a German fountain."
+    },
+    "description": {
+      "tr": "Septimius Severus 203 civarında burada bir yarış pisti yaptırdı; Konstantin 330'da şehri başkent ilan edince pisti büyüttü. Bin yıl boyunca Konstantinopolis burada toplandı: Maviler ile Yeşiller arasındaki araba yarışları, imparatorluk zafer alayları ve isyanlar hep bu meydanda yaşandı. En kanlısı olan 532 Nika İsyanı on binlerce kişinin ölümüyle bitti. Bugünkü uzun park pistin hatlarını izler; güneydeki kavisli uç, sphendone denilen devasa Bizans altyapısı üzerinde durur.\n\nPistin ortasındaki spina'dan üç anıt günümüze ulaştı. Dikilitaş, MÖ 1450 civarında III. Tutmosis için Karnak'ta yontuldu ve 390'da buraya dikildi; mermer kaidesinde imparator yarışları izlerken görülür. Bronz Yılanlı Sütun, Yunan şehirlerinin MÖ 479'da Perslere karşı kazandıkları zaferin ardından Delphi'ye adadığı anıttır. Örme Dikilitaş'ın bronz kaplaması Dördüncü Haçlı Seferi'nde söküldü. Meydanın kuzey ucundaki kubbeli Alman Çeşmesi ise Kayzer II. Wilhelm'in 1901 tarihli hediyesidir.",
+      "en": "Septimius Severus laid out a racetrack here around 203 and Constantine enlarged it when he made the city his capital in 330. For a thousand years this was where Constantinople gathered, for chariot races between the Blues and the Greens, for imperial triumphs and for riots. The worst, the Nika revolt of 532, ended with tens of thousands dead on this ground. The long public garden you see today follows the outline of the track, and the curved southern end still rests on the massive Byzantine substructure called the sphendone.\n\nThree monuments from the central spine survive. The Obelisk of Theodosius was carved for Thutmose III at Karnak around 1450 BC and re-erected here in 390; its marble base shows the emperor watching the races. The bronze Serpent Column came from Delphi, where the Greek cities dedicated it after defeating Persia in 479 BC. The Walled Obelisk lost its bronze sheathing to the Fourth Crusade. At the north end, the domed German Fountain was Kaiser Wilhelm II's gift of 1901."
+    },
+    "tips": {
+      "tr": "Ücretsiz ve her saat açık; boş fotoğraf için sabah erken gelin. Nakilbent Sokak'a inerek sphendone'nin Bizans duvarlarını da görün.",
+      "en": "Free and open around the clock; come early in the morning for empty photographs, and walk down to Nakilbent Street to see the Byzantine walls of the sphendone."
+    },
+    "district": "Fatih",
+    "address": "Sultan Ahmet, At Meydanı, 34122 Fatih/İstanbul",
+    "location": {
+      "lat": 41.0064,
+      "lng": 28.9758
+    },
+    "openingHours": "Open 24 hours",
+    "ticket": {
+      "tr": "Ücretsiz",
+      "en": "Free"
+    },
+    "visitMinutes": 30,
+    "tags": [
+      "byzantine",
+      "roman",
+      "square",
+      "obelisk",
+      "free"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Sultanahmet_Square%2C_Obelisk_of_Theodosius%2C_Istanbul_%2852121868925%29.jpg/1920px-Sultanahmet_Square%2C_Obelisk_of_Theodosius%2C_Istanbul_%2852121868925%29.jpg",
+        "alt": {
+          "tr": "Sultanahmet Meydanı'ndaki Dikilitaş (Theodosius Dikilitaşı)",
+          "en": "The Obelisk of Theodosius on Sultanahmet Square"
+        },
+        "credit": "Ninara",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Sultanahmet_Square,_Obelisk_of_Theodosius,_Istanbul_(52121868925).jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Sultanahmet_Square%2C_German_Fountain%2C_Istanbul_%2852121614824%29.jpg/1920px-Sultanahmet_Square%2C_German_Fountain%2C_Istanbul_%2852121614824%29.jpg",
+        "alt": {
+          "tr": "Sultanahmet Meydanı'ndaki Alman Çeşmesi, arkada Ayasofya",
+          "en": "The German Fountain on Sultanahmet Square with Hagia Sophia behind"
+        },
+        "credit": "Ninara",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Sultanahmet_Square,_German_Fountain,_Istanbul_(52121614824).jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Constantine_Obelisk.jpg/1920px-Constantine_Obelisk.jpg",
+        "alt": {
+          "tr": "Hipodrom'daki Örme Dikilitaş",
+          "en": "The Walled Obelisk at the Hippodrome"
+        },
+        "credit": "Dmityr A. Mottl",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Constantine_Obelisk.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "turkish-islamic-arts-museum",
+    "type": "MUSEUM",
+    "name": {
+      "tr": "Türk ve İslam Eserleri Müzesi",
+      "en": "Turkish and Islamic Arts Museum"
+    },
+    "summary": {
+      "tr": "Sadrazam İbrahim Paşa'nın Hipodrom'a bakan 1524 tarihli sarayı; dünyanın en önemli erken dönem halı koleksiyonuna ev sahipliği yapar.",
+      "en": "Grand vizier İbrahim Pasha's palace of 1524 on the Hippodrome, holding the world's finest collection of early carpets."
+    },
+    "description": {
+      "tr": "Hipodrom'un batı kenarındaki bu taş saray 1524'te Kanuni Sultan Süleyman'ın sadrazamı ve eniştesi Pargalı İbrahim Paşa için yapıldı; bir dönem imparatorluğun en büyük özel konutuydu. İbrahim Paşa, 1536'da idam edilene kadar tören alaylarını buradaki balkondan izledi. Yapı sonraki yüzyıllarda kışla, hapishane ve defterhane olarak kullanıldı; müze 1983'te Süleymaniye Külliyesi'ndeki eski binasından buraya taşındı.\n\nKoleksiyon 1914'te imparatorluğun ilk İslam eserleri müzesi olarak kuruldu ve halılar, uzmanların yurt dışından gelmesinin asıl nedenidir. Büyük salonda on üçüncü yüzyıl Selçuklu halıları, Osmanlı seccadeleri ve dev Uşak halıları asılıdır. Diğer bölümlerde Emevi döneminden itibaren Kur'an nüshaları, Memlük madeni işleri, büyük Osmanlı hattatlarının levhaları ve kara çadırın kurulu olduğu etnografya bölümü yer alır. Teras kafe doğrudan dikilitaşlara bakar.",
+      "en": "The stone palace on the west side of the Hippodrome was built in 1524 for Pargalı İbrahim Pasha, grand vizier and brother-in-law of Süleyman the Magnificent, and it was for a time the largest private residence in the empire. İbrahim watched processions from its balcony until his execution in 1536. The building later served as barracks, a prison and a registry office before the museum moved in from the Süleymaniye complex in 1983.\n\nThe collection began in 1914 as the empire's first museum of Islamic art, and its carpets are the reason specialists come from abroad. Seljuk carpets from the thirteenth century, Ottoman prayer rugs and vast Uşak pieces hang in the great hall. Elsewhere you will find Qur'ans from the Umayyad period onward, Mamluk metalwork, calligraphy by the great Ottoman masters and an ethnographic section with a nomad's black tent. The terrace café looks straight down on the obelisks."
+    },
+    "tips": {
+      "tr": "Yoğun sezonda bile nadiren kalabalıktır; Museum Pass geçerlidir. Hipodrom ziyaretiyle birleştirin ve bir saat ayırın, halılara meraklıysanız daha fazla.",
+      "en": "Rarely crowded even in high season, and the Museum Pass is valid. Combine it with the Hippodrome and allow an hour, more if carpets are your interest."
+    },
+    "district": "Fatih",
+    "address": "Binbirdirek, At Meydanı Cd. No:12, 34122 Fatih/İstanbul",
+    "location": {
+      "lat": 41.0063,
+      "lng": 28.9746
+    },
+    "openingHours": "09:00-18:00 (until 19:00 in summer); open daily",
+    "ticket": {
+      "tr": "Ücretli; Museum Pass geçerli",
+      "en": "Paid; Museum Pass valid"
+    },
+    "visitMinutes": 60,
+    "tags": [
+      "museum",
+      "ottoman",
+      "carpets",
+      "islamic-art"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Turkish_and_Islamic_Museum_1432.jpg/1920px-Turkish_and_Islamic_Museum_1432.jpg",
+        "alt": {
+          "tr": "At Meydanı'ndan İbrahim Paşa Sarayı'ndaki Türk ve İslam Eserleri Müzesi",
+          "en": "The Turkish and Islamic Arts Museum in the İbrahim Pasha Palace seen from the Hippodrome"
+        },
+        "credit": "Dosseman",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Turkish_and_Islamic_Museum_1432.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/T%C3%BCrk_ve_%C4%B0slam_Eserleri_M%C3%BCzesi_hal%C4%B1lar.jpg/1920px-T%C3%BCrk_ve_%C4%B0slam_Eserleri_M%C3%BCzesi_hal%C4%B1lar.jpg",
+        "alt": {
+          "tr": "Türk ve İslam Eserleri Müzesi'nin halı galerisi",
+          "en": "Carpet gallery of the Turkish and Islamic Arts Museum"
+        },
+        "credit": "Cobija",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:T%C3%BCrk_ve_%C4%B0slam_Eserleri_M%C3%BCzesi_hal%C4%B1lar.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/T%C3%BCrk_v%C9%99_%C4%B0slam_%C9%99s%C9%99rl%C9%99ri_muzeyinin_yerl%C9%99%C5%9Fdiyi_Parqal%C4%B1_%C4%B0brahim_Pa%C5%9Fa_saray%C4%B1n%C4%B1n_daxili_h%C9%99y%C9%99ti.jpg/1920px-T%C3%BCrk_v%C9%99_%C4%B0slam_%C9%99s%C9%99rl%C9%99ri_muzeyinin_yerl%C9%99%C5%9Fdiyi_Parqal%C4%B1_%C4%B0brahim_Pa%C5%9Fa_saray%C4%B1n%C4%B1n_daxili_h%C9%99y%C9%99ti.jpg",
+        "alt": {
+          "tr": "İbrahim Paşa Sarayı'nın iç avlusu",
+          "en": "Inner courtyard of the İbrahim Pasha Palace"
+        },
+        "credit": "Sefer azeri",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:T%C3%BCrk_v%C9%99_%C4%B0slam_%C9%99s%C9%99rl%C9%99ri_muzeyinin_yerl%C9%99%C5%9Fdiyi_Parqal%C4%B1_%C4%B0brahim_Pa%C5%9Fa_saray%C4%B1n%C4%B1n_daxili_h%C9%99y%C9%99ti.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "istanbul-archaeology-museums",
+    "type": "MUSEUM",
+    "name": {
+      "tr": "İstanbul Arkeoloji Müzeleri",
+      "en": "Istanbul Archaeology Museums"
+    },
+    "summary": {
+      "tr": "Gülhane'deki üç müze; İskender Lahdi, Kadeş Barış Antlaşması tableti ve Fatih'in Çinili Köşkü burada.",
+      "en": "Three museums in Gülhane holding the Alexander Sarcophagus, the Kadesh peace treaty and the tiled kiosk of Mehmed II."
+    },
+    "description": {
+      "tr": "Ressam, arkeolog ve imparatorluk müzesinin ilk Türk müdürü Osman Hamdi Bey bu kurumu 1891'de, ülkenin eski eserlerinin Avrupa'ya gitmesini durdurmak için kurdu. Neoklasik ana binayı Alexander Vallaury tasarladı; cephesi içeride sergilenen lahitlerden esinlenir. Osman Hamdi'nin 1887'de Lübnan'daki Sayda kral nekropolünde bizzat kazdığı bu lahitler hâlâ müzenin en önemli eserleridir; başta renkli savaş kabartmalarıyla İskender Lahdi ve Ağlayan Kadınlar Lahdi gelir.\n\nAvluyu üç müze paylaşır. Eski Şark Eserleri Müzesi'nde MÖ 1269 tarihli, bilinen en eski barış antlaşması olan Kadeş tableti ve Babil İştar Kapısı'nın sırlı tuğlaları sergilenir. 1472 tarihli Çinili Köşk şehirdeki en eski Osmanlı sivil yapısıdır; içinde İznik ve Selçuklu seramikleri yer alır. Ana galerilerde Sidamara Lahdi'ni, Troya buluntularını ve 1453'te Haliç'i kapatan zincirin bir parçasını arayın.",
+      "en": "Osman Hamdi Bey, painter, archaeologist and the first Turk to direct the imperial museum, founded this institution in 1891 to stop the country's antiquities leaving for Europe. Alexander Vallaury designed the neoclassical main building with a facade modelled on the sarcophagi displayed inside. Those sarcophagi, excavated by Osman Hamdi himself at the royal necropolis of Sidon in Lebanon in 1887, remain the highlight, above all the Alexander Sarcophagus with its coloured battle reliefs and the Sarcophagus of the Mourning Women.\n\nThree museums share the courtyard. The Museum of the Ancient Orient holds the Kadesh treaty tablet of 1269 BC, the oldest surviving peace treaty, and glazed bricks from Babylon's Ishtar Gate. The Tiled Kiosk of 1472 is the oldest Ottoman civil building in the city and displays İznik and Seljuk ceramics. In the main galleries look for the Sidamara sarcophagus, finds from Troy, and a length of the chain that closed the Golden Horn in 1453."
+    },
+    "tips": {
+      "tr": "Girişi Gülhane Parkı'ndan veya Topkapı'nın birinci avlusundan yapabilirsiniz; en sakin saat öğleden sonra geç vakittir. Museum Pass geçerlidir; sütun parçaları arasındaki bahçe kafesi dinlenmek için idealdir.",
+      "en": "Enter from Gülhane Park or from the first courtyard of Topkapı; late afternoon is quietest. The Museum Pass is valid, and the garden café among the column fragments is a good place to rest."
+    },
+    "district": "Fatih",
+    "address": "Cankurtaran, Alemdar Cd. Osman Hamdi Bey Yokuşu Sk., 34122 Fatih/İstanbul",
+    "location": {
+      "lat": 41.0117,
+      "lng": 28.9814
+    },
+    "openingHours": "09:00-19:00 (last entry 18:00); shorter hours in winter",
+    "ticket": {
+      "tr": "Ücretli; Museum Pass geçerli",
+      "en": "Paid; Museum Pass valid"
+    },
+    "visitMinutes": 90,
+    "tags": [
+      "museum",
+      "archaeology",
+      "ancient",
+      "sarcophagus"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Istanbul_Archaeology_Museums_-_%C4%B0stanbul_Arkeoloji_M%C3%BCzeleri_-_Istanbul%2C_Turkey_%2810582493406%29.jpg/1920px-Istanbul_Archaeology_Museums_-_%C4%B0stanbul_Arkeoloji_M%C3%BCzeleri_-_Istanbul%2C_Turkey_%2810582493406%29.jpg",
+        "alt": {
+          "tr": "İstanbul Arkeoloji Müzeleri'nin neoklasik ana binası",
+          "en": "Neoclassical main building of the Istanbul Archaeology Museums"
+        },
+        "credit": "David Berkowitz",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Istanbul_Archaeology_Museums_-_%C4%B0stanbul_Arkeoloji_M%C3%BCzeleri_-_Istanbul,_Turkey_(10582493406).jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Museum_of_Islamic_Art_%28Tiled_Kiosk%29._Istanbul_Archaeology_Museums%2C_Turkey.jpg/1920px-Museum_of_Islamic_Art_%28Tiled_Kiosk%29._Istanbul_Archaeology_Museums%2C_Turkey.jpg",
+        "alt": {
+          "tr": "İstanbul Arkeoloji Müzeleri'ndeki Çinili Köşk",
+          "en": "The Tiled Kiosk (Çinili Köşk) at the Istanbul Archaeology Museums"
+        },
+        "credit": "Osama Shukir Muhammed Amin FRCP(Glasg)",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Museum_of_Islamic_Art_(Tiled_Kiosk)._Istanbul_Archaeology_Museums,_Turkey.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Istanbul_Archaeological_Museum_Alexander_Sarcophagus_4033.jpg/1920px-Istanbul_Archaeological_Museum_Alexander_Sarcophagus_4033.jpg",
+        "alt": {
+          "tr": "İstanbul Arkeoloji Müzeleri'ndeki İskender Lahdi",
+          "en": "The Alexander Sarcophagus at the Istanbul Archaeology Museums"
+        },
+        "credit": "Dosseman",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Istanbul_Archaeological_Museum_Alexander_Sarcophagus_4033.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "grand-bazaar",
+    "type": "MARKET",
+    "name": {
+      "tr": "Kapalıçarşı",
+      "en": "Grand Bazaar"
+    },
+    "summary": {
+      "tr": "Fatih'in 1461'de kurduğu üstü örtülü çarşı; boyalı tonozlar altında 61 sokak ve dört bine yakın dükkân.",
+      "en": "Mehmed II's covered market of 1461 grew into 61 streets and some 4,000 shops under painted vaults."
+    },
+    "description": {
+      "tr": "Fatih Sultan Mehmed, Ayasofya'nın giderlerini karşılamak ve tüccarlara değerli malları için güvenli bir kasa sağlamak amacıyla ilk taş yapıyı, Cevahir Bedesteni'ni 1455-1461 arasında yaptırdı. Ardından Sandal Bedesteni eklendi; yüzyıllar içinde aradaki sokakların üstü örtüldü ve çarşı şehir içinde bir şehre dönüştü: 61 üstü kapalı sokak, 22 kapı, mescitler, çeşmeler, hamamlar, hanlar ve bugün dört bine yakın dükkân. Yangınlar ve 1894 depremi çarşıyı defalarca yeniden şekillendirdi.\n\nNuruosmaniye Kapısı'ndan girip altının gramla satıldığı ana eksen Kalpakçılar Caddesi'nde yürüyün, sonra halı, lamba, seramik ve deri için dar sokaklara sapın. Ortadaki İç Bedesten antika ve eski gümüşün alınıp satıldığı, çarşının en sakin köşesidir. Restore edilen boyalı tonozlara bakmayı unutmayın; kuzey tarafa yakın Zincirli Han'a girin, üst katlarında hâlâ atölyeler çalışan avlulu hanlardan biridir.",
+      "en": "Mehmed II ordered the first stone hall, the Cevahir Bedesten, built in 1455-1461 to finance the upkeep of Hagia Sophia and to give merchants a secure vault for precious goods. A second hall, the Sandal Bedesten, followed, and over the centuries the streets between them were roofed over until the bazaar became a city within the city: 61 covered streets, 22 gates, mosques, fountains, hamams and hans, with around 4,000 shops today. Fires and the earthquake of 1894 reshaped it repeatedly.\n\nEnter by the Nuruosmaniye Gate onto Kalpakçılar Caddesi, the main axis where gold is sold by weight, then turn off into narrower lanes for carpets, lamps, ceramics and leather. The Old Bedesten in the centre is where antiques and old silver are traded and where the atmosphere is calmest. Look up at the restored painted vaults, and step into the Zincirli Han near the north side, one of several courtyards where workshops still operate above the shops."
+    },
+    "tips": {
+      "tr": "Pazar günleri ve resmî tatillerde kapalıdır; 08:30 açılışından sonraki ilk saat en sakin zamandır. Nazikçe pazarlık edin; genellikle ilk fiyatın üçte ikisi civarında anlaşılır.",
+      "en": "Closed on Sundays and public holidays; the first hour after the 08:30 opening is the calmest. Bargain politely and expect to settle at roughly two thirds of the opening price."
+    },
+    "district": "Fatih",
+    "address": "Beyazıt, Kalpakçılar Cd. No:22, 34126 Fatih/İstanbul",
+    "location": {
+      "lat": 41.0106,
+      "lng": 28.9679
+    },
+    "openingHours": "08:30-19:00 Monday to Saturday; closed Sundays and religious holidays",
+    "ticket": {
+      "tr": "Ücretsiz",
+      "en": "Free"
+    },
+    "visitMinutes": 90,
+    "tags": [
+      "market",
+      "ottoman",
+      "shopping",
+      "bazaar"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Grand_Bazaar_%28Istanbul%29.jpg/1920px-Grand_Bazaar_%28Istanbul%29.jpg",
+        "alt": {
+          "tr": "Kapalıçarşı'nın tonozlu sokaklarından biri",
+          "en": "One of the vaulted streets of the Grand Bazaar"
+        },
+        "credit": "Nicolas Vigier",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Grand_Bazaar_(Istanbul).jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Impression_inside_the_Grand_Bazaar.JPG/1920px-Impression_inside_the_Grand_Bazaar.JPG",
+        "alt": {
+          "tr": "Kapalıçarşı'da rengârenk lambalar satan bir dükkân",
+          "en": "A shop selling colourful lamps in the Grand Bazaar"
+        },
+        "credit": "Martin Falbisoner",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Impression_inside_the_Grand_Bazaar.JPG"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Istanbul_Gran_Bazaar_Gate_1.jpg/1920px-Istanbul_Gran_Bazaar_Gate_1.jpg",
+        "alt": {
+          "tr": "Kapalıçarşı'nın Nuruosmaniye Kapısı",
+          "en": "The Nuruosmaniye Gate of the Grand Bazaar"
+        },
+        "credit": "Morgan Sand",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Istanbul_Gran_Bazaar_Gate_1.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "spice-bazaar",
+    "type": "MARKET",
+    "name": {
+      "tr": "Mısır Çarşısı",
+      "en": "Spice Bazaar"
+    },
+    "summary": {
+      "tr": "Yeni Cami'nin 1664 tarihli L planlı çarşısı; tonozlar altında baharat, lokum ve kuru meyve tezgâhları.",
+      "en": "The L-shaped market hall of 1664 beside the New Mosque, its vaults lined with spice, Turkish delight and dried fruit stalls."
+    },
+    "description": {
+      "tr": "Yeni Cami'nin yanındaki L planlı çarşı, IV. Mehmed'in annesi Turhan Hatice Sultan'ın yaptırdığı külliyenin bir parçası olarak 1664'te tamamlandı; dükkânların kirası caminin giderlerini karşılıyordu. Mısır Çarşısı adı, Kahire'den gelen mallara ve vergilere dayanır; iki yüzyıl boyunca Doğu Akdeniz'in baharat ticareti burada fiyatlandı. Tonozların altında 85 dükkân bulunur ve 1970'lere kadar bunların çoğu hâlâ baharat ve şifalı bitki satıyordu.\n\nBugün tezgâhlarda baharat, lokum, kuru meyve, kuruyemiş, havyar, peynir ve çay bir aradadır; en tanınmış dükkânlar iki uçta yer alır. İçerideki fiyatlar, köşeden batıya uzanan Hasırcılar Caddesi'ndekinden yüksektir; İstanbullular kahve, zeytin ve pastırmayı oradan alır. Yeni Cami avlusuna çıkıp güvercinleri ve çiçek pazarını görün, ardından arkadaki toptancı semti Tahtakale'ye doğru yokuş yukarı yürüyün.",
+      "en": "The L-shaped hall beside the New Mosque was finished in 1664 as part of the mosque complex commissioned by Turhan Hatice Sultan, mother of Mehmed IV, and its rents paid for the mosque's upkeep. Its Turkish name, the Egyptian Bazaar, refers to the goods and taxes that arrived from Cairo, and for two centuries this was where the spice trade of the eastern Mediterranean was priced. There are 85 shops under the vaults, and until the 1970s most of them still sold spices and herbal remedies.\n\nToday the mix is spices, Turkish delight, dried fruit, nuts, caviar, cheese and tea, with the best-known counters at the two ends. Prices inside are higher than on Hasırcılar Caddesi, the lane running west from the corner, where locals buy coffee, olives and pastırma. Walk out into the courtyard of the New Mosque to see the pigeons and the flower and plant market, then continue uphill into Tahtakale, the wholesale district behind."
+    },
+    "tips": {
+      "tr": "Kruvaziyer gruplarından kaçınmak için 11:00'den önce veya 17:00'den sonra gelin. Almadan önce tadın, baharatları vakumlu paketletin ve lira ile ödeyin.",
+      "en": "Come before 11:00 or after 17:00 to avoid the cruise groups. Taste before buying, ask for vacuum packing for spices, and pay in lira."
+    },
+    "district": "Fatih",
+    "address": "Rüstem Paşa, Erzak Ambarı Sok. No:92, 34116 Fatih/İstanbul",
+    "location": {
+      "lat": 41.0165,
+      "lng": 28.9705
+    },
+    "openingHours": "08:00-19:30 daily (from 09:30 on Sundays)",
+    "ticket": {
+      "tr": "Ücretsiz",
+      "en": "Free"
+    },
+    "visitMinutes": 45,
+    "tags": [
+      "market",
+      "ottoman",
+      "food",
+      "spices",
+      "eminonu"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Spice_Bazaar_-_Fatih%2C_%C4%B0stanbul%2C_Turkey_-_October_11%2C_2025_02.jpg/1920px-Spice_Bazaar_-_Fatih%2C_%C4%B0stanbul%2C_Turkey_-_October_11%2C_2025_02.jpg",
+        "alt": {
+          "tr": "Mısır Çarşısı'nın tonozlu iç mekânı ve dükkânları",
+          "en": "Vaulted interior of the Spice Bazaar with its shops"
+        },
+        "credit": "Giorgio Galeotti",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Spice_Bazaar_-_Fatih,_%C4%B0stanbul,_Turkey_-_October_11,_2025_02.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Istanbul_-_Spice_Bazaar_%2855107675679%29.jpg/1920px-Istanbul_-_Spice_Bazaar_%2855107675679%29.jpg",
+        "alt": {
+          "tr": "Mısır Çarşısı'nın kalabalık ana koridoru",
+          "en": "Bustling main aisle of the Spice Bazaar"
+        },
+        "credit": "Jorge Franganillo",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Istanbul_-_Spice_Bazaar_(55107675679).jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Spice_Bazaar_in_Istanbul.jpg",
+        "alt": {
+          "tr": "Eminönü'nden Mısır Çarşısı girişi ve Yeni Cami minareleri",
+          "en": "Spice Bazaar entrance from Eminönü with the New Mosque minarets"
+        },
+        "credit": "Deckkohl",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Spice_Bazaar_in_Istanbul.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "suleymaniye-mosque",
+    "type": "MOSQUE",
+    "name": {
+      "tr": "Süleymaniye Camii",
+      "en": "Süleymaniye Mosque"
+    },
+    "summary": {
+      "tr": "Mimar Sinan'ın Kanuni için 1557'de tamamladığı cami; üçüncü tepeden Haliç'e hâkim, sade ve kusursuz oranlı.",
+      "en": "Sinan's mosque for Süleyman the Magnificent, finished in 1557 on the third hill, plain inside and perfectly proportioned."
+    },
+    "description": {
+      "tr": "Sinan bu yapıyı kalfalık eserim diye anmıştı, ama gelenlerin çoğu buradan onun şaheseriyle karşılaştığına inanarak ayrılır. Kanuni Sultan Süleyman camiyi 1550'de üçüncü tepede yaptırmaya başlattı; yapı 1557'de, dört medrese, darüşşifa, imaret, hamam ve kervansaraydan oluşan bir külliyenin merkezinde tamamlandı. Kubbe 53 metre yükseklikte ve 26,5 metre çapındadır. İç mekân Sultanahmet Camii'ne göre bilinçli olarak sadedir; işi oranlar yapar.\n\nÖnce avluda durun ve dört minarenin yükseklik olarak nasıl kademelendiğine bakın. İçeride İznik çinileri mihrap duvarıyla sınırlıdır; akılda kalan şey 138 pencereden süzülen ışıktır. Caminin arkasında Kanuni'nin ve eşi Hürrem Sultan'ın türbeleri bulunur; dış duvarın köşesinde ise Sinan, kendi tasarladığı mütevazı türbesinde yatar. Haliç'e bakan teras, şehrin en güzel ücretsiz seyir noktalarından biridir.",
+      "en": "Sinan called this his journeyman's work, yet most visitors leave convinced it is his masterpiece. Süleyman the Magnificent commissioned it in 1550 on the third hill, and the mosque was finished in 1557 at the centre of a complex with four colleges, a hospital, a soup kitchen, a hamam and a caravanserai. The dome rises 53 metres and spans 26.5 metres, and the interior is deliberately plain compared with the Blue Mosque, so that the proportions do the work.\n\nStand in the courtyard first and notice how the four minarets step down in height. Inside, the İznik tiles are limited to the mihrab wall, and the light from 138 windows is what you remember. Behind the mosque are the tombs of Süleyman and his wife Hürrem, and at the corner of the outer wall Sinan buried himself in a modest tomb of his own design. The terrace over the Golden Horn is one of the finest free viewpoints in the city."
+    },
+    "tips": {
+      "tr": "En sakin ziyaret sabah ile öğle namazı arasındadır; cuma günleri öğleden sonrayı bekleyin. Kapalı kıyafet ve kadınlar için başörtüsü gerekir; ayakkabılar kapıda çıkarılır.",
+      "en": "Visit between morning and midday prayers for the calmest interior; on Fridays wait until mid afternoon. Modest dress and a headscarf for women are required, and shoes come off at the door."
+    },
+    "district": "Fatih",
+    "address": "Süleymaniye, Prof. Sıddık Sami Onar Cd. No:1, 34116 Fatih/İstanbul",
+    "location": {
+      "lat": 41.0161,
+      "lng": 28.9639
+    },
+    "openingHours": "Open daily outside prayer times, roughly 09:00-18:00 for visitors",
+    "ticket": {
+      "tr": "Ücretsiz",
+      "en": "Free"
+    },
+    "visitMinutes": 60,
+    "tags": [
+      "ottoman",
+      "mosque",
+      "sinan",
+      "unesco",
+      "viewpoint"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/S%C3%BCleymaniye_Mosque_from_the_Golden_Horn.jpg/1920px-S%C3%BCleymaniye_Mosque_from_the_Golden_Horn.jpg",
+        "alt": {
+          "tr": "Haliç'ten Süleymaniye Camii",
+          "en": "Süleymaniye Mosque seen from the Golden Horn"
+        },
+        "credit": "flowcomm",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:S%C3%BCleymaniye_Mosque_from_the_Golden_Horn.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Courtyard_of_the_S%C3%BCleymaniye_Mosque_in_Istanbul%2C_Turkey_001.jpg/1920px-Courtyard_of_the_S%C3%BCleymaniye_Mosque_in_Istanbul%2C_Turkey_001.jpg",
+        "alt": {
+          "tr": "Süleymaniye Camii avlusu ve şadırvanı",
+          "en": "Courtyard of the Süleymaniye Mosque with its ablution fountain"
+        },
+        "credit": "Moonik",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Courtyard_of_the_S%C3%BCleymaniye_Mosque_in_Istanbul,_Turkey_001.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Mosque_in_Istanbul_internal_view.jpg/1920px-Mosque_in_Istanbul_internal_view.jpg",
+        "alt": {
+          "tr": "Süleymaniye Camii'nin iç mekânı ve ana kubbesi",
+          "en": "Interior and main dome of the Süleymaniye Mosque"
+        },
+        "credit": "Wolfgang Moroder",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Mosque_in_Istanbul_internal_view.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "gulhane-park",
+    "type": "NATURE",
+    "name": {
+      "tr": "Gülhane Parkı",
+      "en": "Gülhane Park"
+    },
+    "summary": {
+      "tr": "Topkapı Sarayı'nın eski dış bahçesi; yaşlı çınarlar, nisan laleleri ve Sarayburnu'nda Boğaz ile Haliç'e açılan teras.",
+      "en": "The former outer garden of Topkapı Palace, with old plane trees, April tulips and a terrace over the Bosphorus at Sarayburnu."
+    },
+    "description": {
+      "tr": "Dört yüzyıl boyunca Topkapı Sarayı'nın dış bahçesiydi; padişahlar burada gül yetiştirirdi, adı da oradan gelir. Halka ancak 1912'de açıldı. Tüm Osmanlı tebaasına eşit haklar vaat eden 1839 Tanzimat Fermanı, Gülhane Hatt-ı Hümayunu adıyla burada okundu. Park yaşlı çınarlarını ve saray duvarlarının gölgesini korur; nisan ayında belediye tarhları yüz binlerce laleyle doldurur ve park şehrin en çok fotoğraflanan köşelerinden biri olur.\n\nAlemdar Caddesi'nden, padişahların tören alaylarını izlediği sur üstündeki Alay Köşkü'nün yanından girin ve saray duvarları boyunca yokuş aşağı yürüyün. Eski has ahırlarda İslam Bilim ve Teknoloji Tarihi Müzesi yer alır. Kuzey uca yakın Gotlar Sütunu, şehir surlarından bile eski bir Roma zafer anıtıdır; hemen ötesindeki teras, Sarayburnu'nda Boğaz ile Haliç'in buluştuğu noktaya açılır.",
+      "en": "For four centuries this was the outer garden of Topkapı Palace, where the sultans kept roses, which is what the name means, and it opened to the public only in 1912. The Tanzimat reforms of 1839, which promised equal rights to all Ottoman subjects, were proclaimed here in the Gülhane Rescript. The park keeps its old plane trees and the shade of the palace walls, and in April the municipality fills the beds with hundreds of thousands of tulips.\n\nEnter from Alemdar Caddesi by the Alay Köşkü, the pavilion on the wall from which sultans watched processions, and walk downhill along the palace walls. The Museum of the History of Science and Technology in Islam occupies the former stables. Near the northern tip stands the Column of the Goths, a Roman victory monument older than the city walls, and just beyond it a terrace opens over the meeting of the Bosphorus and the Golden Horn at Sarayburnu."
+    },
+    "tips": {
+      "tr": "Ücretsiz ve her gün açık; nisan ortası lale zamanı ve en kalabalık dönemdir. Yol taş döşeli ve hafif eğimlidir; Sarayburnu tarafında çay bahçeleri vardır.",
+      "en": "Free and open daily; mid April is tulip time and the busiest period. The path is stone and gently sloped, and there are tea gardens near the Sarayburnu end."
+    },
+    "district": "Fatih",
+    "address": "Cankurtaran, Alemdar Cd., 34122 Fatih/İstanbul",
+    "location": {
+      "lat": 41.0122,
+      "lng": 28.98
+    },
+    "openingHours": "Open daily from early morning until late evening",
+    "ticket": {
+      "tr": "Ücretsiz",
+      "en": "Free"
+    },
+    "visitMinutes": 45,
+    "tags": [
+      "park",
+      "tulips",
+      "ottoman",
+      "free",
+      "viewpoint"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/G%C3%BClhane_Park%2C_Istanbul.jpg/1920px-G%C3%BClhane_Park%2C_Istanbul.jpg",
+        "alt": {
+          "tr": "Lale mevsiminde Gülhane Parkı",
+          "en": "Gülhane Park in tulip season"
+        },
+        "credit": "Maurice Flesier",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:G%C3%BClhane_Park,_Istanbul.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/G%C3%BClhane_Park_%2801%29.jpg/1920px-G%C3%BClhane_Park_%2801%29.jpg",
+        "alt": {
+          "tr": "Gülhane Parkı'nda çınar ağaçları ve sümbül tarhları",
+          "en": "Plane trees and hyacinth beds in Gülhane Park"
+        },
+        "credit": "Janabaevazizbek",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:G%C3%BClhane_Park_(01).jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Fruehling-in_g%C3%BClhanepark.jpg/1920px-Fruehling-in_g%C3%BClhanepark.jpg",
+        "alt": {
+          "tr": "Gülhane Parkı'nda Topkapı surları boyunca ağaçlı yol",
+          "en": "Tree-lined alley along the Topkapı walls in Gülhane Park"
+        },
+        "credit": "Fecriye Doğan",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Fruehling-in_g%C3%BClhanepark.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "rustem-pasha-mosque",
+    "type": "MOSQUE",
+    "name": {
+      "tr": "Rüstem Paşa Camii",
+      "en": "Rüstem Pasha Mosque"
+    },
+    "summary": {
+      "tr": "Sinan'ın Tahtakale dükkânlarının üstüne kurduğu küçük cami; İstanbul'un en zengin İznik çini bezemesi burada.",
+      "en": "Sinan's small mosque raised above the shops of Tahtakale, holding the richest İznik tile decoration in Istanbul."
+    },
+    "description": {
+      "tr": "Rüstem Paşa, Kanuni'nin sadrazamı ve damadıydı; yüzyılın en zengin adamlarından biriydi. 1561'de ölünce Sinan onun adına camiyi şehrin en hareketli ticaret köşesine yaptı ve yapıyı tonozlu dükkânlardan oluşan bir platformun üstüne yerleştirdi; dükkânların kirası caminin vakfına gelir sağlıyordu. Sokaktan cami neredeyse görünmez; Hasırcılar Caddesi'nden dar bir merdivenle çıkıp çarşının üstündeki avluya varırsınız.\n\nİçeride İstanbul'un en zengin çini bezemesi sizi karşılar. Duvarlar, ayaklar, mihrap ve son cemaat yeri, İznik atölyelerinin en parlak on yılından çinilerle kaplıdır; ustalar o sıralarda, sonradan repertuvardan kaybolan kabartmalı domates kırmızısını yeni bulmuştu. Lale, karanfil, sümbül motiflerini ve son cemaat yerindeki nadir Kâbe tasvirini arayın. Cami küçüktür; burada geçirilen yirmi dakika, birçok büyük camide geçirilen bir saatten daha doyurucudur.",
+      "en": "Rüstem Pasha was Süleyman's grand vizier and son-in-law, and one of the richest men of his century. When he died in 1561, Sinan built his memorial mosque in the busiest commercial corner of the city, lifting it on a platform above a row of vaulted shops whose rents endowed it. From the street you barely see it; you climb a narrow staircase from Hasırcılar Caddesi and step out onto a courtyard above the market.\n\nInside is the most lavish tile decoration in any mosque in Istanbul. Every surface, the walls, the piers, the mihrab and the porch, is covered with İznik tiles from the workshop's best decade, when the potters had just mastered the raised tomato red that later faded from the repertoire. Look for the tulips, carnations, hyacinths and the rare depiction of the Kaaba on the porch. The mosque is small, and twenty minutes here is more rewarding than an hour in many larger ones."
+    },
+    "tips": {
+      "tr": "Giriş kolayca gözden kaçar; Mısır Çarşısı'nın hemen batısında, Hasırcılar Caddesi'ndeki merdivenleri arayın. Namaz vakitleri dışında gelin ve ziyareti Mısır Çarşısı ile birleştirin.",
+      "en": "The entrance is easy to miss: look for the stairs on Hasırcılar Caddesi, just west of the Spice Bazaar. Visit outside prayer times and combine it with the Spice Bazaar."
+    },
+    "district": "Fatih",
+    "address": "Rüstem Paşa, Hasırcılar Cd. No:62, 34116 Fatih/İstanbul",
+    "location": {
+      "lat": 41.0175,
+      "lng": 28.9686
+    },
+    "openingHours": "Open daily outside prayer times, roughly 09:00-17:30 for visitors",
+    "ticket": {
+      "tr": "Ücretsiz",
+      "en": "Free"
+    },
+    "visitMinutes": 30,
+    "tags": [
+      "ottoman",
+      "mosque",
+      "sinan",
+      "iznik-tiles"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Istanbul_Rustem_Pasha_229.jpg/1920px-Istanbul_Rustem_Pasha_229.jpg",
+        "alt": {
+          "tr": "Rüstem Paşa Camii'nin İznik çinili iç mekânı",
+          "en": "İznik-tiled interior of the Rüstem Pasha Mosque"
+        },
+        "credit": "Dosseman",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Istanbul_Rustem_Pasha_229.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/R%C3%BCstem_Pasha_Mosque_in_2024_5321.jpg/1920px-R%C3%BCstem_Pasha_Mosque_in_2024_5321.jpg",
+        "alt": {
+          "tr": "Tahtakale dükkânlarının üzerinde yükselen Rüstem Paşa Camii",
+          "en": "Rüstem Pasha Mosque rising above the Tahtakale shops"
+        },
+        "credit": "Dosseman",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:R%C3%BCstem_Pasha_Mosque_in_2024_5321.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/R%C3%BCstem_Pasha_mosque_tiles.jpg/1920px-R%C3%BCstem_Pasha_mosque_tiles.jpg",
+        "alt": {
+          "tr": "Rüstem Paşa Camii'nde İznik çinisi detayı",
+          "en": "Detail of İznik tiles in the Rüstem Pasha Mosque"
+        },
+        "credit": "Till Niermann",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:R%C3%BCstem_Pasha_mosque_tiles.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "chora-church",
+    "type": "HISTORICAL",
+    "name": {
+      "tr": "Kariye (Chora)",
+      "en": "Chora Church (Kariye)"
+    },
+    "summary": {
+      "tr": "Theodoros Metokhites'in 1315-1321 arasında yaptırdığı mozaik ve fresklerle geç Bizans sanatının en iyi örneği; bugün Kariye Camii.",
+      "en": "The finest late Byzantine mosaics and frescoes anywhere, commissioned by Theodore Metochites in 1315-1321, now the Kariye Mosque."
+    },
+    "description": {
+      "tr": "Adı 'kırda, şehir dışında' anlamına gelir, çünkü buradaki ilk kilise Konstantin surlarının dışında kalıyordu. Bugünkü yapı büyük ölçüde on birinci yüzyıla aittir; ünü ise 1315-1321 arasında Theodoros Metokhites'in eklettiği bezemeye dayanır. Bilgin ve başvezir Metokhites, kapının üstündeki mozaikte kilisenin maketini İsa'ya sunarken görülür. Mozaikler ve freskler geç Bizans sanatının en iyi örnekleridir; İtalyan Rönesansı'ndan bir yüzyıl önce yapılmışlardır ve en az onun kadar canlıdır.\n\nMozaikler iki narteksi kaplar: kubbelerde İsa'nın soyağacı, küçük ve duygulu sahnelerde Meryem'in hayatı. Mezar şapeli olarak yapılan yan bölüm parekklesion fresklerle bezelidir; apsisindeki Anastasis sahnesinde İsa, Âdem ile Havva'yı mezarlarından çekip çıkarır. Bu resim tek başına yolculuğa değer. Kilise 1511'de camiye, 1945'te müzeye, 2024'te yeniden camiye dönüştürüldü; eserler namaz vakitleri dışında görülebilir.",
+      "en": "The name means 'in the country', because the first church here stood outside Constantine's walls. The building you see is mostly eleventh century, but its fame rests on the decoration added between 1315 and 1321 by Theodore Metochites, the scholar and prime minister who appears above the door offering a model of the church to Christ. His mosaics and frescoes are the finest late Byzantine art anywhere, made a century before the Italian Renaissance and every bit as alive.\n\nTwo narthexes carry the mosaics, with the genealogy of Christ across the domes and the life of the Virgin in small, tender scenes. The side chapel, the parekklesion, was painted in fresco for burials, and its apse holds the Anastasis, Christ hauling Adam and Eve from their tombs, a picture worth the trip on its own. The church became a mosque in 1511, a museum in 1945 and a mosque again in 2024; the artworks remain on view outside prayer times."
+    },
+    "tips": {
+      "tr": "Cuma günleri turistik ziyarete tamamen kapalıdır; hafta içi sabah gidin. Sultanahmet'ten taksiyle 20 dakikadır; dönüşte Balat'a doğru yürüyüşle birleştirin.",
+      "en": "Closed to tourists all day on Friday; go on a weekday morning. It is a 20 minute taxi ride from Sultanahmet, so pair it with a walk down through Balat."
+    },
+    "district": "Fatih",
+    "address": "Dervişali, Kariye Cami Sk. No:18, 34087 Fatih/İstanbul",
+    "location": {
+      "lat": 41.0312,
+      "lng": 28.939
+    },
+    "openingHours": "09:00-18:00; closed to visitors during prayer times and all day Friday",
+    "ticket": {
+      "tr": "Yabancı ziyaretçiler için ücretli (20 €); Museum Pass geçerli değil; ibadet ücretsiz",
+      "en": "Paid for foreign visitors (20 EUR); Museum Pass not valid; free for worship"
+    },
+    "visitMinutes": 60,
+    "tags": [
+      "byzantine",
+      "mosaics",
+      "frescoes",
+      "mosque",
+      "unesco"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Chora_Church_2024.jpg/1920px-Chora_Church_2024.jpg",
+        "alt": {
+          "tr": "Kariye Camii'nin (Chora Kilisesi) havadan görünümü",
+          "en": "Aerial view of the Chora Church (Kariye Mosque)"
+        },
+        "credit": "Tadam",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Chora_Church_2024.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Chora_Church_Constantinople_2007_013.jpg/1920px-Chora_Church_Constantinople_2007_013.jpg",
+        "alt": {
+          "tr": "Kariye'nin parekklesion bölümündeki Anastasis freski",
+          "en": "Anastasis fresco in the parekklesion of the Chora Church"
+        },
+        "credit": "Gryffindor",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Chora_Church_Constantinople_2007_013.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Genealogy_of_Jesus_mosaic_at_Chora_%281%29.jpg/1920px-Genealogy_of_Jesus_mosaic_at_Chora_%281%29.jpg",
+        "alt": {
+          "tr": "Kariye iç narteksinde İsa'nın soyağacı mozaikli kubbesi",
+          "en": "Genealogy of Christ mosaic dome in the inner narthex of the Chora Church"
+        },
+        "credit": "José Luiz",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Genealogy_of_Jesus_mosaic_at_Chora_(1).jpg"
+      }
+    ]
+  },
+  {
+    "slug": "balat-fener",
+    "type": "NEIGHBORHOOD",
+    "name": {
+      "tr": "Balat ve Fener",
+      "en": "Balat and Fener"
+    },
+    "summary": {
+      "tr": "Haliç yamacındaki eski Rum ve Yahudi mahalleleri; rengârenk cumbalı evler, Fener Rum Patrikhanesi ve demir Bulgar Kilisesi.",
+      "en": "The old Greek and Jewish quarters on the Golden Horn slope, with painted bay-windowed houses, the Patriarchate and the iron Bulgarian church."
+    },
+    "description": {
+      "tr": "Fener Rum, Balat ise Yahudi mahallesiydi; Haliç'e bakan yamaçta yan yana duran bu iki semt, eski şehrin azınlık tarihini başka hiçbir yerde olmadığı kadar iyi korur. Ortodoks dünyasının ruhani merkezi Fener Rum Patrikhanesi 1601'den beri Aya Yorgi Kilisesi'ndedir. Üstünde 1881 tarihli kırmızı tuğlalı Fener Rum Erkek Lisesi silüete hâkimdir; aşağıda kıyıda Bulgar Aziz Stefan Kilisesi 1898'de Viyana'dan gemiyle getirilen dökme demir parçalardan monte edilmiştir.\n\nBalat plansız dolaşılacak yerdir. Kiremit Caddesi ve basamaklı Merdivenli Yokuş, 2000'lerin başındaki rehabilitasyon programıyla onarılan, her renge boyanmış cumbalı dar evlerle doludur. Ahrida Sinagogu on beşinci yüzyıldan kalmadır; Kanlı Kilise olarak bilinen Meryem Ana Kilisesi ise şehirde hiç camiye çevrilmemiş tek Bizans kilisesidir. Vodina Caddesi antikacılar, kahvaltıcılar ve kafelerle doludur.",
+      "en": "Fener was the Greek quarter and Balat the Jewish one, side by side on the slope above the Golden Horn, and between them they hold more of the old city's minority history than anywhere else. The Ecumenical Patriarchate, the spiritual centre of Orthodox Christianity, has occupied the Church of St George in Fener since 1601. Above it the red brick Phanar Greek Orthodox College of 1881 dominates the skyline, and below on the shore the Bulgarian Church of St Stephen was assembled in 1898 from cast iron parts shipped from Vienna.\n\nBalat is the place to wander without a plan. Kiremit Caddesi and the stepped Merdivenli Yokuş are lined with narrow bay-windowed houses painted in every colour, restored in a rehabilitation programme of the early 2000s. The Ahrida Synagogue dates from the fifteenth century, and the Church of St Mary of the Mongols is the only Byzantine church in the city never turned into a mosque. Vodina Caddesi has antique shops, breakfast places and cafés."
+    },
+    "tips": {
+      "tr": "Hafta içi sabahları sakin, cumartesi öğleden sonraları fotoğrafçılarla kalabalıktır. Sokaklar dik ve Arnavut kaldırımlıdır, düz tabanlı ayakkabı giyin; kapı önündeki sakinleri fotoğraflamadan önce izin isteyin.",
+      "en": "Weekday mornings are calm; Saturday afternoons are crowded with photographers. The lanes are steep and cobbled, so wear flat shoes, and ask before photographing residents on their doorsteps."
+    },
+    "district": "Fatih",
+    "address": "Balat, Vodina Cd., 34087 Fatih/İstanbul",
+    "location": {
+      "lat": 41.0308,
+      "lng": 28.9487
+    },
+    "openingHours": "Streets always open; cafés and shops roughly 09:00-22:00",
+    "ticket": {
+      "tr": "Ücretsiz",
+      "en": "Free"
+    },
+    "visitMinutes": 90,
+    "tags": [
+      "neighborhood",
+      "golden-horn",
+      "greek",
+      "jewish",
+      "street-photography"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Balat_houses.jpg/1920px-Balat_houses.jpg",
+        "alt": {
+          "tr": "Balat'ın rengârenk evleri",
+          "en": "Colourful houses of Balat"
+        },
+        "credit": "Antoloji",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Balat_houses.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Phanar_Greek_Orthodox_college_from_Halic.jpg/1920px-Phanar_Greek_Orthodox_college_from_Halic.jpg",
+        "alt": {
+          "tr": "Haliç'ten Fener Rum Erkek Lisesi'nin kırmızı tuğlalı binası",
+          "en": "Red-brick Phanar Greek Orthodox College seen from the Golden Horn"
+        },
+        "credit": "Canercangul",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Phanar_Greek_Orthodox_college_from_Halic.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Bulgarian_St._Stephen_Church_%282020%29.jpg/1920px-Bulgarian_St._Stephen_Church_%282020%29.jpg",
+        "alt": {
+          "tr": "Balat'taki demir Sveti Stefan Bulgar Kilisesi",
+          "en": "The iron Bulgarian St. Stephen Church in Balat"
+        },
+        "credit": "Antoloji",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bulgarian_St._Stephen_Church_(2020).jpg"
+      }
+    ]
+  },
+  {
+    "slug": "pierre-loti-hill",
+    "type": "VIEWPOINT",
+    "name": {
+      "tr": "Piyer Loti Tepesi",
+      "en": "Pierre Loti Hill"
+    },
+    "summary": {
+      "tr": "Eyüp mezarlığının üstündeki tepe ve kahve; teleferikle iki dakikada çıkılan, Haliç'in tamamını gösteren manzara.",
+      "en": "The hilltop café above the Eyüp cemetery, two minutes up by cable car, with the whole Golden Horn laid out below."
+    },
+    "description": {
+      "tr": "Pierre Loti takma adıyla yazan Fransız deniz subayı Julien Viaud 1876'da İstanbul'da yaşadı ve Aziyadé romanının bir kısmını Eyüp'te geçirdi; mezarlığın üstündeki bu tepedeki kahvede oturup Haliç'i seyretmeyi severdi. Kahve hâlâ yerinde: alçak tabureler, ince belli bardakta çay ve Osmanlı kıyafetli garsonlar. Asıl gelme nedeni manzaradır; Haliç, ayağınızın altından kıvrılarak Galata Kulesi'ne ve tarihî yarımadanın minarelerine doğru uzanır.\n\nÇoğu ziyaretçi Eyüp sahilinden 2005'te açılan teleferikle iki dakikada tepeye çıkar; sıradan İstanbulkart geçerlidir. Dönüş için daha güzel yol yürüyerek Eyüp mezarlığından aşağı inmektir. Sarıklı ve çiçek oymalı eski mezar taşları ölenin rütbesini ve mesleğini anlatır; yol camide biter. Gün batımından önceki son saatte gelin, ışık suyun üzerindedir ve ezan sesleri tepeye kadar ulaşır.",
+      "en": "The French naval officer Julien Viaud, who wrote as Pierre Loti, lived in Istanbul in 1876 and set his novel Aziyadé partly in Eyüp; he liked to sit in a café on this hill above the cemetery and look down the Golden Horn. The café is still here, with low stools, tulip glasses of tea and waiters in Ottoman dress, and the view is the reason to come: the whole inlet curves away below you to the Galata Tower and the minarets of the old city.\n\nMost visitors ride up the cable car from the Eyüp waterfront, a two-minute climb that opened in 2005 and takes the ordinary Istanbulkart. The better route back is on foot, downhill through the Eyüp cemetery, whose old headstones with carved turbans and flowers tell you the rank and trade of the dead, ending at the mosque. Come in the last hour before sunset, when the light is on the water and the calls to prayer travel up the hill."
+    },
+    "tips": {
+      "tr": "Pazar öğleden sonraları teleferik kuyruğu uzundur; hafta içi öğleden sonra geç saat en iyisidir. Kahvede fiyatlar makuldür; mezarlıktan aşağı iniş yaklaşık 15 dakika sürer.",
+      "en": "The cable car queue is long on Sunday afternoons; weekday late afternoon is best. Prices at the café are modest, and the walk down through the cemetery takes about 15 minutes."
+    },
+    "district": "Eyüpsultan",
+    "address": "Eyüp Merkez, Karyağdı Sk., 34050 Eyüpsultan/İstanbul",
+    "location": {
+      "lat": 41.0537,
+      "lng": 28.9335
+    },
+    "openingHours": "Cable car 08:00-23:00; café open daily",
+    "ticket": {
+      "tr": "Tepe ücretsiz; teleferik İstanbulkart ile ücretli",
+      "en": "Hill free; cable car paid with Istanbulkart"
+    },
+    "visitMinutes": 45,
+    "tags": [
+      "viewpoint",
+      "golden-horn",
+      "cable-car",
+      "cafe",
+      "cemetery"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Cuerno_de_Oro_desde_el_mirador_Pierre_Loti_Caf%C3%A9_%28Ey%C3%BCp_Sultan%29.jpg/1920px-Cuerno_de_Oro_desde_el_mirador_Pierre_Loti_Caf%C3%A9_%28Ey%C3%BCp_Sultan%29.jpg",
+        "alt": {
+          "tr": "Pierre Loti Tepesi'nden Haliç manzarası",
+          "en": "View over the Golden Horn from Pierre Loti Hill"
+        },
+        "credit": "Jl FilpoC",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Cuerno_de_Oro_desde_el_mirador_Pierre_Loti_Caf%C3%A9_(Ey%C3%BCp_Sultan).jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Pierre_Loti_Caf%C3%A9.jpg/1920px-Pierre_Loti_Caf%C3%A9.jpg",
+        "alt": {
+          "tr": "Pierre Loti Kahvesi'nin terası",
+          "en": "Terrace of the Pierre Loti Café"
+        },
+        "credit": "Kurmanbek",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Pierre_Loti_Caf%C3%A9.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Golden_Horn_panorama_from_Pierre_Loti_Hill.jpg/1920px-Golden_Horn_panorama_from_Pierre_Loti_Hill.jpg",
+        "alt": {
+          "tr": "Pierre Loti Tepesi'nden Haliç panoraması ve teleferik hattı",
+          "en": "Golden Horn panorama from Pierre Loti Hill with the cable-car line"
+        },
+        "credit": "Kurmanbek",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Golden_Horn_panorama_from_Pierre_Loti_Hill.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "eyup-sultan-mosque",
+    "type": "MOSQUE",
+    "name": {
+      "tr": "Eyüp Sultan Camii",
+      "en": "Eyüp Sultan Mosque"
+    },
+    "summary": {
+      "tr": "Hz. Muhammed'in sancaktarı Ebu Eyyûb'un kabri üzerine kurulan, padişahların kılıç kuşandığı şehrin en kutsal camisi.",
+      "en": "The city's holiest mosque, built over the tomb of the Prophet's standard-bearer, where sultans were girded with the sword of Osman."
+    },
+    "description": {
+      "tr": "Hz. Muhammed'in sahabesi ve sancaktarı Ebu Eyyûb el-Ensârî, 670'lerdeki Arap kuşatması sırasında Konstantinopolis önünde öldü ve surların dışına gömüldü. Fetihten sonra Fatih'in hocası Akşemseddin kabrin yerini tespit etti; sultan 1458'de Osmanlı İstanbul'unun ilk camisini bunun üzerine yaptırdı. III. Selim 1800'de yapıyı bugünkü barok camiyle değiştirdi. Yüzyıllar boyunca tahta çıkan her padişah buraya kayıkla gelip Osman Gazi'nin kılıcını kuşandı; bu tören Osmanlı'da taç giymenin karşılığıydı.\n\nBurası şehrin en kutsal İslami mekânıdır; hava turistik değil, dinîdir. Dış avluda asırlık bir çınar ve güvercin bulutları vardır; iç avlu, İznik çinileriyle kaplı türbeye açılır ve ziyaretçiler gümüş şebekenin önünde dua eder. Cami çevresinde beyaz sünnet kıyafetli çocuklar ve gelinlikle gelen gelinler görürsünüz; ikisi de dua ve bereket için gelmiştir. Arkada Osmanlı mezarlıkları Piyer Loti kahvesine doğru tepeye tırmanır.",
+      "en": "Abu Ayyub al-Ansari, the Prophet's companion and standard-bearer, died during the Arab siege of Constantinople in the 670s and was buried outside the walls. Mehmed II's tutor Akşemseddin identified the grave after the conquest, and the sultan built the first mosque of Ottoman Istanbul over it in 1458. Selim III replaced the building in 1800 with the baroque mosque you see now. For centuries each new sultan came here by boat to be girded with the sword of Osman, the Ottoman equivalent of a coronation.\n\nThis is the holiest Muslim site in the city, and the mood is devotional rather than touristic. The outer courtyard has an ancient plane tree and clouds of pigeons; the inner one leads to the tomb, faced in İznik tiles, where visitors pray before a silver grille. Around the mosque you will see boys in white circumcision costumes and brides in wedding dress, both there for a blessing. Behind, Ottoman cemeteries climb the hill toward the Pierre Loti café."
+    },
+    "tips": {
+      "tr": "Kalabalık istemiyorsanız cuma öğlen ve Ramazan akşamlarından kaçının. Kapalı giyinin, türbede sesinizi alçak tutun; Karaköy veya Eminönü'nden Haliç vapuruyla gelmek en keyiflisidir.",
+      "en": "Avoid Friday midday and Ramadan evenings unless you want the crowds. Dress conservatively, keep voices low at the tomb, and arrive by ferry along the Golden Horn from Karaköy or Eminönü."
+    },
+    "district": "Eyüpsultan",
+    "address": "Eyüp Merkez, Cami Kebir Sk. No:1, 34050 Eyüpsultan/İstanbul",
+    "location": {
+      "lat": 41.0479,
+      "lng": 28.9338
+    },
+    "openingHours": "Open daily outside prayer times; tomb open during the day",
+    "ticket": {
+      "tr": "Ücretsiz",
+      "en": "Free"
+    },
+    "visitMinutes": 45,
+    "tags": [
+      "mosque",
+      "ottoman",
+      "pilgrimage",
+      "golden-horn",
+      "tomb"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Eyup_Sultan_Mosque_DSCF9633.jpg/1920px-Eyup_Sultan_Mosque_DSCF9633.jpg",
+        "alt": {
+          "tr": "Meydandan Eyüp Sultan Camii ve minaresi",
+          "en": "Eyüp Sultan Mosque and its minaret seen from the square"
+        },
+        "credit": "R Prazeres",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Eyup_Sultan_Mosque_DSCF9633.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Istanbul_Ey%C3%BCp_Mosque_inner_courtyard_in_2019_6851.jpg/1920px-Istanbul_Ey%C3%BCp_Mosque_inner_courtyard_in_2019_6851.jpg",
+        "alt": {
+          "tr": "Eyüp Sultan Camii'nin çınar ağaçlı iç avlusu",
+          "en": "Inner courtyard of the Eyüp Sultan Mosque with its plane tree"
+        },
+        "credit": "Dosseman",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Istanbul_Ey%C3%BCp_Mosque_inner_courtyard_in_2019_6851.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Istanbul_Ey%C3%BCp_T%C3%BCrbesi_exterior_in_2018_7208.jpg/1920px-Istanbul_Ey%C3%BCp_T%C3%BCrbesi_exterior_in_2018_7208.jpg",
+        "alt": {
+          "tr": "Eyüp Sultan Türbesi'nin çinili dış cephesi",
+          "en": "Tiled façade of the Eyüp Sultan tomb"
+        },
+        "credit": "Dosseman",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Istanbul_Ey%C3%BCp_T%C3%BCrbesi_exterior_in_2018_7208.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "galata-tower",
+    "type": "LANDMARK",
+    "name": {
+      "tr": "Galata Kulesi",
+      "en": "Galata Tower"
+    },
+    "summary": {
+      "tr": "Cenevizlilerin 1348'de yaptığı 63 metrelik kule; dar seyir balkonundan Haliç, tarihî yarımada ve Boğaz tek bakışta.",
+      "en": "The Genoese tower of 1348 whose narrow gallery takes in the Golden Horn, the old city and the Bosphorus at once."
+    },
+    "description": {
+      "tr": "Cenevizliler bu kuleyi 1348'de, Pera'daki ticaret kolonilerini çeviren surların en yüksek noktası olarak inşa etti ve ona İsa Kulesi adını verdi. Yaklaşık 63 metre yüksekliğiyle yüzyıllar boyunca şehrin en yüksek yapısıydı. Osmanlılar kuleyi yangın gözetleme için kullandı; en ünlü hikâyesi de buradan gelir: Evliya Çelebi'ye göre Hezarfen Ahmed Çelebi 1630'larda sırtına taktığı kanatlarla kulenin tepesinden Boğaz'ı aşıp Üsküdar'a süzülmüştür.\n\nKonik külah, iki yüzyıl külahsız kaldıktan sonra 1967'de yeniden yapıldı; iç mekân 2020'de müze olarak yenilendi ve alt katlarda Galata'nın tarihini anlatan sergiler yer aldı. Herkes tepe için gelir. Dar seyir balkonu kuleyi tam bir daire halinde dolaşır ve klasik manzarayı sunar: Haliç köprüleri, karşıda Süleymaniye ve Ayasofya kubbeleri, kuzeyde açılan Boğaz. Aşağıdaki sokaklar, Galip Dede Caddesi ve Karaköy'e inen aralar, tek başına bir saat hak eder.",
+      "en": "The Genoese built this tower in 1348 as the high point of the walls around their trading colony of Pera, and called it the Tower of Christ. At about 63 metres it was the tallest structure in the city for centuries. The Ottomans used it to spot fires, which is how it acquired its most famous story: according to Evliya Çelebi, Hezarfen Ahmed Çelebi strapped on wings in the 1630s and glided from the top across the Bosphorus to Üsküdar.\n\nThe conical cap was restored in 1967 after two centuries without one, and the interior was rebuilt as a museum in 2020, with exhibits on the history of Galata on the lower floors. Everyone comes for the top. The narrow gallery runs the full circle and gives the classic view: the Golden Horn bridges, the domes of Süleymaniye and Hagia Sophia opposite, the Bosphorus opening to the north. The streets below, Galip Dede Caddesi and the lanes toward Karaköy, are worth an hour of their own."
+    },
+    "tips": {
+      "tr": "Bileti saatli olarak çevrimiçi alın; gün batımından önceki saat en önce tükenir ve balkon dardır, ferah bir ziyaret için açılışta gidin. Asansör büyük kısmını çıkarır, son bölüm kısa bir merdivendir.",
+      "en": "Buy a timed ticket online; the last hour before sunset sells out first and the gallery is narrow, so go at opening for space. A lift takes you most of the way, with a short final staircase."
+    },
+    "district": "Beyoğlu",
+    "address": "Bereketzade, Galata Kulesi Sk., 34421 Beyoğlu/İstanbul",
+    "location": {
+      "lat": 41.0256,
+      "lng": 28.9742
+    },
+    "openingHours": "08:30-23:00 daily (last entry 22:00)",
+    "ticket": {
+      "tr": "Ücretli (yabancılar için 30 €); Museum Pass gündüz girişinde geçerli",
+      "en": "Paid (30 EUR for foreign visitors); Museum Pass valid for daytime entry"
+    },
+    "visitMinutes": 60,
+    "tags": [
+      "genoese",
+      "tower",
+      "viewpoint",
+      "beyoglu",
+      "landmark"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Karak%C3%B6y_Mars_2013.jpg/1920px-Karak%C3%B6y_Mars_2013.jpg",
+        "alt": {
+          "tr": "Haliç'ten görünen Karaköy ve Galata Kulesi",
+          "en": "Karaköy and the Galata Tower seen from the Golden Horn"
+        },
+        "credit": "Arild Vågen",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Karak%C3%B6y_Mars_2013.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Galata_Tower%2C_Golden_Horn_%2852397065499%29.jpg/1920px-Galata_Tower%2C_Golden_Horn_%2852397065499%29.jpg",
+        "alt": {
+          "tr": "Gün batımı ışığında Haliç'ten Galata Kulesi",
+          "en": "Galata Tower rising above Karaköy at golden hour, seen from the Golden Horn"
+        },
+        "credit": "Sonse",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Galata_Tower,_Golden_Horn_(52397065499).jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Bosphorus_and_Golden_Horn_view_from_Galata_Tower.jpg/1920px-Bosphorus_and_Golden_Horn_view_from_Galata_Tower.jpg",
+        "alt": {
+          "tr": "Galata Kulesi'nden Boğaziçi ve Haliç manzarası",
+          "en": "View over the Bosphorus and Golden Horn from the Galata Tower gallery"
+        },
+        "credit": "Maurice Flesier",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bosphorus_and_Golden_Horn_view_from_Galata_Tower.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "istiklal-avenue",
+    "type": "LANDMARK",
+    "name": {
+      "tr": "İstiklal Caddesi",
+      "en": "İstiklal Avenue"
+    },
+    "summary": {
+      "tr": "Tünel'den Taksim'e 1,4 kilometrelik yaya caddesi; nostaljik tramvay, pasajlar, kiliseler ve Beyoğlu'nun bütün hareketi.",
+      "en": "The 1.4 kilometre pedestrian avenue from Tünel to Taksim, with its red tram, covered arcades, churches and all of Beyoğlu's energy."
+    },
+    "description": {
+      "tr": "On dokuzuncu yüzyılda burası Grande Rue de Péra'ydı; Avrupalı mahallenin elçilikler, büyük mağazalar ve Paris modasında apartmanlarla dolu bulvarı. Adı 1927'de İstiklal Caddesi oldu, araçlar 1990'da yasaklandı ve 1914-1961 arasında burada çalışan kırmızı tramvay aynı yıl nostaljik tramvay olarak geri döndü. Tramvay hâlâ Tünel Meydanı'ndan Taksim'e 1,4 kilometre boyunca tıkırdayarak gider; alt uçtaki 1875 tarihli Tünel füniküleri dünyanın en eski ikinci yeraltı demiryoludur.\n\nCaddeyi Tünel'den yukarı doğru yürüyün. Yolda Galatasaray Lisesi'nin kapısını, şehrin en büyük Katolik kilisesi olan 1912 tarihli Sent Antuan'ı, Çiçek Pasajı'nı ve arkasındaki Balık Pazarı'nı, ardından üstü kapalı pasajlar dizisini geçersiniz: Hazzopulo, Atlas, Aznavur ve çatı terasıyla Mısır Apartmanı. Yan sokaklar Cihangir'e ve Galata'ya iner. Hafta sonu caddeden üç milyon kişi geçebilir; hafta içi sabahını tercih edin.",
+      "en": "In the nineteenth century this was the Grande Rue de Péra, the boulevard of the European quarter, lined with embassies, department stores and apartment blocks in the Paris fashion. The name changed to Independence Avenue in 1927, cars were banned in 1990, and the red tram that had run here from 1914 to 1961 came back the same year. It still rattles the 1.4 kilometres from Tünel Square to Taksim, and at the lower end the Tünel funicular of 1875 is the second oldest underground railway in the world.\n\nWalk it from Tünel uphill. On the way you pass the gates of Galatasaray High School, the Church of St Antoine of 1912, the largest Catholic church in the city, the Flower Passage and the fish market behind it, and a string of covered arcades: Hazzopulo, Atlas, Aznavur and the Mısır Apartmanı with its rooftop terrace. Side streets drop away to Cihangir and Galata. Three million people can pass through on a weekend, so aim for a weekday morning."
+    },
+    "tips": {
+      "tr": "Tramvay yavaş ve kalabalıktır; yürümek daha hızlıdır, ücret İstanbulkart ile ödenir. Kalabalıkta yankesicilere dikkat edin; çay molasını caddede değil, pasaj avlularından birinde verin.",
+      "en": "The tram is slow and packed; walking is faster, and the fare uses Istanbulkart. Watch for pickpockets in crowds, and take your tea break in one of the arcade courtyards rather than on the avenue itself."
+    },
+    "district": "Beyoğlu",
+    "address": "İstiklal Cd., 34433 Beyoğlu/İstanbul",
+    "location": {
+      "lat": 41.0342,
+      "lng": 28.9789
+    },
+    "openingHours": "Always open; nostalgic tram roughly 07:00-23:00",
+    "ticket": {
+      "tr": "Ücretsiz; tramvay İstanbulkart ile",
+      "en": "Free; tram fare with Istanbulkart"
+    },
+    "visitMinutes": 90,
+    "tags": [
+      "beyoglu",
+      "street",
+      "tram",
+      "shopping",
+      "nightlife"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Istiklal_busy_afternoon.JPG/1920px-Istiklal_busy_afternoon.JPG",
+        "alt": {
+          "tr": "Kalabalık bir öğleden sonra İstiklal Caddesi",
+          "en": "İstiklal Avenue crowded on a weekday afternoon"
+        },
+        "credit": "Zumrasha",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Istiklal_busy_afternoon.JPG"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/NostalgicTram%C4%B0stiklalAvenue.jpg/1920px-NostalgicTram%C4%B0stiklalAvenue.jpg",
+        "alt": {
+          "tr": "İstiklal Caddesi'nde nostaljik kırmızı tramvay",
+          "en": "The nostalgic red tram on İstiklal Avenue"
+        },
+        "credit": "CeeGee",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:NostalgicTram%C4%B0stiklalAvenue.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Nostalgic_tram_on_Istiklal_Avenue_in_Istanbul.jpg/1920px-Nostalgic_tram_on_Istiklal_Avenue_in_Istanbul.jpg",
+        "alt": {
+          "tr": "İstiklal Caddesi'nde iki nostaljik tramvay",
+          "en": "Two heritage trams passing on İstiklal Avenue"
+        },
+        "credit": "Janderk1968",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Nostalgic_tram_on_Istiklal_Avenue_in_Istanbul.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "pera-museum",
+    "type": "MUSEUM",
+    "name": {
+      "tr": "Pera Müzesi",
+      "en": "Pera Museum"
+    },
+    "summary": {
+      "tr": "Eski Bristol Oteli'ndeki özel müze; Osman Hamdi Bey'in Kaplumbağa Terbiyecisi, Oryantalist resimler ve güçlü geçici sergiler.",
+      "en": "A private museum in the former Bristol Hotel, home to Osman Hamdi Bey's The Tortoise Trainer, Orientalist painting and strong temporary shows."
+    },
+    "description": {
+      "tr": "Suna ve İnan Kıraç Vakfı bu müzeyi 2005'te, mimar Achille Manoussos'un 1893 tarihli eski Bristol Oteli binasında açtı; cephe korundu, iç mekân beş katlı galeriler olarak yeniden inşa edildi. Kalıcı koleksiyon küçük ama seçkindir: Avrupalı ve Osmanlı ressamların Osmanlı dünyasını anlatan Oryantalist tabloları, Kütahya çini ve seramikleri ve Hititlere kadar uzanan Anadolu ağırlık ve ölçüleri.\n\nHerkesin görmeye geldiği tablo, Osman Hamdi Bey'in 1906 tarihli Kaplumbağa Terbiyecisi'dir; 2004'te müzayedede bir Türk eseri için o zamana kadarki rekor fiyata alınmış ve ikinci kata asılmıştır. Üst katlarda Goya ve Warhol'dan çağdaş Türk sanatçılara uzanan geçici sergiler düzenlenir; film programı ve zemin kattaki kafe müzeyi iyi bir yağmurlu gün adresi yapar. Müze, İstiklal'e bir dakika mesafede, Meşrutiyet Caddesi üzerindedir.",
+      "en": "The Suna and İnan Kıraç Foundation opened this museum in 2005 in the former Bristol Hotel, a building of 1893 by the architect Achille Manoussos, keeping the facade and rebuilding the interior as five floors of galleries. The permanent collection is small and precise: Orientalist paintings of the Ottoman world by European and Ottoman artists, Kütahya tiles and ceramics, and a room of Anatolian weights and measures going back to the Hittites.\n\nThe painting everyone comes for is Osman Hamdi Bey's The Tortoise Trainer of 1906, bought at auction in 2004 for what was then a record for a Turkish work, and hung on the second floor. The upper floors host changing exhibitions that have ranged from Goya and Warhol to contemporary Turkish artists, and the film programme and the café on the ground floor make it a good rainy-day address. It sits on Meşrutiyet Caddesi, a minute from İstiklal."
+    },
+    "tips": {
+      "tr": "Pazartesi kapalıdır; cuma akşamları geç saate kadar açıktır. Bir saat ayırın; gitmeden önce geçici sergiyi kontrol edin, çoğu zaman en güçlü bölüm odur.",
+      "en": "Closed on Mondays; Friday evenings stay open late. Allow an hour, and check the temporary exhibition before you go, since it is usually the strongest part."
+    },
+    "district": "Beyoğlu",
+    "address": "Asmalı Mescit, Meşrutiyet Cd. No:65, 34430 Beyoğlu/İstanbul",
+    "location": {
+      "lat": 41.0318,
+      "lng": 28.9752
+    },
+    "openingHours": "Tue-Sat 10:00-19:00 (Fri until 22:00), Sun 12:00-18:00; closed Mondays",
+    "ticket": {
+      "tr": "Ücretli; öğrenci ve 65 yaş üstü indirimli",
+      "en": "Paid; discounts for students and over 65s"
+    },
+    "visitMinutes": 60,
+    "tags": [
+      "museum",
+      "art",
+      "orientalism",
+      "beyoglu"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Istanbul_Beyoglu_Pera_museum.jpg/1920px-Istanbul_Beyoglu_Pera_museum.jpg",
+        "alt": {
+          "tr": "Pera Müzesi'nin Meşrutiyet Caddesi'ndeki cephesi",
+          "en": "Façade of the Pera Museum on Meşrutiyet Caddesi"
+        },
+        "credit": "Tatiana Matlina",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Istanbul_Beyoglu_Pera_museum.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Collection_of_K%C3%BCtahya_Tiles_and_Ceramics_in_Pera_Museum_Istanbul_01.JPG/1920px-Collection_of_K%C3%BCtahya_Tiles_and_Ceramics_in_Pera_Museum_Istanbul_01.JPG",
+        "alt": {
+          "tr": "Pera Müzesi'nde Kütahya çini ve seramik koleksiyonu galerisi",
+          "en": "Kütahya tiles and ceramics gallery inside the Pera Museum"
+        },
+        "credit": "Tatiana Matlina",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Collection_of_K%C3%BCtahya_Tiles_and_Ceramics_in_Pera_Museum_Istanbul_01.JPG"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Osman_Hamdi_Bey_-_The_Tortoise_Trainer_-_Google_Art_Project.jpg/1920px-Osman_Hamdi_Bey_-_The_Tortoise_Trainer_-_Google_Art_Project.jpg",
+        "alt": {
+          "tr": "Osman Hamdi Bey'in Kaplumbağa Terbiyecisi tablosu",
+          "en": "The Tortoise Trainer by Osman Hamdi Bey"
+        },
+        "credit": "Osman Hamdi Bey",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Osman_Hamdi_Bey_-_The_Tortoise_Trainer_-_Google_Art_Project.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "galataport-istanbul-modern",
+    "type": "MUSEUM",
+    "name": {
+      "tr": "Galataport ve İstanbul Modern",
+      "en": "Galataport and Istanbul Modern"
+    },
+    "summary": {
+      "tr": "Karaköy'den Tophane'ye 1,2 kilometrelik rıhtım gezintisi ve Renzo Piano'nun tasarladığı yeni İstanbul Modern binası.",
+      "en": "A 1.2 kilometre quayside promenade from Karaköy to Tophane, anchored by Renzo Piano's new Istanbul Modern building."
+    },
+    "description": {
+      "tr": "Bu kıyıyı yüz yıl boyunca halka kapatan kruvaziyer limanı 2021'de Galataport olarak yeniden açıldı; terminal yer altına alındı ve Karaköy'den Tophane'ye 1,2 kilometrelik rıhtım halka açık bir gezinti alanına dönüştü. Eski yolcu salonu bugün Peninsula Oteli, gümrük depoları restoran ve mağaza; Karaköy ucunda ise ülkenin ilk modern ve çağdaş sanat müzesi İstanbul Modern, 2023'te Renzo Piano'nun tasarladığı yeni binasına taşındı.\n\nPiano'nun müzesi, ayaklar üzerinde yüzüyormuş gibi duran alçak bir alüminyum kutudur; çatısındaki yansıma havuzunda Boğaz ve tarihî yarımada silüeti göz hizasına gelir. İçeride koleksiyon 1940'lardan bugüne Türk sanatını izler; fotoğraf ve video galerileri, iyi bir kitapçı ve kafe vardır. Yolun karşısında Sinan'ın 1580'de tamamladığı Kılıç Ali Paşa Camii ve hamamı ile barok Nusretiye Camii durur; on dakikalık yürüyüş dört yüzyılı kapsar.",
+      "en": "The cruise port that closed off this stretch of shore for a century reopened in 2021 as Galataport, with the terminal sunk below ground so that 1.2 kilometres of quay from Karaköy to Tophane became a public promenade. The old passenger hall is now the Peninsula Hotel, the customs warehouses hold restaurants and shops, and at the Karaköy end Istanbul Modern, the country's first museum of modern and contemporary art, moved into a new building by Renzo Piano in 2023.\n\nPiano's museum is a low aluminium box that seems to float on stilts, with a rooftop reflecting pool where the Bosphorus and the old city skyline appear at eye level. Inside, the collection traces Turkish art from the 1940s to the present, with photography and video galleries, a good bookshop and a café. Across the road stand the Kılıç Ali Pasha Mosque and hamam by Sinan, finished in 1580, and the baroque Nusretiye Mosque, so a ten-minute walk covers four centuries."
+    },
+    "tips": {
+      "tr": "Müze pazartesi kapalıdır; cuma günleri 20:00'ye kadar açıktır. Kruvaziyer günlerinde rıhtım kalabalıklaşır, liman takvimine bakın; galerilerden önce çatıdaki havuza çıkın.",
+      "en": "The museum is closed on Mondays and stays open until 20:00 on Fridays. Cruise days bring crowds to the promenade, so check the port schedule, and go up to the roof pool before the galleries."
+    },
+    "district": "Beyoğlu",
+    "address": "Kılıçali Paşa, Tophane İskele Cd. No:1/1, 34433 Beyoğlu/İstanbul",
+    "location": {
+      "lat": 41.026,
+      "lng": 28.9829
+    },
+    "openingHours": "Museum Tue-Sun 10:00-18:00 (Fri until 20:00), closed Mondays; promenade always open",
+    "ticket": {
+      "tr": "Müze ücretli; Galataport gezinti alanı ücretsiz",
+      "en": "Museum paid; Galataport promenade free"
+    },
+    "visitMinutes": 90,
+    "tags": [
+      "museum",
+      "contemporary-art",
+      "waterfront",
+      "karakoy",
+      "architecture"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Istanbul%2C_Turkey_-_53686767702.jpg/1920px-Istanbul%2C_Turkey_-_53686767702.jpg",
+        "alt": {
+          "tr": "Boğaz'dan görünen İstanbul Modern binası",
+          "en": "The Renzo Piano building of Istanbul Modern seen from the Bosphorus"
+        },
+        "credit": "flowcomm",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Istanbul,_Turkey_-_53686767702.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Galataport_with_Silver_Moon_cruise_ship_6699.jpg/1920px-Galataport_with_Silver_Moon_cruise_ship_6699.jpg",
+        "alt": {
+          "tr": "Galataport'ta demirli bir kruvaziyer gemisi",
+          "en": "A cruise ship moored at Galataport below the Cihangir hillside"
+        },
+        "credit": "Dosseman",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Galataport_with_Silver_Moon_cruise_ship_6699.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Galataport_from_Istanbul_Museum_of_Modern_Art_in_2024_5623.jpg/1920px-Galataport_from_Istanbul_Museum_of_Modern_Art_in_2024_5623.jpg",
+        "alt": {
+          "tr": "Galataport sahil yürüyüş yolu ve Boğaz",
+          "en": "The Galataport waterfront promenade along the Bosphorus"
+        },
+        "credit": "Dosseman",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Galataport_from_Istanbul_Museum_of_Modern_Art_in_2024_5623.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "cicek-pasaji",
+    "type": "LANDMARK",
+    "name": {
+      "tr": "Çiçek Pasajı",
+      "en": "Çiçek Pasajı (Flower Passage)"
+    },
+    "summary": {
+      "tr": "1876 tarihli Cité de Péra; cam çatının altında meyhaneler, mezeler, rakı ve masalar arasında dolaşan müzisyenler.",
+      "en": "The Cité de Péra arcade of 1876, now a glass-roofed row of meyhanes serving meze, rakı and live music."
+    },
+    "description": {
+      "tr": "Pasaj 1876'da Cité de Péra adıyla açıldı; bankacı Hristaki Zografos, 1870 yangınında yanan Naum Tiyatrosu'nun yerine yaptırmıştı. Grande Rue üzerindeki neobarok cephesi ve üst kattaki daireleriyle şehrin en görkemli alışveriş galerisiydi. 1917'den sonra Rus göçmeni kadınlar pasajda çiçek sattı; bugünkü adı oradan kalır. 1940'lardan itibaren zemin kat meyhanelere dönüştü; Beyoğlu kış gecelerinde rakısını burada içti.\n\nYapı 1978'de kısmen çöktü ve on yıl süren onarımın ardından 1988'de bugünkü cam çatı ve demir fenerlerle yeniden açıldı. Bohem yıllarına göre daha cilalıdır, ama ritüel değişmedi: soğuk mezeler, ızgara balık, buzlu ve sulu rakı, masalar arasında dolaşan müzisyenler. Arka kapıdan Balık Pazarı'na, oradan da Nevizade Sokak'a çıkın; aynı yemek orada biraz daha ucuz ve biraz daha gürültülüdür.",
+      "en": "The arcade opened in 1876 as the Cité de Péra, built by the banker Hristaki Zografos on the site of the Naum Theatre, which had burned in the fire of 1870. It was the grandest shopping gallery in the city, with a neo-baroque facade on the Grande Rue and apartments above. After 1917 Russian émigrées sold flowers in the passage, which gave it the name it keeps, and from the 1940s the ground floor turned into meyhanes, the taverns where Beyoğlu drank rakı on winter nights.\n\nThe building partly collapsed in 1978 and reopened in 1988 with the glass roof and iron lamps you see now. It is more polished than in its bohemian years, but the ritual is unchanged: cold meze, grilled fish, rakı with ice and water, and musicians drifting between the tables. Leave by the back door into the fish market and Nevizade Sokak beyond, where the same meal is a little cheaper and a little louder."
+    },
+    "tips": {
+      "tr": "Sohbet istiyorsanız müzik başlamadan, 18:00 gibi erken akşam yemeğine gelin. Balık kiloyla satılır; sipariş vermeden önce fiyatı sorun.",
+      "en": "Come for an early dinner around 18:00, before the music starts, if you want conversation. Fish is sold by weight, so ask the price before ordering."
+    },
+    "district": "Beyoğlu",
+    "address": "Hüseyinağa, İstiklal Cd. No:172, 34435 Beyoğlu/İstanbul",
+    "location": {
+      "lat": 41.0339,
+      "lng": 28.9779
+    },
+    "openingHours": "Arcade open all day; restaurants roughly 11:00-02:00",
+    "ticket": {
+      "tr": "Giriş ücretsiz",
+      "en": "Free to enter"
+    },
+    "visitMinutes": 45,
+    "tags": [
+      "beyoglu",
+      "meyhane",
+      "food",
+      "architecture",
+      "nightlife"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/%C3%87i%C3%A7ek_Pasaj%C4%B1_midday_photo.jpg/1920px-%C3%87i%C3%A7ek_Pasaj%C4%B1_midday_photo.jpg",
+        "alt": {
+          "tr": "Çiçek Pasajı'nın cam çatılı iç avlusu ve restoranları",
+          "en": "Glass-roofed arcade of Çiçek Pasajı with its restaurants"
+        },
+        "credit": "Kübradereli1",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:%C3%87i%C3%A7ek_Pasaj%C4%B1_midday_photo.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Istanbul_-_%C3%87i%C3%A7ek_Pasaj%C4%B1.jpg/1920px-Istanbul_-_%C3%87i%C3%A7ek_Pasaj%C4%B1.jpg",
+        "alt": {
+          "tr": "İstiklal Caddesi'nden Çiçek Pasajı'nın süslü cephesi",
+          "en": "Ornate façade of Çiçek Pasajı on İstiklal Avenue"
+        },
+        "credit": "Jorge Franganillo",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Istanbul_-_%C3%87i%C3%A7ek_Pasaj%C4%B1.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/%C3%87i%C3%A7ek_Pasaj%C4%B1_11.jpg/1920px-%C3%87i%C3%A7ek_Pasaj%C4%B1_11.jpg",
+        "alt": {
+          "tr": "Çiçek Pasajı'nın cam kubbesi ve süslü iç cepheleri",
+          "en": "Glass dome and decorated interior façades of Çiçek Pasajı"
+        },
+        "credit": "RramazanŞahin",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:%C3%87i%C3%A7ek_Pasaj%C4%B1_11.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "dolmabahce-palace",
+    "type": "PALACE",
+    "name": {
+      "tr": "Dolmabahçe Sarayı",
+      "en": "Dolmabahçe Palace"
+    },
+    "summary": {
+      "tr": "Abdülmecid'in 1856'da taşındığı Boğaz kıyısındaki barok saray; 600 metrelik mermer cephe, dev kristal avize ve Atatürk'ün odası.",
+      "en": "The baroque Bosphorus palace Abdülmecid moved into in 1856, with a 600 metre marble facade and a giant crystal chandelier."
+    },
+    "description": {
+      "tr": "I. Abdülmecid on üç yıl ve hazinenin önemli bir kısmını harcadıktan sonra 1856'da Topkapı'yı bırakıp bu saraya taşındı. Ermeni mimarlar Garabet ve Nigoğayos Balyan saraya Boğaz üzerinde 600 metrelik mermer bir cephe, içeride barok, rokoko ve neoklasik karışımı bir bezeme verdi: on dört ton altın varak, Baccarat kristal korkuluklu bir merdiven ve Muayede Salonu'nda dört buçuk tonluk, dünyanın en büyüğü sayılan Bohemya kristali avize.\n\nBurada altı padişah yaşadı, son yıllarında Atatürk de. Atatürk 10 Kasım 1938 sabahı saat 09:05'te bu sarayda öldü; odalarındaki saatler o saatte durdurulmuştur. Ziyaret, önce Selamlık'taki devlet salonlarından, sonra bezemenin daha sakin ve aile hayatının daha kolay hayal edildiği Harem'den geçer. Dışarıda 1895 tarihli saat kulesi ve kuğulu havuzlu bahçe suya bakar; Beşiktaş vapur iskelesi kısa bir yürüyüş mesafesindedir.",
+      "en": "Abdülmecid I abandoned Topkapı for this palace in 1856, having spent thirteen years and a ruinous share of the treasury on it. The Armenian architects Garabet and Nigoğayos Balyan gave it a 600 metre marble facade on the Bosphorus and interiors in a mix of baroque, rococo and neoclassical, with fourteen tonnes of gold leaf, a staircase with Baccarat crystal balusters and, in the Ceremonial Hall, a Bohemian crystal chandelier of four and a half tonnes, said to be the largest in the world.\n\nSix sultans lived here, and so did Atatürk in his last years; he died in the palace on 10 November 1938 at 09:05, and the clocks in his rooms are kept at that hour. The visit follows a route through the Selamlık state rooms and then the Harem, where the decoration is quieter and the family life easier to imagine. Outside, the clock tower of 1895 and the swan fountain garden face the water, and the Beşiktaş ferry pier is a short walk away."
+    },
+    "tips": {
+      "tr": "Pazartesi kapalıdır ve sabah ortası en yoğun zamandır; 09:00'da veya 15:00'ten sonra gelin. Bileti çevrimiçi alın; Selamlık ve Harem için birlikte iki saat ayırın.",
+      "en": "Closed on Mondays and busiest mid morning; arrive at 09:00 or after 15:00. Buy the ticket online to skip the queue, and allow two hours for the Selamlık and Harem together."
+    },
+    "district": "Beşiktaş",
+    "address": "Vişnezade, Dolmabahçe Cd., 34357 Beşiktaş/İstanbul",
+    "location": {
+      "lat": 41.0394,
+      "lng": 29.0017
+    },
+    "openingHours": "09:00-18:00 (last entry 17:00); closed Mondays",
+    "ticket": {
+      "tr": "Ücretli; saray ve Harem kombine bilet; Museum Pass geçerli değil (Milli Saraylar)",
+      "en": "Paid; combined palace and Harem ticket; Museum Pass not valid (National Palaces)"
+    },
+    "visitMinutes": 120,
+    "tags": [
+      "ottoman",
+      "palace",
+      "bosphorus",
+      "ataturk",
+      "baroque"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Palacio_de_Dolmabah%C3%A7e%2C_Estambul%2C_Turqu%C3%ADa%2C_2024-09-29%2C_DD_24.jpg/1920px-Palacio_de_Dolmabah%C3%A7e%2C_Estambul%2C_Turqu%C3%ADa%2C_2024-09-29%2C_DD_24.jpg",
+        "alt": {
+          "tr": "Boğaz'dan görünen Dolmabahçe Sarayı cephesi",
+          "en": "Bosphorus façade of Dolmabahçe Palace seen from the water"
+        },
+        "credit": "Diego Delso",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Palacio_de_Dolmabah%C3%A7e,_Estambul,_Turqu%C3%ADa,_2024-09-29,_DD_24.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Palacio_de_Dolmabah%C3%A7e%2C_Estambul%2C_Turqu%C3%ADa%2C_2024-09-28%2C_DD_107.jpg/1920px-Palacio_de_Dolmabah%C3%A7e%2C_Estambul%2C_Turqu%C3%ADa%2C_2024-09-28%2C_DD_107.jpg",
+        "alt": {
+          "tr": "Dolmabahçe Sarayı Saltanat Kapısı",
+          "en": "The Gate of the Sultan at Dolmabahçe Palace"
+        },
+        "credit": "Diego Delso",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Palacio_de_Dolmabah%C3%A7e,_Estambul,_Turqu%C3%ADa,_2024-09-28,_DD_107.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Dolmabah%C3%A7e_Palace_-_The_Giant_Chandelier_in_the_Ceremonial_Hall%2C_Istanbul_%282275183315%29.jpg/1920px-Dolmabah%C3%A7e_Palace_-_The_Giant_Chandelier_in_the_Ceremonial_Hall%2C_Istanbul_%282275183315%29.jpg",
+        "alt": {
+          "tr": "Dolmabahçe Sarayı Muayede Salonu ve dev avizesi",
+          "en": "Ceremonial Hall of Dolmabahçe Palace with its giant chandelier"
+        },
+        "credit": "Dan from Brussels",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Dolmabah%C3%A7e_Palace_-_The_Giant_Chandelier_in_the_Ceremonial_Hall,_Istanbul_(2275183315).jpg"
+      }
+    ]
+  },
+  {
+    "slug": "ortakoy-mosque",
+    "type": "MOSQUE",
+    "name": {
+      "tr": "Ortaköy Camii",
+      "en": "Ortaköy Mosque"
+    },
+    "summary": {
+      "tr": "Balyan kardeşlerin 1856'da suya uzanan burna kondurduğu barok cami; arkasında Boğaz Köprüsü, önünde Ortaköy Meydanı.",
+      "en": "The Balyans' baroque mosque of 1856 on a point in the water, with the Bosphorus bridge behind and Ortaköy square in front."
+    },
+    "description": {
+      "tr": "I. Abdülmecid bu camiyi Dolmabahçe Sarayı'nı da yapan Balyan kardeşlere sipariş etti; cami, Boğaz'a doğru uzanan küçük bir burun üzerinde 1856'da tamamlandı. Klasik Osmanlı yerine barok üsluptadır: tek kubbe, iki ince minare ve suyun ışığını harime dolduran yüksek pencereler. İçerideki hat levhalarının bir kısmı sultanın kendi elinden çıkmadır.\n\nCamiyi ünlü yapan kompozisyon, açık renkli taşın arkasındaki gri asma köprü, ancak 1973'te ilk Boğaz Köprüsü açıldıktan sonra ortaya çıktı. Bugün önündeki meydan şehrin hafta sonu buluşma noktalarından biridir: kumpirciler, waffle tezgâhları, pazar günleri kurulan el işi pazarı, iskeleden kalkan vapurlar ve tur tekneleri. Ortaköy, caminin yüz metre yakınında bir kilise ve bir sinagogu da korur; bu, köyün bir zamanlar ne olduğunu hatırlatır.",
+      "en": "Abdülmecid I commissioned this mosque from the Balyan brothers, the same architects who built his Dolmabahçe Palace, and it was finished in 1856 on a small point of land pushed out into the Bosphorus. It is baroque rather than classical Ottoman, with a single dome, two slender minarets and tall windows that let the light off the water fill the prayer hall. Some of the calligraphy inside is the sultan's own work.\n\nThe composition that made the mosque famous, pale stone against the grey suspension bridge behind it, only existed after 1973, when the first Bosphorus bridge opened. Today the square in front is one of the city's weekend gathering places, with kumpir stalls, waffle counters, a Sunday craft market, and ferries and tour boats coming and going from the pier. Ortaköy also keeps a church and a synagogue within a hundred metres of the mosque, a reminder of what the village once was."
+    },
+    "tips": {
+      "tr": "Klasik fotoğraf için öğleden sonra geç saatte, güneş arkanızdayken caminin solundaki rıhtımda durun. İç mekânı namaz vakitleri dışında gezin; meydan hafta içi sabahları en sakindir.",
+      "en": "For the classic photograph stand on the quay to the left of the mosque in the late afternoon, with the sun behind you. Visit the interior outside prayer times; the square is quietest on weekday mornings."
+    },
+    "district": "Beşiktaş",
+    "address": "Mecidiye, Mecidiye Köprüsü Sk. No:1/1, 34347 Beşiktaş/İstanbul",
+    "location": {
+      "lat": 41.0469,
+      "lng": 29.0269
+    },
+    "openingHours": "Open daily outside prayer times",
+    "ticket": {
+      "tr": "Ücretsiz",
+      "en": "Free"
+    },
+    "visitMinutes": 30,
+    "tags": [
+      "mosque",
+      "bosphorus",
+      "baroque",
+      "ottoman",
+      "photo-spot"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Ortak%C3%B6y_Mosque_and_15th_July_Bridge.jpg/1920px-Ortak%C3%B6y_Mosque_and_15th_July_Bridge.jpg",
+        "alt": {
+          "tr": "15 Temmuz Şehitler Köprüsü önünde Ortaköy Camii",
+          "en": "Ortaköy Mosque with the 15 July Martyrs Bridge behind it"
+        },
+        "credit": "Maurice Flesier",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Ortak%C3%B6y_Mosque_and_15th_July_Bridge.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Istanbul_Ortak%C3%B6y_Mosque_and_bridge_in_2019_7354.jpg/1920px-Istanbul_Ortak%C3%B6y_Mosque_and_bridge_in_2019_7354.jpg",
+        "alt": {
+          "tr": "İskeleden görünen Ortaköy Camii ve Boğaziçi Köprüsü",
+          "en": "Ortaköy Mosque and the Bosphorus Bridge seen from the pier"
+        },
+        "credit": "Dosseman",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Istanbul_Ortak%C3%B6y_Mosque_and_bridge_in_2019_7354.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/B%C3%BCy%C3%BCk_Mecidiye_Mosque_%28Ortak%C3%B6y_Mosque%29.jpg/1920px-B%C3%BCy%C3%BCk_Mecidiye_Mosque_%28Ortak%C3%B6y_Mosque%29.jpg",
+        "alt": {
+          "tr": "Boğaziçi Köprüsü'nden Ortaköy Camii ve meydanı",
+          "en": "Ortaköy Mosque and its square seen from the Bosphorus Bridge"
+        },
+        "credit": "Fatih Renkligil",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:B%C3%BCy%C3%BCk_Mecidiye_Mosque_(Ortak%C3%B6y_Mosque).jpg"
+      }
+    ]
+  },
+  {
+    "slug": "rumeli-fortress",
+    "type": "HISTORICAL",
+    "name": {
+      "tr": "Rumeli Hisarı",
+      "en": "Rumeli Fortress (Rumelihisarı)"
+    },
+    "summary": {
+      "tr": "Fatih'in 1452'de dört ayda Boğaz'ın en dar yerine diktiği hisar; üç büyük kule ve suya inen surlar, yanında Fatih Sultan Mehmet Köprüsü.",
+      "en": "Mehmed II's fortress of 1452, built in four months at the narrowest point of the Bosphorus, with three towers beside the bridge."
+    },
+    "description": {
+      "tr": "Fatih Sultan Mehmed bu hisarı 1452 yazında, yaklaşık dört ayda, Boğaz'ın en dar yerinde, büyük dedesi Yıldırım Bayezid'in 1395'te yaptırdığı Anadolu Hisarı'nın tam karşısına inşa ettirdi. İki kıyıdaki toplarla Karadeniz'den Konstantinopolis'e erzak taşıyan gemileri durdurabiliyordu; şehir ertesi yıl mayısta düştü. Üç büyük kule, yapımını denetleyen vezirlerin adını taşır: Saruca Paşa, Halil Paşa ve Zağanos Paşa. Surlar dik bir yamaçtan 250 metre boyunca suya iner.\n\nHisar bir daha kuşatma görmedi; gümrük ve hapishane olarak kullanıldıktan sonra 1960'ta açık hava müzesi oldu. 2022'de biten restorasyon surları ve içerideki küçük mescidi yeniden açtı. Halil Paşa tarafındaki burçlara çıkın: Karşıda Anadolu kıyısı ve 1988 tarihli Fatih Sultan Mehmet Köprüsü, bir zamanlar top ateşinin kestiği hattın neredeyse tam üzerinden geçer. Bebek köyü, sahil boyunca güneye on beş dakikalık keyifli bir yürüyüştür.",
+      "en": "Mehmed II built this fortress in the summer of 1452, in about four months, at the narrowest point of the Bosphorus, directly opposite the smaller Anadolu Hisarı that his great-grandfather had raised in 1395. With cannon on both shores he could stop ships supplying Constantinople from the Black Sea, and the city fell the following May. The three great towers are named for the viziers who supervised them, Saruca, Halil and Zağanos Pasha, and the walls run 250 metres down a steep slope to the water.\n\nThe fortress never saw another siege and served as a customs post and a prison before becoming an open-air museum in 1960. A restoration finished in 2022 reopened the walls and the small mosque inside. Climb the ramparts on the Halil Pasha side for the view across to the Asian shore and the Fatih Sultan Mehmet Bridge of 1988, which crosses almost exactly where the line of cannon fire once did. The village of Bebek is a pleasant fifteen-minute walk south along the water."
+    },
+    "tips": {
+      "tr": "Sur basamakları diktir ve yer yer korkuluksuzdur; uygun ayakkabı giyin. Kuleleri fotoğraflamak için en iyi ışık öğleden sonra geç saattedir; kapının dışındaki çay bahçeleri suya bakar.",
+      "en": "The steps on the walls are steep and without railings in places, so wear proper shoes. Late afternoon light is best for photographs of the towers, and the tea gardens outside the gate face the water."
+    },
+    "district": "Sarıyer",
+    "address": "Rumeli Hisarı, Yahya Kemal Cd. No:42, 34470 Sarıyer/İstanbul",
+    "location": {
+      "lat": 41.0847,
+      "lng": 29.0561
+    },
+    "openingHours": "09:00-19:00 in summer, 09:00-17:00 in winter",
+    "ticket": {
+      "tr": "Ücretli; Museum Pass geçerli",
+      "en": "Paid; Museum Pass valid"
+    },
+    "visitMinutes": 60,
+    "tags": [
+      "ottoman",
+      "fortress",
+      "bosphorus",
+      "conquest",
+      "viewpoint"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Istanbul%2C_Turkey_-_53686764072.jpg/1920px-Istanbul%2C_Turkey_-_53686764072.jpg",
+        "alt": {
+          "tr": "Boğaz'dan görünen Rumeli Hisarı surları ve kuleleri",
+          "en": "Walls and towers of Rumelihisarı seen from the Bosphorus"
+        },
+        "credit": "flowcomm",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Istanbul,_Turkey_-_53686764072.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Rumelihisar%C4%B1_as_seen_from_Asia.JPG/1920px-Rumelihisar%C4%B1_as_seen_from_Asia.JPG",
+        "alt": {
+          "tr": "Anadolu yakasından Rumeli Hisarı ve Fatih Sultan Mehmet Köprüsü",
+          "en": "Rumelihisarı with the Fatih Sultan Mehmet Bridge, seen from the Asian side"
+        },
+        "credit": "İhsan Deniz Kılıçoğlu",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Rumelihisar%C4%B1_as_seen_from_Asia.JPG"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/%C4%B0stanbul_5674.jpg/1920px-%C4%B0stanbul_5674.jpg",
+        "alt": {
+          "tr": "Rumeli Hisarı surlarından Fatih Sultan Mehmet Köprüsü",
+          "en": "Fatih Sultan Mehmet Bridge seen from inside the walls of Rumelihisarı"
+        },
+        "credit": "Darwinek",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:%C4%B0stanbul_5674.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "emirgan-park",
+    "type": "NATURE",
+    "name": {
+      "tr": "Emirgan Korusu",
+      "en": "Emirgan Park"
+    },
+    "summary": {
+      "tr": "Boğaz'a bakan 47 hektarlık koru; üç ahşap köşk, yaşlı çamlar ve her nisan Lale Festivali'nin ana sahnesi.",
+      "en": "A 47 hectare hillside park above the Bosphorus, with three timber pavilions, old pines and the main stage of April's tulip festival."
+    },
+    "description": {
+      "tr": "IV. Murad, 1635 seferinden sonra Boğaz'a bakan bu yamacı İranlı prens Emirgûne Han'a verdi; köyün adı oradan gelir. On dokuzuncu yüzyılda koru Mısır Hidivi İsmail Paşa'ya geçti; ağaçlar arasında bugün hâlâ ayakta duran üç ahşap köşkü, Sarı, Pembe ve Beyaz Köşk'ü o yaptırdı. Turing Kurumu köşkleri 1980'lerde onardı; havuzu ve terasıyla Sarı Köşk, Emirgan'ın klasik fotoğrafıdır.\n\nKoru, Fatih Sultan Mehmet Köprüsü'ne doğru su manzarasıyla biten bir yamaçta, 47 hektarlık yaşlı çam, çınar ve servilerden oluşur. Her nisan İstanbul Lale Festivali'nin ana sahnesidir; tarhlara milyonlarca soğan dikilir ve yollar ailelerle dolar. Nisan dışında Avrupa yakasının en sakin yeşil alanlarından biridir; her köşkte bir kafe ve ağaçların altında uzun yürüyüş yolları vardır.",
+      "en": "Murad IV gave this hillside above the Bosphorus to a Persian prince, Emirgûne, after the campaign of 1635, which is how the village got its name. In the nineteenth century it belonged to Khedive Ismail Pasha of Egypt, who built the three timber pavilions that still stand in the woods: the Yellow, the Pink and the White Kiosks. The Touring Club restored them in the 1980s, and the Yellow Kiosk in particular, with its pond and terrace, is the classic Emirgan picture.\n\nThe park covers 47 hectares of old pines, plane trees and cypresses on a slope that ends in views over the water toward the Fatih Sultan Mehmet Bridge. It is the main stage of the Istanbul Tulip Festival every April, when the beds are planted with millions of bulbs and the paths fill with families. Outside April it is one of the quietest green spaces on the European shore, with a café in each pavilion and long walks under the trees."
+    },
+    "tips": {
+      "tr": "Lale sezonu nisan ortasından sonuna kadardır; hafta sonları çok kalabalık olduğundan hafta içi sabah gidin. Yamaçlar diktir; Sarı Köşk kafesi kahvaltı için iyi bir duraktır.",
+      "en": "Tulip season is mid to late April; go on a weekday morning, as weekends are very busy. The slopes are steep, and the Yellow Kiosk café is a good stop for breakfast."
+    },
+    "district": "Sarıyer",
+    "address": "Emirgan, Emirgan Korusu, 34467 Sarıyer/İstanbul",
+    "location": {
+      "lat": 41.1083,
+      "lng": 29.0525
+    },
+    "openingHours": "Open daily from early morning until evening",
+    "ticket": {
+      "tr": "Ücretsiz",
+      "en": "Free"
+    },
+    "visitMinutes": 60,
+    "tags": [
+      "park",
+      "tulips",
+      "bosphorus",
+      "free",
+      "pavilions"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Tulip_Festival_Emirgan_2018.jpg/1920px-Tulip_Festival_Emirgan_2018.jpg",
+        "alt": {
+          "tr": "Emirgan Korusu'nda Lale Festivali tarhları",
+          "en": "Tulip beds during the festival in Emirgan Park"
+        },
+        "credit": "Husain007",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Tulip_Festival_Emirgan_2018.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Emirgan1.jpg/1920px-Emirgan1.jpg",
+        "alt": {
+          "tr": "Emirgan Korusu'nda lale tarhları ve yürüyüş yolları yukarıdan",
+          "en": "Tulip parterres and paths in Emirgan Park from above"
+        },
+        "credit": "Ekolojist",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Emirgan1.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Emirgan_park_pond_507.jpg/1920px-Emirgan_park_pond_507.jpg",
+        "alt": {
+          "tr": "Emirgan Korusu'nda gölet ve şelale",
+          "en": "Pond and waterfall in Emirgan Park"
+        },
+        "credit": "Antonio Cristofaro",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Emirgan_park_pond_507.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "bebek-arnavutkoy",
+    "type": "WATERFRONT",
+    "name": {
+      "tr": "Bebek ve Arnavutköy Sahili",
+      "en": "Bebek and Arnavutköy Waterfront"
+    },
+    "summary": {
+      "tr": "Avrupa yakasının en güzel kıyı yürüyüşü; Arnavutköy'ün ahşap yalıları, Bebek koyunun tekneleri ve hafta sonu kahvaltı kafeleri.",
+      "en": "The finest shoreline walk on the European side, past Arnavutköy's wooden yalıs, the boats of Bebek bay and its weekend breakfast cafés."
+    },
+    "description": {
+      "tr": "Bu iki köy Avrupa yakasında bir kilometrelik kıyıyı paylaşır ve aralarındaki yürüyüş Boğaz hayatına en iyi giriştir. Arnavutköy, bu yakada ayakta kalan en uzun ahşap yalı sırasını korur: cumbaları neredeyse suya değen on dokuzuncu yüzyıl Rum ve Osmanlı evleri. Köyün kuzey ucundaki Akıntıburnu akıntının en hızlı aktığı yerdir; köyün üstündeki tepeye Robert Kolej'in kampüsü yayılır.\n\nBebek, demirlemiş balıkçı tekneleri ve yatlarla dolu korunaklı bir koyda, kıyı boyunca uzanan bir parkla oturur. Süslü kapılı art nouveau köşk, 1902'de Hidiv'in annesi için yapılan Mısır Konsolosluğu'dur; 1913 tarihli küçük cami iskelenin yanındadır. Buradaki kafeler şehrin hâli vakti yerinde sakinlerinin hafta sonu kahvaltı adresidir; caminin karşısındaki badem ezmecisi 1904'ten beri açıktır. Sahil yolu kuzeyde Rumeli Hisarı'na kadar devam eder.",
+      "en": "These two villages share a kilometre of shore on the European side, and the walk between them is the best introduction to Bosphorus life. Arnavutköy keeps the longest surviving row of wooden waterfront houses on this bank, nineteenth-century Greek and Ottoman yalıs with bay windows almost touching the water, and the point at its northern end, Akıntıburnu, is where the current runs fastest. Above the village the campus of Robert College spreads across the hill.\n\nBebek sits in a sheltered bay with fishing boats and yachts at anchor and a park along the water. The art nouveau mansion with the ornate gate is the Egyptian consulate, built for the Khedive's mother in 1902, and the small mosque of 1913 stands at the pier. The cafés here are where the city's affluent take their weekend breakfast, and the marzipan shop opposite the mosque has been in business since 1904. The path continues north to Rumeli Hisarı."
+    },
+    "tips": {
+      "tr": "Pazar kahvaltısı 11:00'e kadar her masayı doldurur; hafta içi veya 10:00'dan önce gelin. Kabataş ve Beşiktaş'tan 22, 25E ve 40 numaralı otobüsler sahil yolundan geçer.",
+      "en": "Sunday brunch fills every table by 11:00, so come on a weekday or before 10:00. Buses 22, 25E and 40 run along the shore road from Kabataş and Beşiktaş."
+    },
+    "district": "Beşiktaş",
+    "address": "Bebek, Cevdet Paşa Cd., 34342 Beşiktaş/İstanbul",
+    "location": {
+      "lat": 41.0758,
+      "lng": 29.0438
+    },
+    "openingHours": "Always open; cafés roughly 08:00-24:00",
+    "ticket": {
+      "tr": "Ücretsiz",
+      "en": "Free"
+    },
+    "visitMinutes": 90,
+    "tags": [
+      "waterfront",
+      "bosphorus",
+      "yali",
+      "cafes",
+      "walk"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Istanbul_-_Bebek.jpg/1920px-Istanbul_-_Bebek.jpg",
+        "alt": {
+          "tr": "Bebek-Arnavutköy sahil yolundaki tarihî evler",
+          "en": "Historic houses along the Bebek and Arnavutköy shore road"
+        },
+        "credit": "Jorge Franganillo",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Istanbul_-_Bebek.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Arnavutk%C3%B6y_quarter_of_Istanbul_on_the_Bosphorus%2C_Turkey_001.jpg/1920px-Arnavutk%C3%B6y_quarter_of_Istanbul_on_the_Bosphorus%2C_Turkey_001.jpg",
+        "alt": {
+          "tr": "Boğaz'dan Arnavutköy'ün ahşap yalıları",
+          "en": "Arnavutköy's wooden yalıs seen from the Bosphorus"
+        },
+        "credit": "Moonik",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Arnavutk%C3%B6y_quarter_of_Istanbul_on_the_Bosphorus,_Turkey_001.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Old_houses_near_Bebek%2C_Istanbul.jpg/1920px-Old_houses_near_Bebek%2C_Istanbul.jpg",
+        "alt": {
+          "tr": "Bebek yakınlarında eski ahşap konaklar",
+          "en": "Old wooden mansions near Bebek"
+        },
+        "credit": "Jwslubbock",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Old_houses_near_Bebek,_Istanbul.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "maidens-tower",
+    "type": "LANDMARK",
+    "name": {
+      "tr": "Kız Kulesi",
+      "en": "Maiden's Tower"
+    },
+    "summary": {
+      "tr": "Üsküdar açığındaki adacıkta duran küçük kule; MÖ 408'den beri yerleşim var, bugünkü hali 1832'den, efsanesi bir üzüm sepetinden.",
+      "en": "The tower on an islet off Üsküdar, occupied since 408 BC, rebuilt in 1832 and famous for the princess and the snake."
+    },
+    "description": {
+      "tr": "Adacık, Boğaz'ın Marmara'ya açıldığı noktada, Üsküdar kıyısından 200 metre açıkta durur. Atinalı komutan Alkibiades'in MÖ 408 civarında burada bir gümrük noktası kurmasından beri üzerinde hep bir yapı olmuştur. Bizanslılar adayı tahkim etti, Fatih fetihten sonra yeniden yaptırdı; bugünkü kule ise II. Mahmud'un barok feneri eklettiği 1832'den kalmadır. Kule zaman içinde deniz feneri, karantina istasyonu ve boğaz kontrol noktası olarak kullanıldı.\n\nAdını efsane açıklar: Bir padişah, kızını yılan sokarak öleceği kehanetinden korumak için kuleye kapatır; yılan yine de bir üzüm sepetinin içinde gelir. Avrupalılar kuleyi Çanakkale Boğazı'ndaki hikâyeyle karıştırıp Leandros Kulesi dediler. 2023'te tamamlanan restorasyonun ardından iç mekân küçük bir müze olarak açıldı; tekneler Salacak ve Karaköy'den kalkar, yolculuk kısadır. Birçok İstanbullu kuleyi gün batımında, elinde çayla Salacak sahilinden, arkasında tarihî yarımada silüetiyle izlemeyi tercih eder.",
+      "en": "The islet sits 200 metres off the Üsküdar shore at the point where the Bosphorus opens into the Marmara, and something has stood on it since the Athenian general Alcibiades built a customs post around 408 BC. The Byzantines fortified it, Mehmed II rebuilt it after the conquest, and the tower you see dates from 1832, when Mahmud II gave it the baroque lantern. It has been a lighthouse, a quarantine station and a control post for the straits.\n\nThe legend explains the name: a sultan shut his daughter in the tower to cheat a prophecy that a snake would kill her, and the snake arrived anyway in a basket of grapes. Europeans called it Leander's Tower, confusing it with the Hellespont. After a restoration completed in 2023 the interior reopened as a small museum; boats leave from Salacak and Karaköy and the trip is short. Many locals prefer to see it from the Salacak shore at sunset, tea in hand, with the old city silhouetted behind it."
+    },
+    "tips": {
+      "tr": "Salacak geçişi bir dakika sürer ve tekneler gün boyu çalışır; Karaköy seferleri daha seyrektir. Yoğun sezonda çevrimiçi rezervasyon yapın; kulenin gün batımı manzarası kıyıdan ücretsizdir, oraya da zaman ayırın.",
+      "en": "The Salacak crossing takes a minute and boats run all day; Karaköy departures are less frequent. Book online in high season, and allow time on the shore, where the sunset view of the tower is free."
+    },
+    "district": "Üsküdar",
+    "address": "Salacak, Üsküdar Salacak Mevkii, 34668 Üsküdar/İstanbul",
+    "location": {
+      "lat": 41.0211,
+      "lng": 29.0042
+    },
+    "openingHours": "09:00-19:00 daily; boats from Salacak and Karaköy",
+    "ticket": {
+      "tr": "Ücretli; tekne geçişi ayrıca ücretlendirilir",
+      "en": "Paid; boat transfer ticketed separately"
+    },
+    "visitMinutes": 60,
+    "tags": [
+      "landmark",
+      "bosphorus",
+      "legend",
+      "museum",
+      "uskudar"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/K%C4%B1z_Kulesi_Mars_2013.jpg/1920px-K%C4%B1z_Kulesi_Mars_2013.jpg",
+        "alt": {
+          "tr": "Kız Kulesi, arkada tarihî yarımada silüeti",
+          "en": "Maiden's Tower with the old city skyline behind"
+        },
+        "credit": "Arild Vågen",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:K%C4%B1z_Kulesi_Mars_2013.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Maiden_tower%2C_Istanbul_%28P1100207%29.jpg/1920px-Maiden_tower%2C_Istanbul_%28P1100207%29.jpg",
+        "alt": {
+          "tr": "Boğaz'dan Kız Kulesi ve Üsküdar kıyısı",
+          "en": "Maiden's Tower and the Üsküdar shore from the Bosphorus"
+        },
+        "credit": "Matti Blume",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Maiden_tower,_Istanbul_(P1100207).jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/K%C4%B1z_Kulesi_February_2013_02.jpg/1920px-K%C4%B1z_Kulesi_February_2013_02.jpg",
+        "alt": {
+          "tr": "Kız Kulesi ve ziyaretçi tekneleri",
+          "en": "Maiden's Tower with visitor boats at the islet"
+        },
+        "credit": "Arild Vågen",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:K%C4%B1z_Kulesi_February_2013_02.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "camlica-hill",
+    "type": "VIEWPOINT",
+    "name": {
+      "tr": "Çamlıca Tepesi",
+      "en": "Çamlıca Hill"
+    },
+    "summary": {
+      "tr": "Anadolu yakasının 268 metrelik seyir tepesi; Boğaz, köprü, tarihî yarımada ve açık günlerde Adalar tek bakışta.",
+      "en": "The 268 metre lookout on the Asian side, taking in the Bosphorus, the bridge, the old city and the Princes' Islands."
+    },
+    "description": {
+      "tr": "268 metrelik Büyük Çamlıca, Anadolu yakasında Boğaz'ı çevreleyen tepelerin en yükseğidir ve zirvesi, Osmanlı şairlerinin manzarayı yazmak için geldiği günlerden beri şehrin gözde seyir yeridir. Teraslardan Boğaz'ın tüm genişliğini, ayağınızın dibindeki 15 Temmuz Şehitler Köprüsü'nü, ötedeki tarihî yarımada minarelerini ve açık günlerde Marmara'da yüzen Adalar'ı görürsünüz. Tepedeki bahçeler ve Osmanlı üslubundaki çay evleri 1980'lerde düzenlendi.\n\nSırtı iki yeni simge paylaşır. 2019 tarihli Büyük Çamlıca Camii, 63 bin kişilik kapasitesiyle Türkiye'nin en büyük camisidir; komşu tepede durur ve şehrin büyük kısmından görülür. 2021'de açılan 369 metrelik Çamlıca Kulesi'nin ise kendi seyir terası vardır. Tepeye en kolay Üsküdar veya Kısıklı'dan taksiyle çıkılır; klasik saat gün batımıdır, Avrupa kıyısı o saatte köprü köprü, ışık ışık aydınlanır.",
+      "en": "At 268 metres, Büyük Çamlıca is the highest of the hills that ring the Bosphorus on the Asian side, and its summit has been the city's favourite outlook since Ottoman poets came here to write about the view. From the terraces you take in the whole width of the strait, the 15 July Martyrs Bridge at your feet, the minarets of the old city beyond, and on clear days the Princes' Islands floating in the Marmara. The gardens and Ottoman-style tea houses on top were laid out in the 1980s.\n\nTwo new landmarks share the ridge. The Grand Çamlıca Mosque of 2019, the largest in Turkey with room for 63,000 worshippers, stands on the neighbouring hill and is visible from most of the city, while the 369 metre Çamlıca television tower of 2021 has an observation deck of its own. The hill is easiest reached by taxi from Üsküdar; sunset is the classic hour, when the European shore lights up bridge by bridge."
+    },
+    "tips": {
+      "tr": "Yazın bile yanınıza bir hırka alın; zirve rüzgârlıdır. Hafta sonu akşamları yerli ailelerle dolar; hafta içi gün batımında teraslar size kalır.",
+      "en": "Bring a layer even in summer; the summit is windy. Weekend evenings are crowded with local families, so a weekday sunset gives you the terraces to yourself."
+    },
+    "district": "Üsküdar",
+    "address": "Kısıklı, Büyük Çamlıca Tepesi, 34692 Üsküdar/İstanbul",
+    "location": {
+      "lat": 41.0269,
+      "lng": 29.0678
+    },
+    "openingHours": "Park open daily; tea houses roughly 08:00-23:00",
+    "ticket": {
+      "tr": "Ücretsiz",
+      "en": "Free"
+    },
+    "visitMinutes": 60,
+    "tags": [
+      "viewpoint",
+      "asian-side",
+      "panorama",
+      "sunset",
+      "park"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Bosphorus_Bridge_%28235499411%29.jpeg/1920px-Bosphorus_Bridge_%28235499411%29.jpeg",
+        "alt": {
+          "tr": "Çamlıca Tepesi'nden Boğaziçi Köprüsü ve Avrupa yakası",
+          "en": "The Bosphorus bridge and the European shore seen from Çamlıca Hill"
+        },
+        "credit": "Alexxx Malev",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bosphorus_Bridge_(235499411).jpeg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/B%C3%BCy%C3%BCk_%C3%87aml%C4%B1ca_Camii.jpg/1920px-B%C3%BCy%C3%BCk_%C3%87aml%C4%B1ca_Camii.jpg",
+        "alt": {
+          "tr": "Büyük Çamlıca Camii'nin altı minareli dış görünümü",
+          "en": "Exterior of the Grand Çamlıca Mosque with its six minarets"
+        },
+        "credit": "Mohemedşebir Farook",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:B%C3%BCy%C3%BCk_%C3%87aml%C4%B1ca_Camii.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/%C3%87aml%C4%B1ca_tepesi_%C4%B0stanbul_manzaras%C4%B1_-_panoramio.jpg/1920px-%C3%87aml%C4%B1ca_tepesi_%C4%B0stanbul_manzaras%C4%B1_-_panoramio.jpg",
+        "alt": {
+          "tr": "Çamlıca Tepesi'nden İstanbul manzarası",
+          "en": "View over Istanbul from Çamlıca Hill"
+        },
+        "credit": "Ersin Biçer",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:%C3%87aml%C4%B1ca_tepesi_%C4%B0stanbul_manzaras%C4%B1_-_panoramio.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "beylerbeyi-palace",
+    "type": "PALACE",
+    "name": {
+      "tr": "Beylerbeyi Sarayı",
+      "en": "Beylerbeyi Palace"
+    },
+    "summary": {
+      "tr": "Abdülaziz'in 1865 tarihli yazlık sarayı, Boğaz Köprüsü'nün hemen altında; mermer havuzlu salon, teraslı bahçe ve Abdülhamid'in son yılları.",
+      "en": "Abdülaziz's summer palace of 1865 just beneath the Bosphorus bridge, with a marble pool hall, terraced gardens and Abdülhamid II's final years."
+    },
+    "description": {
+      "tr": "Abdülaziz bu yazlık sarayı 1861-1865 arasında, bugünkü 15 Temmuz Şehitler Köprüsü'nün hemen altına, Anadolu kıyısında yaptırdı; sıcak aylar için bir konut ve yabancı hükümdarlar için bir misafirhaneydi. Fransa İmparatoriçesi Eugénie 1869'da Süveyş Kanalı'nın açılışına giderken burada kaldı ve pencere kafeslerini o kadar beğendi ki Tuileries Sarayı için kopyalattı. Mimar, Dolmabahçe'yi yapan ailenin üyesi Sarkis Balyan'dı.\n\nİçeride en gösterişli mekân, havayı serinletmek için ortasına mermer havuz yerleştirilmiş kabul salonudur; çevresini Bohemya kristali, Hereke halıları ve altlarındaki Mısır hasırları sarar. II. Abdülhamid hayatının son altı yılını, 1912'den 1918'deki ölümüne kadar burada göz hapsinde geçirdi. Arkadaki teraslı bahçeler yamaca tırmanır ve yolun altından geçen bir tünelle birbirine bağlanır; rıhtımda iki mermer deniz köşkü durur. Dolmabahçe'ye göre daha sakin ve daha kişisel bir saraydır.",
+      "en": "Abdülaziz had this summer palace built in 1861-1865 on the Asian shore, directly beneath what is now the 15 July Martyrs Bridge, as a residence for the hot months and a guest house for visiting royalty. Empress Eugénie of France stayed in 1869 on her way to open the Suez Canal and liked the window grilles so much that she had them copied for the Tuileries. The architect was Sarkis Balyan, of the family that built Dolmabahçe.\n\nInside, the showpiece is the reception hall with a marble pool at its centre, built to cool the air, surrounded by Bohemian crystal and Hereke carpets laid over Egyptian reed matting. Abdülhamid II spent the last six years of his life here under house arrest, from 1912 until his death in 1918. The terraced gardens climb the slope behind, linked by a tunnel under the road, and two marble bathing pavilions stand on the quay. It is a quieter and more personal palace than Dolmabahçe."
+    },
+    "tips": {
+      "tr": "Pazartesi kapalıdır; ziyaretler çoğunlukla rehberli gruplarla yapılır, saatleri kapıda sorun. Sarayı, sahil boyunca güneye on dakikalık yürüyüşle Kuzguncuk ile birleştirmek kolaydır.",
+      "en": "Closed on Mondays; visits are often guided in groups, so check times at the gate. The palace is easy to combine with Kuzguncuk, a ten-minute walk south along the shore."
+    },
+    "district": "Üsküdar",
+    "address": "Beylerbeyi, Abdullahağa Cd., 34676 Üsküdar/İstanbul",
+    "location": {
+      "lat": 41.0425,
+      "lng": 29.04
+    },
+    "openingHours": "09:00-17:00 (later in summer); closed Mondays",
+    "ticket": {
+      "tr": "Ücretli; Museum Pass geçerli değil (Milli Saraylar)",
+      "en": "Paid; Museum Pass not valid (National Palaces)"
+    },
+    "visitMinutes": 75,
+    "tags": [
+      "ottoman",
+      "palace",
+      "bosphorus",
+      "asian-side",
+      "gardens"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Beylerbeyi_Palace_in_October_2023.jpg/1920px-Beylerbeyi_Palace_in_October_2023.jpg",
+        "alt": {
+          "tr": "Boğaz'dan Beylerbeyi Sarayı'nın mermer cephesi",
+          "en": "The marble facade of Beylerbeyi Palace from the Bosphorus"
+        },
+        "credit": "Adem",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Beylerbeyi_Palace_in_October_2023.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/The_Beylerbeyi_Palace_%288394906036%29.jpg/1920px-The_Beylerbeyi_Palace_%288394906036%29.jpg",
+        "alt": {
+          "tr": "Beylerbeyi Sarayı ve üzerinden geçen Boğaz köprüsü",
+          "en": "Beylerbeyi Palace beneath the Bosphorus bridge"
+        },
+        "credit": "Jorge Láscar from Australia",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:The_Beylerbeyi_Palace_(8394906036).jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Bosphorus_Bridge_seen_from_the_garden_of_Beylerbeyi_Palace.jpg/1920px-Bosphorus_Bridge_seen_from_the_garden_of_Beylerbeyi_Palace.jpg",
+        "alt": {
+          "tr": "Beylerbeyi Sarayı bahçesinden köprü ve bahçe kapıları",
+          "en": "The palace garden with its ornate gates and the bridge overhead"
+        },
+        "credit": "José Luiz",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bosphorus_Bridge_seen_from_the_garden_of_Beylerbeyi_Palace.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "kadikoy-moda",
+    "type": "NEIGHBORHOOD",
+    "name": {
+      "tr": "Kadıköy ve Moda Sahili",
+      "en": "Kadıköy and Moda Waterfront"
+    },
+    "summary": {
+      "tr": "Anadolu yakasının en canlı çarşısı, nostaljik tramvay ve Moda İskelesi'nde tarihî yarımadanın arkasına batan güneş.",
+      "en": "The Asian side's liveliest market streets, a nostalgic tram, and the sun setting behind the old city from Moda pier."
+    },
+    "description": {
+      "tr": "Kadıköy, Bizans'tan bir kuşak önce, MÖ 685'te kurulan Khalkedon'un yerindedir; Persler, karşı kıyıdaki daha iyi yeri görmedikleri için buraya yerleşenlere körler demişti. Bugün Anadolu yakasının en canlı ilçesidir ve Eminönü'nden vapurla yalnızca yirmi dakika uzaklıktadır. İskelenin arkasındaki çarşı sokaklarına dalın: balıkçılar, turşucular, baharatçılar, kahve kavurucuları ve Güneşli Bahçe Sokak'taki Çiya lokantası şehrin her yerinden insan çeker.\n\nNostaljik tramvay iskeleden Bahariye Caddesi boyunca, burundaki eski Levanten ve İngiliz mahallesi Moda'ya döner. Moda sahil parkı kayalıkların üstünden Vedat Tek'in 1917 tarihli kubbeli iskelesine uzanır; bugün çay bahçesi olan iskele, Anadolu yakasının güneşin tarihî yarımadanın arkasına batışını izlediği yerdir. Moda Caddesi'ndeki eski dondurmacılar bu akşam ritüelinin parçasıdır; ara sokaklardan dönüş yolu kafeler, sahaflar ve Yoğurtçu Parkı'ndan geçer.",
+      "en": "Kadıköy stands on the site of Chalcedon, founded in 685 BC, a generation before Byzantium; the Persians called its settlers blind for missing the better site across the water. Today it is the liveliest district on the Asian side and a twenty-minute ferry ride from Eminönü. Head straight into the market streets behind the pier, where fishmongers, pickle shops, coffee roasters and the restaurant Çiya on Güneşli Bahçe Sokak draw people from all over the city.\n\nThe nostalgic tram loops from the pier along Bahariye Caddesi to Moda, the old Levantine and English quarter on the headland. Moda's coastal park runs above the rocks to the domed pier of 1917 by Vedat Tek, now a tea house, and this is where the Asian side gathers to watch the sun set behind the old city. Ice cream from the shops on Moda Caddesi is part of the ritual, and the walk back through the side streets passes cafés, bookshops and Yoğurtçu Park."
+    },
+    "tips": {
+      "tr": "Metro yerine vapurla gelin; asıl keyif geçiştir. Cumartesi günleri çok kalabalıktır; Moda İskelesi çay bahçesi gün batımından bir saat önce dolar.",
+      "en": "Take the ferry rather than the metro; the crossing is the point. Saturdays are very busy, and the Moda pier tea garden fills an hour before sunset."
+    },
+    "district": "Kadıköy",
+    "address": "Caferağa, Moda Sahil Yolu, 34710 Kadıköy/İstanbul",
+    "location": {
+      "lat": 40.9789,
+      "lng": 29.0252
+    },
+    "openingHours": "Always open; market streets busiest 10:00-20:00",
+    "ticket": {
+      "tr": "Ücretsiz",
+      "en": "Free"
+    },
+    "visitMinutes": 120,
+    "tags": [
+      "neighborhood",
+      "asian-side",
+      "market",
+      "sunset",
+      "ferry"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Moda_Pier_in_April_2026_01.jpg/1920px-Moda_Pier_in_April_2026_01.jpg",
+        "alt": {
+          "tr": "Akşam ışığında Moda İskelesi ve sahil yolu",
+          "en": "Moda pier in evening light with the seaside promenade"
+        },
+        "credit": "Kadı",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Moda_Pier_in_April_2026_01.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Moda_%C4%B0skelesi_2019-08.jpg/1920px-Moda_%C4%B0skelesi_2019-08.jpg",
+        "alt": {
+          "tr": "Gün batımında Moda sahili ve iskele",
+          "en": "The Moda shore and pier at sunset"
+        },
+        "credit": "Vikimedyahesap",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Moda_%C4%B0skelesi_2019-08.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Kadikoey%2C_Istanbul_%28P1100156%29.jpg/1920px-Kadikoey%2C_Istanbul_%28P1100156%29.jpg",
+        "alt": {
+          "tr": "Denizden Kadıköy vapur iskelesi",
+          "en": "Kadıköy ferry terminal seen from the water"
+        },
+        "credit": "Matti Blume",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Kadikoey,_Istanbul_(P1100156).jpg"
+      }
+    ]
+  },
+  {
+    "slug": "anadolu-kavagi-yoros",
+    "type": "HISTORICAL",
+    "name": {
+      "tr": "Anadolu Kavağı ve Yoros Kalesi",
+      "en": "Anadolu Kavağı and Yoros Castle"
+    },
+    "summary": {
+      "tr": "Boğaz vapurunun son durağı olan balıkçı köyü ve üstündeki Bizans-Ceneviz kalesi; Karadeniz'in ağzına bakan teras.",
+      "en": "The fishing village at the end of the Bosphorus ferry line and the Byzantine castle above it, facing the Black Sea."
+    },
+    "description": {
+      "tr": "Eminönü'nden kalkan uzun Boğaz vapuru burada, Boğaz'ın Karadeniz'e açılmasından hemen önceki koya sokulmuş bir balıkçı köyünde biter. Köyün üstündeki tepeyi Bizanslılar tahkim etti, Cenevizliler 1350'lerde kaleyi ellerinde tuttu, Yıldırım Bayezid 1391'de Osmanlılar adına aldı. Yoros adı büyük olasılıkla Rumca kutsal yer sözcüğünün bozulmuş halidir; surlardan önce burada bir Zeus tapınağı vardı. Kapıdaki ikiz kulelerin tuğla işçiliğinde Rumca yazıtlar ve Bizans monogramları görülür.\n\nİskeleden köy sokaklarından tırmanış yaklaşık yirmi dakika sürer. Kazılar son yıllarda iç kısmın bir bölümünü kapalı tuttu, ama dış surlar ve önündeki teras tırmanmaya değer: aşağıda kuzey Boğaz'ın tamamı, güneyde Yavuz Sultan Selim Köprüsü, kuzeyde açık deniz. Köye dönünce rıhtım boyundaki lokantalar vapur yolcularına midye tava ve ızgara balık servis eder; yolcuların dönüş vapuruna kadar iki üç saati vardır.",
+      "en": "The long Bosphorus ferry from Eminönü ends here, at a fishing village tucked into a bay just before the strait opens into the Black Sea. The Byzantines fortified the hill above it, the Genoese held the castle in the 1350s, and Bayezid I took it for the Ottomans in 1391; the name Yoros probably derives from the Greek for a sacred place, since a temple of Zeus stood here first. The twin towers at the gate carry Greek inscriptions and Byzantine monograms in the brickwork.\n\nThe walk up from the pier takes twenty minutes through the village lanes. Excavations have kept parts of the interior closed in recent years, but the outer walls and the terrace in front give the reason to climb: the whole northern Bosphorus below, the Yavuz Sultan Selim Bridge to the south and open sea to the north. Back down, the quayside restaurants serve fried mussels and grilled fish to the ferry crowd, who have two or three hours before the boat returns."
+    },
+    "tips": {
+      "tr": "Yola çıkmadan vapur tarifesine bakın; uzun Boğaz turu günde bir iki kez yapılır ve dönüş saati sabittir. Tırmanış için yürüyüş ayakkabısı giyin; balık siparişinden önce fiyatı sorun.",
+      "en": "Check the ferry timetable before setting out; the long Bosphorus cruise runs once or twice a day and the return is fixed. Wear walking shoes for the climb, and agree fish prices before ordering."
+    },
+    "district": "Beykoz",
+    "address": "Anadolu Kavağı, Yoros Kalesi, 34829 Beykoz/İstanbul",
+    "location": {
+      "lat": 41.1734,
+      "lng": 29.0879
+    },
+    "openingHours": "Village always open; castle grounds in daylight hours (interior partly closed for excavation)",
+    "ticket": {
+      "tr": "Ücretsiz; vapur ücretli",
+      "en": "Free; ferry fare applies"
+    },
+    "visitMinutes": 120,
+    "tags": [
+      "byzantine",
+      "genoese",
+      "castle",
+      "bosphorus",
+      "fishing-village"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Ch%C3%A2teau_Yoros_%28Yoros_Tepesi%29%2C_Anadolu_Kava%C4%9F%C4%B1%2C_Turkey.jpg/1920px-Ch%C3%A2teau_Yoros_%28Yoros_Tepesi%29%2C_Anadolu_Kava%C4%9F%C4%B1%2C_Turkey.jpg",
+        "alt": {
+          "tr": "Boğaz'ın üzerinde Yoros Kalesi ve geçen bir yük gemisi",
+          "en": "Yoros Castle above the Bosphorus with a cargo ship passing below"
+        },
+        "credit": "Moonik",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_Yoros_(Yoros_Tepesi),_Anadolu_Kava%C4%9F%C4%B1,_Turkey.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Anadolu_Kava%C4%9F%C4%B1_with_Yoros_Castle_in_Istanbul%2C_Turkey_001.jpg/1920px-Anadolu_Kava%C4%9F%C4%B1_with_Yoros_Castle_in_Istanbul%2C_Turkey_001.jpg",
+        "alt": {
+          "tr": "Anadolu Kavağı köyü ve tepedeki Yoros Kalesi",
+          "en": "Anadolu Kavağı village with Yoros Castle on the hill above"
+        },
+        "credit": "Moonik",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Anadolu_Kava%C4%9F%C4%B1_with_Yoros_Castle_in_Istanbul,_Turkey_001.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Yoros_Castle_-_20250825.jpg/1920px-Yoros_Castle_-_20250825.jpg",
+        "alt": {
+          "tr": "Yoros Kalesi surlarının yakından görünümü",
+          "en": "The walls and towers of Yoros Castle up close"
+        },
+        "credit": "mike",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Yoros_Castle_-_20250825.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "buyukada",
+    "type": "NATURE",
+    "name": {
+      "tr": "Büyükada",
+      "en": "Büyükada"
+    },
+    "summary": {
+      "tr": "Adalar'ın en büyüğü; ahşap köşkler, çam ormanı, Aya Yorgi tepesi ve arabasız sokaklarıyla şehirden bir buçuk saatlik kaçış.",
+      "en": "The largest of the Princes' Islands, with wooden mansions, pine woods, the St George hilltop and no cars, ninety minutes away."
+    },
+    "description": {
+      "tr": "Büyükada, Adalar'ın en büyüğüdür; Eminönü'nden vapurla bir buçuk saat sürer. Bizanslılar adayı sorun çıkaran prensleri ve imparatoriçeleri sürgüne göndermek için kullandı; Prens Adaları adı oradan gelir. On dokuzuncu yüzyılda varlıklı Rum, Ermeni ve Levanten aileler Çankaya Caddesi'ni süsleyen ahşap köşkleri yaptırdı; 1908 tarihli, çift kubbeli Splendid Palace Oteli hâlâ iskeleye bakar. Troçki 1929-1933 arasındaki sürgününde Rus Devrimi tarihini burada yazdı.\n\nAdada özel araç yoktur. Faytonlar 2020'de kaldırıldı; elektrikli otobüs, kiralık bisiklet veya yürüyerek dolaşılır. Klasik tur, çamların arasından 203 metrelik Yücetepe'deki Aya Yorgi Manastırı'na tırmanır; her inançtan ziyaretçi 23 Nisan'da yol boyunca kurdele bağlar ve teras Marmara'nın üzerinden şehre bakar. Yolda, Avrupa'nın en büyük ahşap yapısı olan 1898 tarihli Rum Yetimhanesi'nin bugün boş duran binasını geçersiniz. Son vapurdan önce Yörükali plajında yüzün ve limanda balık yiyin.",
+      "en": "Büyükada is the largest of the Princes' Islands, ninety minutes from Eminönü by ferry, and the Byzantines exiled troublesome princes and empresses here, which gave the islands their name. In the nineteenth century wealthy Greek, Armenian and Levantine families built the wooden mansions that line Çankaya Caddesi, and the Splendid Palace Hotel of 1908 with its twin domes still faces the pier. Trotsky wrote his history of the Russian Revolution here in exile between 1929 and 1933.\n\nThere are no private cars. Horse carriages were retired in 2020, and you get around by electric bus, hired bicycle or on foot. The classic circuit climbs through pines to the Monastery of St George on Yücetepe, 203 metres up, where pilgrims of every faith tie ribbons along the path on 23 April and the terrace looks across to the city. You pass the Greek Orphanage of 1898, the largest timber building in Europe, now empty. Swim at Yörükali beach and eat fish by the harbour before the last ferry."
+    },
+    "tips": {
+      "tr": "Hafta içi ilk sabah vapuruna binin; yaz hafta sonları ada dolar ve son dönüş vapurları kalabalıktır. Manastır yolu diktir, spor ayakkabı giyin; temmuz ve ağustosta yanınıza su alın.",
+      "en": "Take the first morning ferry on a weekday; summer weekends are packed and the last boats back are crowded. The monastery path is steep, so wear trainers, and carry water in July and August."
+    },
+    "district": "Adalar",
+    "address": "Büyükada Nizam, 34970 Adalar/İstanbul",
+    "location": {
+      "lat": 40.8761,
+      "lng": 29.1278
+    },
+    "openingHours": "Always open; ferries from Kabataş, Eminönü, Beşiktaş and Bostancı",
+    "ticket": {
+      "tr": "Ücretsiz; vapur ücretli",
+      "en": "Free; ferry fare applies"
+    },
+    "visitMinutes": 240,
+    "tags": [
+      "island",
+      "nature",
+      "mansions",
+      "monastery",
+      "ferry"
+    ],
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Buyukada_of_Prince_Islands_in_Istanbul.jpg/1920px-Buyukada_of_Prince_Islands_in_Istanbul.jpg",
+        "alt": {
+          "tr": "Büyükada'da Çankaya Caddesi üzerinde tarihî bir köşk",
+          "en": "A historic mansion on Büyükada's Çankaya Caddesi"
+        },
+        "credit": "Ozalphakan2",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Buyukada_of_Prince_Islands_in_Istanbul.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Splendid_Palas_Hotel.jpg/1920px-Splendid_Palas_Hotel.jpg",
+        "alt": {
+          "tr": "Çift kubbeli Splendid Palas Oteli'nin cephesi",
+          "en": "Facade of the twin-domed Splendid Palas Hotel"
+        },
+        "credit": "Maurice Flesier",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Splendid_Palas_Hotel.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/View_of_Istanbul_from_B%C3%BCy%C3%BCkada.jpg/1920px-View_of_Istanbul_from_B%C3%BCy%C3%BCkada.jpg",
+        "alt": {
+          "tr": "Büyükada'nın tepesinden Marmara ve şehir manzarası",
+          "en": "The Marmara and the city seen from Büyükada's hilltop"
+        },
+        "credit": "Ceylnbirol",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:View_of_Istanbul_from_B%C3%BCy%C3%BCkada.jpg"
+      }
+    ]
+  }
+]
