@@ -1,0 +1,14 @@
+"use client";
+
+import type { GeoJsonLineString } from "@/lib/contract/api";
+import { RouteMap, type MapNode } from "@/components/map/route-map";
+
+/** Client boundary for the hero: MapLibre needs the DOM, the hero itself stays a server component. */
+export function HeroMap({ path, nodes }: { path?: GeoJsonLineString; nodes: MapNode[] }) {
+  return (
+    <div className="absolute inset-0">
+      <RouteMap mode="hero" path={path} nodes={nodes} className="h-full w-full" fitKey={nodes.map((n) => n.id).join("|")} />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_70%_40%,transparent_40%,var(--bg)_100%)] opacity-70" aria-hidden />
+    </div>
+  );
+}
