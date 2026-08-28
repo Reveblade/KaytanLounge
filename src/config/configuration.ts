@@ -76,9 +76,34 @@ function num(value: string | undefined, fallback: number): number {
   return Number.isFinite(parsed) ? parsed : fallback;
 }
 
+/** Cloud Run injects K_SERVICE. Local .env often still has HOST=127.0.0.1 / PORT=3300. */
+export function resolveBindAddress(env: NodeJS.ProcessEnv): { host: string; port: number } {
+  const onCloudRun = Boolean(env.K_SERVICE);
+  const production = (env.NODE_ENV ?? 'development') === 'production';
+  const host = onCloudRun || production ? '0.0.0.0' : (env.HOST?.trim() || '127.0.0.1');
+  let port = int(env.PORT, onCloudRun ? 8080 : 3300);
+  if (onCloudRun && port === 3300) port = 8080;
+  return { host, port };
+}
+
+export function assertMongoUriForRuntime(uri: string, env: NodeJS.ProcessEnv): void {
+  const hosted = Boolean(env.K_SERVICE) || (env.NODE_ENV ?? 'development') === 'production';
+  if (!hosted) return;
+  if (/[<>]/.test(uri)) {
+    throw new Error(
+      'MONGODB_URI still contains <placeholder> brackets. Use the Atlas username without them.',
+    );
+  }
+  if (/127\.0\.0\.1|localhost/i.test(uri)) {
+    throw new Error('MONGODB_URI points at localhost; Cloud Run needs the Atlas mongodb+srv:// URI.');
+  }
+}
+
 export default () => {
   const env = process.env;
-  const trustProxyRaw = env.TRUST_PROXY ?? '0';
+  const { host, port } = resolveBindAddress(env);
+  assertMongoUriForRuntime(env.MONGODB_URI ?? 'mongodb://127.0.0.1:27017', env);
+  const trustProxyRaw = env.TRUST_PROXY ?? (env.K_SERVICE ? '1' : '0');
   const trustProxy: number | boolean =
     trustProxyRaw === 'true' ? true : trustProxyRaw === 'false' ? false : int(trustProxyRaw, 0);
 
@@ -89,8 +114,8 @@ export default () => {
   return {
     app: {
       nodeEnv: env.NODE_ENV ?? 'development',
-      port: int(env.PORT, 3300),
-      host: env.HOST ?? '127.0.0.1',
+      port,
+      host,
       apiPrefix: env.API_PREFIX ?? 'api',
       apiVersion: env.API_VERSION ?? 'v1',
       corsOrigins: list(env.CORS_ORIGINS),

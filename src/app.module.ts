@@ -27,7 +27,12 @@ import { ToursModule } from './modules/tours/tours.module';
       inject: [ConfigService],
       useFactory: (config: ConfigService) => {
         const db = config.getOrThrow<DatabaseConfig>('database');
-        return { uri: db.uri, dbName: db.dbName, autoIndex: true };
+        return {
+          uri: db.uri,
+          dbName: db.dbName,
+          autoIndex: process.env.NODE_ENV !== 'production',
+          serverSelectionTimeoutMS: 8_000,
+        };
       },
     }),
     ScheduleModule.forRoot(),
