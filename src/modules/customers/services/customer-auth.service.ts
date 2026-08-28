@@ -105,12 +105,34 @@ export class CustomerAuthService {
     return this.exchange(session, origin);
   }
 
-  /** A client that already holds a Kuwho session (future kuwho.com SSO) trades it in here. */
+  /**
+   * A client that already holds a Kuwho session (future kuwho.com SSO) trades it in here.
+   * Both tokens are required: a stolen access token alone must not mint a 30-day local session.
+   */
   async exchangeKuwhoTokens(kuwhoAccessToken: string, kuwhoRefreshToken: string, origin: RequestOrigin) {
     const profile = await this.kuwho.get<KuwhoProfile>('customers/me', { bearer: kuwhoAccessToken });
+    let fresh: KuwhoSession;
+    try {
+      fresh = await this.kuwho.post<KuwhoSession>('auth/customer/refresh', { refreshToken: kuwhoRefreshToken });
+    } catch (error) {
+      if (error instanceof DomainException && error.getStatus() >= 500) throw error;
+      if (error instanceof DomainException) {
+        throw new UnauthorizedException({
+          code: 'INVALID_KUWHO_REFRESH',
+          message: 'The Kuwho session is no longer valid',
+        });
+      }
+      throw error;
+    }
+    if (fresh.customer?.id && fresh.customer.id !== profile.id) {
+      throw new UnauthorizedException({
+        code: 'KUWHO_TOKEN_MISMATCH',
+        message: 'The Kuwho token pair does not belong to the same account',
+      });
+    }
     const session: KuwhoSession = {
-      accessToken: kuwhoAccessToken,
-      refreshToken: kuwhoRefreshToken,
+      accessToken: fresh.accessToken,
+      refreshToken: fresh.refreshToken,
       customer: {
         id: profile.id,
         displayName: profile.displayName,
@@ -128,18 +150,30 @@ export class CustomerAuthService {
   // -- Local session lifecycle -------------------------------------------------------
 
   async refresh(refreshToken: string): Promise<CustomerSessionDto> {
-    const session = await this.sessions.findOne({ refreshHash: this.tokens.hashRefresh(refreshToken) });
-    if (!session || session.revokedAt || session.expiresAt < new Date()) {
-      throw new UnauthorizedException({ code: 'INVALID_REFRESH_TOKEN', message: 'Sign in again' });
+    const hash = this.tokens.hashRefresh(refreshToken);
+    const session = await this.sessions.findOne({ refreshHash: hash });
+    if (session) {
+      if (session.revokedAt || session.expiresAt < new Date()) {
+        throw new UnauthorizedException({ code: 'INVALID_REFRESH_TOKEN', message: 'Sign in again' });
+      }
+      const customer = await this.customers.getById(String(session.customerId));
+      const rotated = this.tokens.issueRefreshToken();
+      session.previousRefreshHash = session.refreshHash;
+      session.refreshHash = rotated.hash;
+      session.lastSeenAt = new Date();
+      session.expiresAt = new Date(Date.now() + this.tokens.refreshTtlMs());
+      await session.save();
+      await this.customers.touch(String(customer._id));
+      return this.sessionDto(customer, String(session._id), rotated.token);
     }
-    const customer = await this.customers.getById(String(session.customerId));
-    const rotated = this.tokens.issueRefreshToken();
-    session.refreshHash = rotated.hash;
-    session.lastSeenAt = new Date();
-    session.expiresAt = new Date(Date.now() + this.tokens.refreshTtlMs());
-    await session.save();
-    await this.customers.touch(String(customer._id));
-    return this.sessionDto(customer, String(session._id), rotated.token);
+    const reused = await this.sessions.findOne({ previousRefreshHash: hash });
+    if (reused) {
+      reused.revokedAt = new Date();
+      await reused.save();
+      this.kuwhoAccessCache.delete(String(reused._id));
+      throw new UnauthorizedException({ code: 'REFRESH_TOKEN_REUSED', message: 'Sign in again' });
+    }
+    throw new UnauthorizedException({ code: 'INVALID_REFRESH_TOKEN', message: 'Sign in again' });
   }
 
   async logout(sessionId: string): Promise<void> {
@@ -158,10 +192,14 @@ export class CustomerAuthService {
   }
 
   async logoutEverywhere(customerId: string): Promise<void> {
+    const open = await this.sessions
+      .find({ customerId: new Types.ObjectId(customerId), revokedAt: { $exists: false } })
+      .select('_id');
     await this.sessions.updateMany(
       { customerId: new Types.ObjectId(customerId), revokedAt: { $exists: false } },
       { $set: { revokedAt: new Date() } },
     );
+    for (const session of open) this.kuwhoAccessCache.delete(String(session._id));
   }
 
   async listSessions(actor: RequestActor) {
@@ -183,6 +221,7 @@ export class CustomerAuthService {
       { _id: new Types.ObjectId(sessionId), customerId: new Types.ObjectId(actor.id) },
       { $set: { revokedAt: new Date() } },
     );
+    this.kuwhoAccessCache.delete(sessionId);
   }
 
   // -- Acting at Kuwho on the customer's behalf ------------------------------------

@@ -46,21 +46,31 @@ export class AdminAuthService {
   async refresh(refreshToken: string): Promise<AdminSessionDto> {
     const hash = this.tokens.hashRefresh(refreshToken);
     const session = await this.sessions.findOne({ refreshHash: hash });
-    if (!session || session.revokedAt || session.expiresAt < new Date()) {
-      throw new UnauthorizedException({ code: 'INVALID_REFRESH_TOKEN', message: 'Sign in again' });
-    }
-    const { admin, role } = await this.admins.getWithRole(String(session.adminId));
-    if (admin.status !== 'ACTIVE' || admin.sessionVersion !== session.sessionVersion) {
-      session.revokedAt = new Date();
+    if (session) {
+      if (session.revokedAt || session.expiresAt < new Date()) {
+        throw new UnauthorizedException({ code: 'INVALID_REFRESH_TOKEN', message: 'Sign in again' });
+      }
+      const { admin, role } = await this.admins.getWithRole(String(session.adminId));
+      if (admin.status !== 'ACTIVE' || admin.sessionVersion !== session.sessionVersion) {
+        session.revokedAt = new Date();
+        await session.save();
+        throw new UnauthorizedException({ code: 'SESSION_REVOKED', message: 'This session was signed out' });
+      }
+      const rotated = this.tokens.issueRefreshToken();
+      session.previousRefreshHash = session.refreshHash;
+      session.refreshHash = rotated.hash;
+      session.lastSeenAt = new Date();
+      session.expiresAt = new Date(Date.now() + this.tokens.refreshTtlMs());
       await session.save();
-      throw new UnauthorizedException({ code: 'SESSION_REVOKED', message: 'This session was signed out' });
+      return this.sessionDto(admin, role, { sessionId: session._id, refreshToken: rotated.token });
     }
-    const rotated = this.tokens.issueRefreshToken();
-    session.refreshHash = rotated.hash;
-    session.lastSeenAt = new Date();
-    session.expiresAt = new Date(Date.now() + this.tokens.refreshTtlMs());
-    await session.save();
-    return this.sessionDto(admin, role, { sessionId: session._id, refreshToken: rotated.token });
+    const reused = await this.sessions.findOne({ previousRefreshHash: hash });
+    if (reused) {
+      reused.revokedAt = new Date();
+      await reused.save();
+      throw new UnauthorizedException({ code: 'REFRESH_TOKEN_REUSED', message: 'Sign in again' });
+    }
+    throw new UnauthorizedException({ code: 'INVALID_REFRESH_TOKEN', message: 'Sign in again' });
   }
 
   async logout(sessionId: string): Promise<void> {

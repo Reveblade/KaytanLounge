@@ -10,6 +10,10 @@ export class AdminSession {
   @Prop({ type: String, required: true, index: true })
   refreshHash!: string;
 
+  /** Previous refresh hash, kept so a replay after rotation can kill this session. */
+  @Prop({ type: String, index: true })
+  previousRefreshHash?: string;
+
   @Prop({ type: Number, default: 0 })
   sessionVersion!: number;
 
