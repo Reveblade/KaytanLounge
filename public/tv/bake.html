@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>TV map bake</title>
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.css" />
+    <style>
+      html,
+      body,
+      #map {
+        margin: 0;
+        height: 100%;
+        background: #0e0e11;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script src="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.js"></script>
+    <script>
+      const map = new maplibregl.Map({
+        container: "map",
+        style: "https://tiles.openfreemap.org/styles/dark",
+        center: [28.98, 41.03],
+        zoom: 12.2,
+        pitch: 58,
+        bearing: -18,
+        attributionControl: false,
+        fadeDuration: 0,
+      });
+      map.on("styleimagemissing", (event) => {
+        if (map.hasImage(event.id)) return;
+        map.addImage(event.id, { width: 1, height: 1, data: new Uint8Array(4) });
+      });
+      map.on("load", () => {
+        document.documentElement.dataset.ready = "true";
+      });
+    </script>
+  </body>
+</html>

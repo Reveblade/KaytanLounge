@@ -15,9 +15,8 @@ const IDLE_MS = 3200;
 /**
  * A looping reel of the product, built for a television, a lounge wall, a booth.
  *
- * The city stays up for the whole run as a raster map in the HTML — a lounge
- * television never starts MapLibre, so the backdrop cannot depend on WebGL.
- * Scenes that need photography cover it; scenes that need the city dim it.
+ * The city is the homepage map: OpenFreeMap behind the reel. A lounge set
+ * keeps a still baked from that map; WebGL never starts there.
  */
 export function TvShow(data: TvData) {
   const { t, locale } = useI18n();

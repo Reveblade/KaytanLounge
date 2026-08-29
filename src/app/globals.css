@@ -1820,32 +1820,15 @@ html.tv-active body {
     #0e0e11;
 }
 
-.tv-raster {
+.tv-city {
   position: absolute;
   inset: 0;
-  overflow: hidden;
-  background: #0e0e11;
-}
-.tv-raster-board {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  grid-template-columns: repeat(var(--tv-cols, 6), 1fr);
-}
-.tv-raster-board img {
   display: block;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: 68% 42%;
   border: 0;
-  /* OSM is daylight. Invert it onto the graphite field; the route SVG sits above this. */
-  filter: invert(1) hue-rotate(180deg) saturate(0.35) brightness(0.78);
-}
-.tv-raster-ink {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
 }
 
 @keyframes tv-scene {
