@@ -15,11 +15,9 @@ const IDLE_MS = 3200;
 /**
  * A looping reel of the product, built for a television, a lounge wall, a booth.
  *
- * The living map stays up for the whole run — scenes that need photography
- * cover it, scenes that need the city simply dim it. On a lounge set the
- * camera stays flat so WebGL actually paints. Stills stay still. Motion that
- * remains (the filmstrip, the progress hairline) is CSS so a paused reel
- * actually freezes.
+ * The city stays up for the whole run as a raster map in the HTML — a lounge
+ * television never starts MapLibre, so the backdrop cannot depend on WebGL.
+ * Scenes that need photography cover it; scenes that need the city dim it.
  */
 export function TvShow(data: TvData) {
   const { t, locale } = useI18n();
