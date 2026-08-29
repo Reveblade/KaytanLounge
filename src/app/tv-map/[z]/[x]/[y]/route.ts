@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
 
 /**
- * Same-origin dark basemap tiles for the lounge reel. Smart TVs load our host;
- * they often drop a third-party tile CDN, and they never get as far as MapLibre.
+ * Same-origin OpenStreetMap tiles for the lounge reel. Carto's "dark_all"
+ * raster now watermarks every tile with "API KEY REQUIRED"; OSM does not.
+ * Cached here so the set talks to us, not to tile.openstreetmap.org.
  */
 export async function GET(_req: Request, ctx: { params: Promise<{ z: string; x: string; y: string }> }) {
   const { z, x, y } = await ctx.params;
@@ -16,15 +17,18 @@ export async function GET(_req: Request, ctx: { params: Promise<{ z: string; x: 
   if (xi < 0 || yi < 0 || xi >= extent || yi >= extent) {
     return new NextResponse(null, { status: 400 });
   }
-  const upstream = await fetch(`https://basemaps.cartocdn.com/dark_all/${zi}/${xi}/${yi}.png`, {
-    headers: { accept: "image/png" },
+  const upstream = await fetch(`https://tile.openstreetmap.org/${zi}/${xi}/${yi}.png`, {
+    headers: {
+      accept: "image/png",
+      "user-agent": "BaskaIstanbulYok/1.0 (https://baskaistanbulyok.com; lounge display)",
+    },
     next: { revalidate: 86_400 },
   });
   if (!upstream.ok || !upstream.body) return new NextResponse(null, { status: upstream.status || 502 });
   return new NextResponse(upstream.body, {
     status: 200,
     headers: {
-      "content-type": "image/png",
+      "content-type": upstream.headers.get("content-type") ?? "image/png",
       "cache-control": "public, max-age=86400, stale-while-revalidate=604800",
     },
   });

@@ -9,8 +9,9 @@ const TILE = 256;
 const MAX_TILES = 28;
 
 /**
- * A real map that is just images and an SVG. It is in the HTML the server
- * sends, so a television that never runs our JavaScript still sees the city.
+ * A real map that is just OpenStreetMap images and an SVG. It is in the HTML
+ * the server sends, so a television that never runs our JavaScript still sees
+ * the city. No third-party key — Carto's free dark tiles now watermark.
  */
 export function TvRasterMap({ path, nodes }: { path?: GeoJsonLineString; nodes: Node[] }) {
   const points = collect(path, nodes);
@@ -23,7 +24,7 @@ export function TvRasterMap({ path, nodes }: { path?: GeoJsonLineString; nodes: 
     for (let col = 0; col < grid.cols; col++) {
       const x = grid.x0 + col;
       const y = grid.y0 + row;
-      tiles.push({ key: `${grid.z}-${x}-${y}`, src: `/tv-tiles/${grid.z}/${x}/${y}` });
+      tiles.push({ key: `${grid.z}-${x}-${y}`, src: `/tv-map/${grid.z}/${x}/${y}` });
     }
   }
 
@@ -66,8 +67,8 @@ function lon2tile(lon: number, z: number) {
 }
 
 function lat2tile(lat: number, z: number) {
-  const s = Math.sin((lat * Math.PI) / 180);
-  return ((1 - Math.log((1 + s) / (1 - s)) / Math.PI) / 2) * 2 ** z;
+  const rad = (lat * Math.PI) / 180;
+  return ((1 - Math.log(Math.tan(rad) + 1 / Math.cos(rad)) / Math.PI) / 2) * 2 ** z;
 }
 
 function project(lng: number, lat: number, grid: Grid) {
