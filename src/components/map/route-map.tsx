@@ -39,10 +39,15 @@ interface Props {
    */
   drawPath?: boolean;
   /**
-   * Flat camera, 1× framebuffer, no orbit. Lounge TVs go black on a pitched
-   * 4K WebGL city; this is the same map, cheap enough to paint.
+   * Flat camera, 1× framebuffer, no orbit. A last-resort map when the set
+   * cannot hold a pitched city at all.
    */
   lite?: boolean;
+  /**
+   * Same pitched, turning city as the hero — 1× framebuffer, no sky, no
+   * software GL. Pair with a CSS-scaled 1080p box on lounge TVs.
+   */
+  budget?: boolean;
 }
 
 const STYLE_LIGHT = process.env.NEXT_PUBLIC_MAP_STYLE_LIGHT ?? "https://tiles.openfreemap.org/styles/positron";
@@ -189,7 +194,7 @@ function boundsOf(nodes: MapNode[], path?: GeoJsonLineString): LngLatBoundsLike 
  * whenever the style (theme) swaps, and keeps DOM markers in sync with `nodes`.
  * No React state is touched per frame: the hero rotation runs on requestAnimationFrame.
  */
-function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore", padding, className, fitKey, drawPath = true, lite = false }: Props) {
+function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore", padding, className, fitKey, drawPath = true, lite = false, budget = false }: Props) {
   const { t } = useI18n();
   const container = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
@@ -197,10 +202,10 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
   const clusters = useRef<Map<string, maplibregl.Marker>>(new Map());
   // The map is built once; this keeps the newest props reachable from inside its
   // long-lived handlers without tearing the map down on every render.
-  const latest = useRef({ path, nodes, activeNodeId, onNodeClick, padding, mode, drawPath, lite, t });
+  const latest = useRef({ path, nodes, activeNodeId, onNodeClick, padding, mode, drawPath, lite, budget, t });
   useEffect(() => {
-    latest.current = { path, nodes, activeNodeId, onNodeClick, padding, mode, drawPath, lite, t };
-  }, [path, nodes, activeNodeId, onNodeClick, padding, mode, drawPath, lite, t]);
+    latest.current = { path, nodes, activeNodeId, onNodeClick, padding, mode, drawPath, lite, budget, t };
+  }, [path, nodes, activeNodeId, onNodeClick, padding, mode, drawPath, lite, budget, t]);
   /** Re-labels the 3D button when the language changes under a map that is never rebuilt. */
   const syncTilt = useRef<() => void>(() => {});
   /** The padding a refit last flew to, and when: the pan below tells its own work apart. */
@@ -213,6 +218,7 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const hero = mode === "hero";
     const cheap = lite;
+    const lean = budget;
     let map: MapLibreMap;
     try {
       map = new maplibregl.Map({
@@ -231,9 +237,11 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
         // The credit is a line of text under the controls, not a button to press: see globals.css.
         attributionControl: false,
         cooperativeGestures: false,
-        fadeDuration: cheap ? 0 : 300,
+        fadeDuration: cheap || lean ? 0 : 300,
         // A 4K set at 2× is an 8K framebuffer. That is what goes black on lounge GPUs.
-        ...(cheap ? { pixelRatio: 1 } : {}),
+        ...(cheap || lean ? { pixelRatio: 1 } : {}),
+        // Software GL on a set is a black rectangle. Prefer the still underneath.
+        ...(lean ? { canvasContextAttributes: { failIfMajorPerformanceCaveat: true } } : {}),
       });
     } catch {
       return;
@@ -298,7 +306,7 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
       tilted = null;
       // At 60° the horizon is in frame; without this it is the void behind the tiles.
       // Atmosphere is a WebGL2 path some lounge sets do not have — skip it there.
-      if (!cheap) {
+      if (!cheap && !lean) {
         try {
           map.setSky({
             "sky-color": bg,
@@ -366,10 +374,11 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
     map.on("load", () => {
       applyLayers();
       fitAt.current = performance.now();
-      fit(map, latest.current.nodes, latest.current.path, latest.current.padding, mode, true, cheap);
+      fit(map, latest.current.nodes, latest.current.path, latest.current.padding, mode, true, cheap, lean);
       /* The house radio waits on this: the music arrives with the city, not before it.
          Deliberately not on `style.load`, which also fires on every theme swap. */
       window.dispatchEvent(new CustomEvent("biy-map-ready"));
+      map.once("idle", () => window.dispatchEvent(new CustomEvent("biy-map-idle")));
     });
     map.on("pitch", applyTilt);
 
@@ -442,7 +451,7 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
       const source = map.getSource("route") as maplibregl.GeoJSONSource | undefined;
       if (source) source.setData(lineGeoJson(path, nodes, drawPath));
       fitAt.current = performance.now();
-      fit(map, nodes, path, latest.current.padding, mode, false, latest.current.lite);
+      fit(map, nodes, path, latest.current.padding, mode, false, latest.current.lite, latest.current.budget);
     };
     if (map.isStyleLoaded()) update();
     else map.once("load", update);
@@ -810,12 +819,12 @@ function reserve(map: MapLibreMap, bounds: LngLatBoundsLike, pad: NonNullable<Pr
   map.setPadding({ ...pad, top: Math.round(pad.top * keep), bottom: Math.round(pad.bottom * keep) });
 }
 
-function fit(map: MapLibreMap, nodes: MapNode[], path: GeoJsonLineString | undefined, padding: Props["padding"], mode: Props["mode"], initial: boolean, lite = false) {
+function fit(map: MapLibreMap, nodes: MapNode[], path: GeoJsonLineString | undefined, padding: Props["padding"], mode: Props["mode"], initial: boolean, lite = false, budget = false) {
   const bounds = boundsOf(nodes, path);
   if (!bounds) return;
   if (mode === "hero") {
     map.fitBounds(bounds, {
-      padding: lite ? { top: 80, right: 80, bottom: 80, left: 80 } : { top: 120, right: 80, bottom: 80, left: 380 },
+      padding: lite || budget ? { top: 80, right: 80, bottom: 80, left: 80 } : { top: 120, right: 80, bottom: 80, left: 380 },
       pitch: lite ? 0 : 58,
       bearing: map.getBearing(),
       duration: initial ? 0 : 1600,

@@ -1831,6 +1831,35 @@ html.tv-active body {
   border: 0;
 }
 
+/*
+  Lounge 3D: keep the canvas off-screen until MapLibre idles, so a black
+  context never covers the baked still. 4K sets draw at half size and scale
+  up — that is a 1080p framebuffer, not an 8K one.
+*/
+.tv-map-live {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+.tv-map-live[data-painted="true"] {
+  opacity: 1;
+}
+.tv-map-budget {
+  height: 100%;
+  width: 100%;
+}
+@media (min-width: 2000px) {
+  .tv-map-budget {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    transform: scale(2);
+    transform-origin: top left;
+  }
+}
+
 @keyframes tv-scene {
   from {
     opacity: 0;

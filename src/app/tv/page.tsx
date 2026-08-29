@@ -16,7 +16,8 @@ export async function generateMetadata(): Promise<Metadata> {
 /**
  * A full-viewport reel of the product. No chrome of the site itself — the house
  * radio still plays underneath, the map still turns, and the loop is meant to run
- * unattended on a lounge screen or a booth.
+ * unattended on a lounge screen or a booth. Lounge TVs get the same pitched
+ * city at a 1080p budget.
  */
 export default async function TvPage() {
   const [bootstrap, cards] = await Promise.all([loadBootstrap(), loadRouteCards()]);

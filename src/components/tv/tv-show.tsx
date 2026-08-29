@@ -16,7 +16,8 @@ const IDLE_MS = 3200;
  * A looping reel of the product, built for a television, a lounge wall, a booth.
  *
  * The city is the homepage map: OpenFreeMap behind the reel. A lounge set
- * keeps a still baked from that map; WebGL never starts there.
+ * gets the same pitched city at a 1080p budget; the baked still holds the
+ * frame until WebGL paints.
  */
 export function TvShow(data: TvData) {
   const { t, locale } = useI18n();
