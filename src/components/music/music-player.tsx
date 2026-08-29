@@ -19,7 +19,7 @@ import {
   SpeakerSimpleX,
 } from "@phosphor-icons/react";
 import { useI18n } from "@/lib/i18n/context";
-import { TRACKS } from "@/lib/music";
+import { MUSIC_TOGGLE_EVENT, publishMusicPlaying, TRACKS } from "@/lib/music";
 
 type RepeatMode = "off" | "all" | "one";
 
@@ -309,8 +309,12 @@ export function MusicPlayer() {
     const onPlay = () => {
       selfStartDoneRef.current = true;
       setPlaying(true);
+      publishMusicPlaying(true);
     };
-    const onPause = () => setPlaying(false);
+    const onPause = () => {
+      setPlaying(false);
+      publishMusicPlaying(false);
+    };
     const onTime = () => {
       if (!scrubRef.current) setTime(audio.currentTime);
     };
@@ -319,6 +323,7 @@ export function MusicPlayer() {
     const onError = () => {
       setFailed(true);
       setPlaying(false);
+      publishMusicPlaying(false);
     };
     audio.addEventListener("play", onPlay);
     audio.addEventListener("pause", onPause);
@@ -405,7 +410,21 @@ export function MusicPlayer() {
     return () => window.removeEventListener("keydown", onKey);
   }, [expanded]);
 
+  /* The lounge reel has no dock; its chrome asks the radio to pause or continue. */
+  useEffect(() => {
+    const onToggle = () => toggle();
+    window.addEventListener(MUSIC_TOGGLE_EVENT, onToggle);
+    return () => window.removeEventListener(MUSIC_TOGGLE_EVENT, onToggle);
+  }, [toggle]);
+
   if (!mounted) return null;
+
+  /* The lounge reel is the picture: the dock would sit on it. The element stays so
+     a piece already playing (or one the map cues) keeps going underneath, and the
+     TV chrome talks to this radio through MUSIC_TOGGLE_EVENT. */
+  if (pathname.startsWith("/tv")) {
+    return <audio ref={audioRef} src={track.src} preload="none" loop={repeat === "one"} />;
+  }
 
   /* Checkout parks a fixed summary bar at the bottom on small screens; the dock
      steps over it rather than landing on the pay button. */

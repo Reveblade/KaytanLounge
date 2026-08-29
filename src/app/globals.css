@@ -27,6 +27,8 @@
   --font-sans: var(--font-geist), "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
   /* The logotype only: a hand, not a typeface. Never used for running text. */
   --font-script: var(--font-script-face), "Yellowtail", "Segoe Script", cursive;
+  /* Loading screen signature: thin monoline script for "istanbul" alone. */
+  --font-hand: var(--font-hand-face), "Sacramento", cursive;
 
   --color-bg: var(--bg);
   --color-surface: var(--surface);
@@ -78,14 +80,16 @@
   --warning: #f0b35a;
   --danger: #ff6b6b;
   --scrim: rgba(10, 10, 12, 0.6);
-  --glass: rgba(26, 26, 31, 0.56);
-  --glass-strong: rgba(22, 22, 27, 0.8);
-  --glass-soft: rgba(255, 255, 255, 0.06);
+  --glass: rgba(26, 26, 31, 0.38);
+  --glass-strong: rgba(22, 22, 27, 0.52);
+  --glass-soft: rgba(255, 255, 255, 0.08);
   --glass-line: rgba(255, 255, 255, 0.11);
   --glass-highlight: rgba(255, 255, 255, 0.1);
   --shadow-panel: 0 30px 80px -30px rgba(0, 0, 0, 0.7), 0 2px 12px -4px rgba(0, 0, 0, 0.45);
   --shadow-card: 0 18px 50px -24px rgba(0, 0, 0, 0.65);
   --map-glow: rgba(255, 160, 122, 0.5);
+  /* Same rim the numbered pins wear on the map — never --bg, which goes black on TV. */
+  --map-pin-rim: rgba(255, 255, 255, 0.92);
   /* The extruded city: graphite that lifts off the night basemap, lighter as it grows taller. */
   --map-building: #1e1e25;
   --map-building-tall: #3c3c48;
@@ -113,14 +117,15 @@
   --warning: #b8720f;
   --danger: #d43a3a;
   --scrim: rgba(245, 245, 247, 0.6);
-  --glass: rgba(255, 255, 255, 0.62);
-  --glass-strong: rgba(255, 255, 255, 0.84);
-  --glass-soft: rgba(29, 29, 31, 0.04);
+  --glass: rgba(255, 255, 255, 0.42);
+  --glass-strong: rgba(255, 255, 255, 0.58);
+  --glass-soft: rgba(255, 255, 255, 0.28);
   --glass-line: rgba(255, 255, 255, 0.75);
   --glass-highlight: rgba(255, 255, 255, 0.9);
   --shadow-panel: 0 30px 80px -36px rgba(29, 29, 31, 0.35), 0 1px 0 rgba(29, 29, 31, 0.06);
   --shadow-card: 0 18px 50px -28px rgba(29, 29, 31, 0.3);
   --map-glow: rgba(224, 102, 63, 0.35);
+  --map-pin-rim: #fff;
   --map-building: #e7e7ec;
   --map-building-tall: #c2c2cc;
   --ambient-a: rgba(255, 160, 122, 0.22);
@@ -176,6 +181,9 @@ a {
 
 .font-display {
   font-family: var(--font-display);
+}
+.font-hand {
+  font-family: var(--font-hand);
 }
 
 .display-xl {
@@ -257,7 +265,7 @@ a {
 .glass {
   background: var(--glass);
   border: 1px solid var(--glass-line);
-  backdrop-filter: blur(28px) saturate(170%);
+  backdrop-filter: blur(56px) saturate(180%);
   box-shadow:
     var(--shadow-panel),
     inset 0 1px 0 var(--glass-highlight);
@@ -266,29 +274,57 @@ a {
 .glass-strong {
   background: var(--glass-strong);
   border: 1px solid var(--glass-line);
-  backdrop-filter: blur(32px) saturate(170%);
+  backdrop-filter: blur(72px) saturate(180%);
   box-shadow:
     var(--shadow-panel),
     inset 0 1px 0 var(--glass-highlight);
 }
 
-/* A lighter pane for elements nested inside a glass panel (no shadow, no heavy blur). */
+/* Nested pane: lighter fill, still frosted so it does not read as a flat chip. */
 .glass-soft {
   background: var(--glass-soft);
   border: 1px solid var(--line);
   box-shadow: inset 0 1px 0 var(--glass-highlight);
+  backdrop-filter: blur(28px) saturate(160%);
+}
+
+/*
+  Caption sitting on a photograph that itself is moving — a carousel card, a
+  mosaic tile. Backdrop-filter samples the pixels behind it every compositor
+  frame; on a translating photo that is a full-card blur pass, which is what
+  made the route strip hitch. A solid plate reads the same and costs a fill.
+*/
+.photo-plate {
+  background: rgba(14, 16, 22, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+.photo-chip {
+  background: rgba(8, 9, 13, 0.72);
 }
 
 /* Card that lifts on hover. */
 .glass-card {
-  background: var(--glass-soft);
-  border: 1px solid var(--line);
+  background: var(--glass);
+  border: 1px solid var(--glass-line);
   box-shadow: inset 0 1px 0 var(--glass-highlight);
+  backdrop-filter: blur(48px) saturate(170%);
   transition:
     transform 320ms var(--ease-out-quint),
     border-color 200ms var(--ease-soft),
     background-color 200ms var(--ease-soft),
     box-shadow 320ms var(--ease-out-quint);
+}
+
+/*
+  Caption sitting on a still photograph. Stronger frost than .glass because the
+  photo is busy; a thin fill would leave the type fighting the image.
+*/
+.glass-frost {
+  background: rgba(14, 16, 22, 0.34);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(48px) saturate(160%);
 }
 .glass-card:hover {
   transform: translateY(-2px);
@@ -300,8 +336,14 @@ a {
 
 @media (prefers-reduced-transparency: reduce) {
   .glass,
-  .glass-strong {
+  .glass-strong,
+  .glass-soft,
+  .glass-card {
     background: var(--surface);
+    backdrop-filter: none;
+  }
+  .glass-frost {
+    background: rgba(10, 10, 12, 0.82);
     backdrop-filter: none;
   }
   /* Still over a photograph, so it stays dark rather than becoming a surface. */
@@ -457,7 +499,7 @@ a {
   color: var(--ink);
   border: 1px solid var(--line-strong);
   box-shadow: inset 0 1px 0 var(--glass-highlight);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(28px) saturate(160%);
 }
 .btn-ghost:hover,
 .btn-glass:hover {
@@ -479,7 +521,7 @@ a {
   box-shadow:
     0 2px 14px rgba(0, 0, 0, 0.45),
     inset 0 1px 0 rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(14px) saturate(0.45) brightness(0.42);
+  backdrop-filter: blur(28px) saturate(0.45) brightness(0.42);
 }
 .btn-scrim:hover {
   color: #fff;
@@ -491,6 +533,14 @@ a {
 @supports not (backdrop-filter: blur(1px)) {
   .btn-scrim {
     background: rgba(10, 10, 12, 0.66);
+  }
+  .glass,
+  .glass-strong,
+  .glass-card {
+    background: var(--surface);
+  }
+  .glass-frost {
+    background: rgba(14, 16, 22, 0.78);
   }
 }
 
@@ -802,7 +852,7 @@ select.field {
   border: 1px solid var(--glass-line) !important;
   border-radius: 14px !important;
   overflow: hidden;
-  backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(40px) saturate(170%);
   box-shadow: var(--shadow-card) !important;
 }
 .maplibregl-ctrl-group button {
@@ -877,6 +927,29 @@ select.field {
   height: 10px;
 }
 
+/*
+  Hero itinerary dots. The rim is --map-pin-rim: the same white the numbered pins
+  already use on the homepage map. It must not be --bg — inside the TV reel the
+  wrapper is forced dark, and --bg would paint the ring black.
+*/
+.node-dot {
+  display: block;
+  border: 1px solid var(--map-pin-rim);
+  border-radius: 999px;
+  background: var(--accent);
+  padding: 0;
+  cursor: default;
+  box-shadow:
+    0 0 0 4px var(--accent-soft),
+    0 0 14px var(--accent);
+}
+.node-marker-wrap[data-kind="BUSINESS"][data-hero="true"] .node-dot {
+  box-shadow:
+    inset 0 0 0 2px var(--map-pin-rim),
+    0 0 0 5px var(--accent-soft),
+    0 0 24px var(--accent);
+}
+
 .node-marker {
   --size: 60px;
   position: relative;
@@ -885,7 +958,7 @@ select.field {
   padding: 0;
   border-radius: 999px;
   background: var(--glass-strong);
-  border: 2px solid rgba(255, 255, 255, 0.92);
+  border: 2px solid var(--map-pin-rim);
   cursor: pointer;
   transition:
     transform 240ms var(--ease-spring),
@@ -896,7 +969,7 @@ select.field {
     0 0 0 1px rgba(0, 0, 0, 0.25);
 }
 [data-theme="light"] .node-marker {
-  border-color: #fff;
+  border-color: var(--map-pin-rim);
   box-shadow:
     0 10px 24px -12px rgba(29, 29, 31, 0.45),
     0 0 0 1px rgba(29, 29, 31, 0.08);
@@ -1107,7 +1180,7 @@ select.field {
   text-overflow: ellipsis;
   /* The plate is a label, not a target: clicks belong to the disc it hangs from. */
   pointer-events: none;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(24px) saturate(160%);
   box-shadow: 0 8px 20px -12px rgba(0, 0, 0, 0.8);
 }
 [data-theme="light"] .node-marker-name {
@@ -1191,7 +1264,9 @@ select.field {
   .reveal,
   .stagger > * {
     animation: reveal linear both;
-    animation-timeline: view();
+    /* Block axis only: a horizontal scroller as the nearest overflow would
+       otherwise re-run this — including `filter: blur` — on every card swipe. */
+    animation-timeline: view(block);
     animation-range: entry 0% entry 38%;
   }
   .stagger > * {
@@ -1285,7 +1360,7 @@ select.field {
 
   240ms, down from the 340ms this started at, which was above every warm navigation in
   the app — the screen was in effect never shown. It can afford to come out earlier now
-  that the line spells a word: the casing is a legible "İstanbul" from the first frame,
+  that the line spells a word: the casing is a legible "istanbul" from the first frame,
   so a short appearance is still a name rather than a fragment of a squiggle.
 
   The bar and the route deliberately run from t=0 rather than from the reveal, so the
@@ -1333,103 +1408,33 @@ select.field {
   box-shadow: 0 0 12px var(--accent);
 }
 /*
-  The route writes itself (pathLength=1 makes the dash math unit-free), holds the
-  finished word, then fades to a trace and writes it again. The whole cycle is 2.6s:
-  brisk enough that a visitor sees the name written from end to end rather than a
-  fragment of one, which is the only way this reads as writing and not as loading.
+  The signature fills itself (a clip rect grows from the left via SMIL, so the word
+  writes left to right), holds, then settles to a trace and writes again. The whole
+  cycle is 2.6s: brisk enough that a visitor sees the name from end to end rather
+  than a fragment of one, which is the only way this reads as writing and not as
+  loading. Opacity lives here; the clip itself is on the <rect> in loading-screen.tsx.
 */
-@keyframes route-draw {
-  0% {
-    stroke-dashoffset: 1;
-    opacity: 1;
-  }
-  58% {
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
+@keyframes loading-write {
+  0%,
   86% {
-    stroke-dashoffset: 0;
     opacity: 1;
   }
   100% {
-    stroke-dashoffset: 0;
     opacity: 0.35;
   }
 }
-.loading-route {
-  fill: none;
-  stroke: var(--accent);
-  stroke-width: 4;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
+.loading-word {
+  fill: var(--accent);
   filter: drop-shadow(0 0 10px var(--map-glow));
-  animation: route-draw var(--loading-cycle) linear infinite;
+  animation: loading-write var(--loading-cycle) linear infinite;
 }
 /*
   The word is always there as a ghost, so even the shortest appearance shows a name
-  and not a fragment of a squiggle. Lighter than the old casing: the letters carry
-  tight loops that a 6px line would fill in.
+  and not a fragment of a squiggle.
 */
-.loading-route-casing {
-  fill: none;
-  stroke: var(--line-strong);
-  stroke-width: 4;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  opacity: 0.34;
-}
-/*
-  The two marks light as the pen leaves their letter, not at the end of the word: the
-  İ finishes 14.1% of the way along the stroke and the t 32.5%, and the write occupies
-  the first 58% of the cycle, so they land at 8.2% and 18.8%. Rounded to 8% and 19%
-  below, each given a few percent to arrive. Both leave with the word at 86-100%.
-*/
-.loading-mark-casing {
+.loading-word-casing {
   fill: var(--line-strong);
   opacity: 0.34;
-}
-.loading-mark-bar {
-  animation: mark-t var(--loading-cycle) var(--ease-out-quint) infinite;
-}
-@keyframes mark-t {
-  0%,
-  19% {
-    stroke-dashoffset: 1;
-  }
-  25%,
-  86% {
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-  100% {
-    stroke-dashoffset: 0;
-    opacity: 0;
-  }
-}
-.loading-mark-dot {
-  fill: var(--accent);
-  filter: drop-shadow(0 0 8px var(--accent));
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: mark-i var(--loading-cycle) var(--ease-out-quint) infinite;
-}
-@keyframes mark-i {
-  0%,
-  8% {
-    opacity: 0;
-    transform: scale(0.3);
-  }
-  13%,
-  86% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1);
-  }
 }
 /*
   The pen keeps pace with the ink: the rider runs the first 58% of the cycle in step
@@ -1600,9 +1605,7 @@ select.field {
   .stagger > *,
   .stagger-now > *,
   .loading-bar,
-  .loading-route,
-  .loading-mark-bar,
-  .loading-mark-dot,
+  .loading-word,
   .loading-rider-halo {
     animation: none;
   }
@@ -1611,8 +1614,9 @@ select.field {
   .loading-rider {
     display: none;
   }
-  .loading-route {
-    stroke-dashoffset: 0;
+  .loading-word {
+    clip-path: none;
+    opacity: 1;
   }
   /* The hold is not motion, it is what stops a fast navigation flashing a loader,
      so it stays. Only the fade goes. */
@@ -1788,5 +1792,230 @@ select.field {
   .eq[data-on="true"] > i {
     animation: none;
     transform: scaleY(0.6);
+  }
+}
+
+/* ---------- tv reel ---------- */
+
+/*
+  A full-viewport loop of the product. The page locks scrolling, hides the cursor
+  once the chrome has slept, and freezes Ken Burns when the reel is paused — the
+  clock lives in React, the motion lives here, so a pause is a pause.
+*/
+html.tv-active,
+html.tv-active body {
+  overflow: hidden;
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+.tv-root[data-awake="false"] {
+  cursor: none;
+}
+
+@keyframes tv-ken-a {
+  from {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.14) translate3d(-2.2%, 1.4%, 0);
+  }
+}
+@keyframes tv-ken-b {
+  from {
+    transform: scale(1.12) translate3d(2%, -1%, 0);
+  }
+  to {
+    transform: scale(1) translate3d(-1.2%, 1%, 0);
+  }
+}
+.tv-ken {
+  animation: tv-ken-a 28s linear alternate both;
+}
+.tv-ken-b {
+  animation: tv-ken-b 34s linear alternate both;
+}
+.tv-root[data-paused="true"] .tv-ken,
+.tv-root[data-paused="true"] .tv-ken-b {
+  animation-play-state: paused;
+}
+
+.tv-film {
+  transform: translate3d(calc(var(--tv-beat, 0) * var(--tv-film-end, 0px)), 0, 0);
+  will-change: transform;
+}
+
+.tv-progress {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 30;
+  height: 2px;
+  background: var(--line);
+}
+.tv-progress > i {
+  display: block;
+  height: 100%;
+  width: calc(var(--tv-loop, 0) * 100%);
+  background: var(--accent);
+}
+
+@keyframes tv-rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+.tv-rise {
+  animation: tv-rise 1.05s var(--ease-out-quint) both;
+}
+.tv-d1 {
+  animation-delay: 140ms;
+}
+.tv-d2 {
+  animation-delay: 280ms;
+}
+.tv-d3 {
+  animation-delay: 420ms;
+}
+.tv-d4 {
+  animation-delay: 560ms;
+}
+
+/*
+  Instagram post on the title-partner beat. A dark phone, not a widget: the reel
+  has to read from across a lounge, and the handle is ours to set.
+*/
+.tv-ig {
+  width: min(32vh, 22vw, 360px);
+  filter: drop-shadow(0 28px 48px rgba(0, 0, 0, 0.55));
+}
+.tv-ig-bezel {
+  border-radius: 28px;
+  padding: 9px;
+  background:
+    linear-gradient(165deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.04) 38%, rgba(0, 0, 0, 0.35)),
+    #121216;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+.tv-ig-sheet {
+  overflow: hidden;
+  border-radius: 20px;
+  background: #000;
+}
+.tv-ig-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: #000;
+  color: #f5f5f7;
+  padding: 9px 10px;
+}
+.tv-ig-who,
+.tv-ig-brand,
+.tv-ig-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.tv-ig-ring {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f9ce34 0%, #ee2a7b 52%, #6228d7 100%);
+  flex-shrink: 0;
+}
+.tv-ig-avatar {
+  display: block;
+  overflow: hidden;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 0 0 1.5px #000;
+}
+.tv-ig-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.tv-ig-handle {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.tv-ig-meta {
+  display: block;
+  font-size: 0.62rem;
+  color: rgba(245, 245, 247, 0.55);
+  line-height: 1.2;
+}
+.tv-ig-brand {
+  color: rgba(245, 245, 247, 0.88);
+  flex-shrink: 0;
+}
+.tv-ig-stage {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  background: #000;
+}
+.tv-ig-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tv-ig-foot {
+  display: block;
+  padding: 8px 10px 11px;
+}
+.tv-ig-actions {
+  width: 100%;
+}
+.tv-ig-spacer {
+  flex: 1;
+}
+.tv-ig-caption {
+  margin: 8px 0 0;
+  font-size: 0.7rem;
+  line-height: 1.35;
+  color: rgba(245, 245, 247, 0.82);
+}
+.tv-ig-caption > span:first-child {
+  display: block;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tv-ken,
+  .tv-ken-b,
+  .tv-rise,
+  .tv-d1,
+  .tv-d2,
+  .tv-d3,
+  .tv-d4 {
+    animation: none;
+  }
+  .tv-film {
+    transform: none;
+    will-change: auto;
   }
 }

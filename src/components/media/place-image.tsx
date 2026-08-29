@@ -50,6 +50,7 @@ export function PlaceImage({ media, alt, className, sizes = "100vw", priority, t
         height={media.height ?? 1067}
         sizes={sizes}
         priority={priority}
+        loading={priority ? "eager" : undefined}
         unoptimized={unoptimized}
         className={clsx("h-auto w-full bg-surface-2", className)}
       />
@@ -58,7 +59,7 @@ export function PlaceImage({ media, alt, className, sizes = "100vw", priority, t
 
   return (
     <span className={clsx("block overflow-hidden bg-surface-2", mode === "inset" ? "absolute inset-0" : "relative", className)}>
-      <Image src={src} alt={alt} fill sizes={sizes} priority={priority} unoptimized={unoptimized} className="object-cover" />
+      <Image src={src} alt={alt} fill sizes={sizes} priority={priority} loading={priority ? "eager" : undefined} unoptimized={unoptimized} className="object-cover" />
     </span>
   );
 }

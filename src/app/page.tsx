@@ -23,7 +23,6 @@ export default async function LandingPage() {
     ? await apiGetOrNull<TourDetailDto>(`public/tours/${firstTourId}`, { revalidate: 60 }).catch(() => null)
     : null;
   const title = bootstrap.sponsors.find((b) => b.sponsorTier === "TITLE");
-  const partner = bootstrap.sponsors.find((b) => b.sponsorTier === "PARTNER");
   const sponsorRoute = cards.find((c) => c.slug.includes("kaytan")) ?? cards[0];
 
   return (
@@ -33,7 +32,7 @@ export default async function LandingPage() {
         <Hero t={t} route={featured} locale={locale} />
         <RoutesStrip t={t} locale={locale} routes={cards} />
         {featured ? <DayTimeline t={t} locale={locale} route={featured} /> : null}
-        {title ? <SponsorBlock t={t} locale={locale} title={title} partner={partner} route={sponsorRoute} /> : null}
+        {title ? <SponsorBlock t={t} locale={locale} title={title} route={sponsorRoute} /> : null}
         {sampleTour ? <FleetBento t={t} locale={locale} tour={sampleTour} /> : null}
         {bootstrap.highlights.length ? <PlacesMosaic t={t} locale={locale} places={bootstrap.highlights} /> : null}
       </main>

@@ -1,14 +1,18 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { clsx } from "clsx";
 import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 
 /**
  * A snap carousel: the track is a real scroller, so touch and trackpad keep working
  * untouched and the cards stay server-rendered children. The arrows and the position
- * rail are the only client state — measured off the scroller rather than tracked in
- * an index, so a mid-drag stop still reports the truth.
+ * rail are the only chrome — measured off the scroller rather than tracked in an
+ * index, so a mid-drag stop still reports the truth.
+ *
+ * Scroll position is painted onto the rail with a transform, not React state.
+ * A setState on every `scroll` event pulled the swipe off the compositor and
+ * onto the main thread, which is what made the route cards hitch.
  *
  * Arrows are pointer affordances and hidden on touch-first widths, where the swipe
  * plus the rail already say "there is more".
@@ -24,58 +28,86 @@ interface CarouselProps {
   nextLabel: string;
   /** Extra classes for the scrolling track (padding, gap, item sizing). */
   trackClassName?: string;
-  /** Seconds between children entering, matching `Stagger`. */
-  gap?: number;
-}
-
-interface Metrics {
-  scrollLeft: number;
-  clientWidth: number;
-  scrollWidth: number;
-  /**
-   * Mandatory snap parks the first card flush against the scrollport, so the
-   * resting scrollLeft is the track's own left padding rather than zero. Without
-   * this the back arrow would never read as spent.
-   */
-  padLeft: number;
 }
 
 const EPSILON = 2;
 
-export function Carousel({ children, header, label, prevLabel, nextLabel, trackClassName, gap = 0.06 }: CarouselProps) {
-  const track = useRef<HTMLDivElement>(null);
-  const [{ scrollLeft, clientWidth, scrollWidth, padLeft }, setMetrics] = useState<Metrics>({ scrollLeft: 0, clientWidth: 0, scrollWidth: 0, padLeft: 0 });
+interface Dims {
+  padLeft: number;
+  max: number;
+  thumbPx: number;
+  travel: number;
+}
 
-  const sync = useCallback(() => {
+export function Carousel({ children, header, label, prevLabel, nextLabel, trackClassName }: CarouselProps) {
+  const track = useRef<HTMLDivElement>(null);
+  const thumb = useRef<HTMLSpanElement>(null);
+  const prevBtn = useRef<HTMLButtonElement>(null);
+  const nextBtn = useRef<HTMLButtonElement>(null);
+  const dims = useRef<Dims>({ padLeft: 0, max: 0, thumbPx: 0, travel: 0 });
+  const [overflowing, setOverflowing] = useState(false);
+
+  const paint = () => {
     const el = track.current;
     if (!el) return;
-    setMetrics({
-      scrollLeft: el.scrollLeft,
-      clientWidth: el.clientWidth,
-      scrollWidth: el.scrollWidth,
+    const { padLeft, max, thumbPx, travel } = dims.current;
+    const x = max > 0 ? (el.scrollLeft / max) * travel : 0;
+    if (thumb.current) {
+      thumb.current.style.width = `${thumbPx}px`;
+      thumb.current.style.transform = `translate3d(${x}px, 0, 0)`;
+    }
+    if (prevBtn.current) prevBtn.current.disabled = el.scrollLeft <= padLeft + EPSILON;
+    if (nextBtn.current) nextBtn.current.disabled = el.scrollLeft >= max - EPSILON;
+  };
+
+  const measure = () => {
+    const el = track.current;
+    if (!el) return;
+    const clientWidth = el.clientWidth;
+    const scrollWidth = el.scrollWidth;
+    const max = Math.max(0, scrollWidth - clientWidth);
+    const thumbPx = scrollWidth > 0 ? Math.max(12, (clientWidth / scrollWidth) * clientWidth) : clientWidth;
+    dims.current = {
       padLeft: Number.parseFloat(getComputedStyle(el).paddingLeft) || 0,
-    });
-  }, []);
+      max,
+      thumbPx,
+      travel: Math.max(0, clientWidth - thumbPx),
+    };
+    const next = max > EPSILON;
+    setOverflowing((prev) => (prev === next ? prev : next));
+    paint();
+  };
 
   useEffect(() => {
     const el = track.current;
     if (!el) return;
-    sync();
-    el.addEventListener("scroll", sync, { passive: true });
+    measure();
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        paint();
+      });
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
     /** Catches both the viewport resizing and children arriving or changing width. */
-    const ro = new ResizeObserver(sync);
+    const ro = new ResizeObserver(measure);
     ro.observe(el);
     for (const child of Array.from(el.children)) ro.observe(child);
     return () => {
-      el.removeEventListener("scroll", sync);
+      el.removeEventListener("scroll", onScroll);
       ro.disconnect();
+      cancelAnimationFrame(raf);
     };
-  }, [sync]);
+    // The track is mounted once; children flow in as slots.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  const max = Math.max(0, scrollWidth - clientWidth);
-  const overflowing = max > EPSILON;
-  const atStart = scrollLeft <= padLeft + EPSILON;
-  const atEnd = scrollLeft >= max - EPSILON;
+  useLayoutEffect(() => {
+    if (overflowing) paint();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [overflowing]);
 
   const page = (direction: 1 | -1) => {
     const el = track.current;
@@ -89,20 +121,16 @@ export function Carousel({ children, header, label, prevLabel, nextLabel, trackC
     el.scrollBy({ left: distance * direction, behavior: reduce ? "auto" : "smooth" });
   };
 
-  /** Scrollbar-like thumb: as wide a share of the rail as the viewport is of the track. */
-  const thumbWidth = scrollWidth > 0 ? Math.max(12, (clientWidth / scrollWidth) * 100) : 100;
-  const thumbLeft = max > 0 ? (scrollLeft / max) * (100 - thumbWidth) : 0;
-
   return (
     <>
       <div className="mx-auto flex max-w-[1440px] items-end justify-between gap-8 px-5 sm:px-8">
         {header}
         {overflowing ? (
           <div className="hidden shrink-0 gap-2 md:flex">
-            <button type="button" onClick={() => page(-1)} disabled={atStart} className="btn btn-glass btn-icon" aria-label={prevLabel}>
+            <button ref={prevBtn} type="button" onClick={() => page(-1)} disabled className="btn btn-glass btn-icon" aria-label={prevLabel}>
               <CaretLeft size={18} weight="bold" />
             </button>
-            <button type="button" onClick={() => page(1)} disabled={atEnd} className="btn btn-glass btn-icon" aria-label={nextLabel}>
+            <button ref={nextBtn} type="button" onClick={() => page(1)} className="btn btn-glass btn-icon" aria-label={nextLabel}>
               <CaretRight size={18} weight="bold" />
             </button>
           </div>
@@ -114,8 +142,7 @@ export function Carousel({ children, header, label, prevLabel, nextLabel, trackC
         role="region"
         aria-label={label}
         tabIndex={0}
-        className={clsx("no-scrollbar stagger flex snap-x snap-mandatory overflow-x-auto", trackClassName)}
-        style={{ "--stagger": `${gap}s`, "--stagger-view": `${Math.round(gap * 60)}%` } as CSSProperties}
+        className={clsx("no-scrollbar flex snap-x snap-mandatory overflow-x-auto", trackClassName)}
       >
         {children}
       </div>
@@ -123,10 +150,7 @@ export function Carousel({ children, header, label, prevLabel, nextLabel, trackC
       {overflowing ? (
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8" aria-hidden>
           <div className="relative h-px w-full overflow-hidden rounded-pill bg-line">
-            <span
-              className="absolute inset-y-0 rounded-pill bg-ink-muted transition-[left,width] duration-300 ease-out-quint"
-              style={{ width: `${thumbWidth}%`, left: `${thumbLeft}%` }}
-            />
+            <span ref={thumb} className="absolute inset-y-0 left-0 rounded-pill bg-ink-muted will-change-transform" />
           </div>
         </div>
       ) : null}

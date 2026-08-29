@@ -31,7 +31,7 @@ export function Hero({ t, route, locale }: { t: Dictionary; route: RouteDetailDt
       <div className="pointer-events-none absolute inset-0 hidden md:block scrim-l" aria-hidden />
       <div className="pointer-events-none absolute inset-0 md:hidden scrim-b" aria-hidden />
 
-      <div className="relative mx-auto flex min-h-[100dvh] max-w-[1440px] flex-col justify-end px-5 pb-12 pt-[44vh] sm:px-8 md:flex-row md:items-end md:justify-between md:pb-16 md:pt-28">
+      <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-[1440px] flex-col justify-end px-5 pb-12 pt-[44vh] sm:px-8 md:flex-row md:items-end md:justify-between md:pb-16 md:pt-28">
         <div className="max-w-[640px]">
           <p className="label rise mb-5 text-ink-muted">{t.hero.eyebrow}</p>
           <h1 className="display-xl rise text-ink">{t.hero.title}</h1>
@@ -58,8 +58,8 @@ export function Hero({ t, route, locale }: { t: Dictionary; route: RouteDetailDt
           <Reveal above className="mt-10 hidden w-full max-w-[380px] md:block">
             <Link href={`/explore?route=${route.slug}`} className="glass group block overflow-hidden rounded-panel p-2 transition-transform duration-500 ease-out-quint hover:-translate-y-1">
               <div className="relative aspect-[16/10] overflow-hidden rounded-[18px]">
-                <PlaceImage media={route.cover} alt={pickText(route.name, locale)} mode="inset" className="transition-transform duration-700 ease-out-quint group-hover:scale-[1.04]" sizes="380px" />
-                <span className="absolute left-3 top-3 rounded-pill bg-[rgba(8,9,13,0.55)] px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.1em] text-white backdrop-blur-md">
+                <PlaceImage media={route.cover} alt={pickText(route.name, locale)} mode="inset" className="transition-transform duration-700 ease-out-quint group-hover:scale-[1.04]" sizes="380px" priority />
+                <span className="glass-frost absolute left-3 top-3 rounded-pill px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.1em] text-white">
                   {t.hero.featured}
                 </span>
               </div>

@@ -51,8 +51,8 @@ function styleFor(theme: "dark" | "light"): string {
   return theme === "light" ? STYLE_LIGHT : STYLE_DARK;
 }
 
-function cssVar(name: string): string {
-  return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+function cssVar(name: string, from: HTMLElement | null = document.documentElement): string {
+  return getComputedStyle(from ?? document.documentElement).getPropertyValue(name).trim();
 }
 
 /*
@@ -226,6 +226,12 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
       fadeDuration: 300,
     });
     mapRef.current = map;
+    // OpenFreeMap styles name a wood fill that the sprite never ships. MapLibre
+    // logs every missing image; a transparent pixel keeps the style valid.
+    map.on("styleimagemissing", (event) => {
+      if (map.hasImage(event.id)) return;
+      map.addImage(event.id, { width: 1, height: 1, data: new Uint8Array(4) });
+    });
 
     let tilt: { control: IControl; sync: () => void } | null = null;
     if (mode === "explore") {
@@ -266,9 +272,13 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
     syncTilt.current = applyTilt;
 
     const applyLayers = () => {
-      const accent = cssVar("--accent") || "#8ea3ff";
-      const glow = cssVar("--map-glow") || "rgba(142,163,255,0.45)";
-      const bg = cssVar("--bg") || "#0b0d12";
+      const root = map.getContainer();
+      const accent = cssVar("--accent", root) || "#8ea3ff";
+      const glow = cssVar("--map-glow", root) || "rgba(142,163,255,0.45)";
+      const bg = cssVar("--bg", root) || "#0b0d12";
+      const pinRim = cssVar("--map-pin-rim", root) || "rgba(255, 255, 255, 0.92)";
+      const casing = hero ? pinRim : bg;
+      const casingWidth = hero ? 4.5 : 6;
       // Before the route, so the itinerary always draws over the rooftops.
       buildings = buildingLayersOf(map);
       if (buildings) addBuildingLayer(map, buildings, is3d());
@@ -276,7 +286,7 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
       // At 60° the horizon is in frame; without this it is the void behind the tiles.
       map.setSky({
         "sky-color": bg,
-        "horizon-color": cssVar("--surface-2") || bg,
+        "horizon-color": cssVar("--surface-2", root) || bg,
         "fog-color": bg,
         "sky-horizon-blend": 0.8,
         "horizon-fog-blend": 0.6,
@@ -304,8 +314,11 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
           type: "line",
           source: "route",
           layout: { "line-cap": "round", "line-join": "round" },
-          paint: { "line-color": bg, "line-width": hero ? 6 : 6, "line-opacity": 0.9 },
+          paint: { "line-color": casing, "line-width": casingWidth, "line-opacity": 0.9 },
         });
+      } else {
+        map.setPaintProperty("route-casing", "line-color", casing);
+        map.setPaintProperty("route-casing", "line-width", casingWidth);
       }
       if (!map.getLayer("route-line")) {
         map.addLayer({
@@ -466,7 +479,8 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
           const d = partner ? 17 : 10;
           wrap.style.width = `${d}px`;
           wrap.style.height = `${d}px`;
-          el.style.cssText = `display:block;width:${d}px;height:${d}px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 ${partner ? 5 : 4}px var(--accent-soft),0 0 ${partner ? 24 : 14}px var(--accent)${partner ? ",inset 0 0 0 4px var(--bg)" : ""};border:0;padding:0;cursor:default;`;
+          el.style.width = `${d}px`;
+          el.style.height = `${d}px`;
         } else {
           // A photo of the place in the circle, the stop number as a badge on its rim.
           const photo = document.createElement("span");

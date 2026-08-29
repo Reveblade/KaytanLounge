@@ -1,11 +1,27 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { clsx } from "clsx";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { CaretDown, Check, Moon, SunDim, Translate } from "@phosphor-icons/react";
 import { useI18n } from "@/lib/i18n/context";
 import { SUPPORTED_LOCALES, type UiLocale } from "@/lib/i18n/dictionaries";
+
+type Theme = "dark" | "light";
+
+const ThemeContext = createContext<{ theme: Theme; setTheme: (next: Theme) => void } | null>(null);
+
+/** Same value the server wrote on <html data-theme>. Shared so every toggle hydrates alike. */
+export function ThemeProvider({ initial, children }: { initial: Theme; children: ReactNode }) {
+  const [theme, setThemeState] = useState<Theme>(initial);
+  const setTheme = useCallback((next: Theme) => {
+    document.documentElement.dataset.theme = next;
+    setThemeState(next);
+    void fetch("/api/prefs", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ theme: next }) });
+    window.dispatchEvent(new CustomEvent("biy-theme", { detail: next }));
+  }, []);
+  return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>;
+}
 
 /**
  * Language and theme, side by side. The language is a dropdown rather than a toggle so
@@ -13,22 +29,13 @@ import { SUPPORTED_LOCALES, type UiLocale } from "@/lib/i18n/dictionaries";
  */
 export function PrefsToggles() {
   const { locale, setLocale, t } = useI18n();
-  /**
-   * The server stamps the theme onto <html> from the cookie, so the first client render
-   * can read it straight off the element. The lazy initialiser runs after hydration,
-   * which is exactly when `document` exists.
-   */
-  const [theme, setTheme] = useState<"dark" | "light">(() =>
-    typeof document !== "undefined" && document.documentElement.dataset.theme === "light" ? "light" : "dark",
-  );
+  const prefs = useContext(ThemeContext);
+  if (!prefs) throw new Error("PrefsToggles must be used inside ThemeProvider");
+  const { theme, setTheme } = prefs;
 
-  function toggleTheme() {
-    const next = theme === "dark" ? "light" : "dark";
-    document.documentElement.dataset.theme = next;
-    setTheme(next);
-    void fetch("/api/prefs", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ theme: next }) });
-    window.dispatchEvent(new CustomEvent("biy-theme", { detail: next }));
-  }
+  const toggleTheme = useCallback(() => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  }, [theme, setTheme]);
 
   return (
     <div className="flex items-center gap-1">

@@ -159,7 +159,7 @@ function Gallery({ media, alt, tall, rounded }: { media: MediaItem[]; alt: strin
           </motion.div>
         </AnimatePresence>
         {media.length > 1 ? (
-          <div className="no-scrollbar absolute inset-x-3 bottom-3 flex gap-1.5 overflow-x-auto rounded-[16px] border border-white/15 bg-[rgba(14,16,22,0.5)] p-1.5 backdrop-blur-xl" aria-label={t.common.photos}>
+          <div className="glass-frost no-scrollbar absolute inset-x-3 bottom-3 flex gap-1.5 overflow-x-auto rounded-[16px] p-1.5" aria-label={t.common.photos}>
             {media.map((m, i) => (
               <button key={m.id} type="button" onClick={() => setIndex(i)} className={clsx("h-12 w-16 shrink-0 overflow-hidden rounded-[10px] transition-all duration-200", i === index ? "ring-2 ring-white opacity-100" : "opacity-55 hover:opacity-90")} aria-label={`${i + 1}/${media.length}`} aria-pressed={i === index}>
                 <PlaceImage media={m} alt="" className="h-full w-full" sizes="64px" thumb />

@@ -60,6 +60,7 @@ export function SiteFooter({ t, locale, settings, routes, sponsors }: Props) {
             <p className="label mb-4">{t.footer.company}</p>
             <ul className="space-y-2.5 text-[0.95rem]">
               <li><Link href="/about" className="text-ink-muted transition-colors hover:text-ink">{t.footer.about}</Link></li>
+              <li><Link href="/tv" className="text-ink-muted transition-colors hover:text-ink">{t.footer.tv}</Link></li>
               <li><Link href="/terms" className="text-ink-muted transition-colors hover:text-ink">{t.footer.terms}</Link></li>
               <li><Link href="/privacy" className="text-ink-muted transition-colors hover:text-ink">{t.footer.privacy}</Link></li>
             </ul>
@@ -113,9 +114,21 @@ export function SiteFooter({ t, locale, settings, routes, sponsors }: Props) {
           </div>
         ) : null}
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-line pt-6 text-sm text-ink-faint sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 grid grid-cols-1 items-center gap-3 border-t border-line pt-6 text-center text-sm text-ink-faint sm:grid-cols-3 sm:text-left">
           <span>© {new Date().getFullYear()} {settings.brand.name}. {t.footer.rights}</span>
-          <span className="text-xs">
+          <a
+            href="https://kuwho.com"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center justify-self-center gap-1.5 text-xs tracking-wide transition-colors hover:text-ink"
+          >
+            <span
+              aria-hidden="true"
+              className="h-3.5 w-3.5 shrink-0 bg-current [mask:url(/brand/kuwho.svg)_center_/_contain_no-repeat] [-webkit-mask:url(/brand/kuwho.svg)_center_/_contain_no-repeat]"
+            />
+            Kuwho
+          </a>
+          <span className="text-xs sm:justify-self-end sm:text-right">
             Istanbul · Map data ©{" "}
             <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer" className="transition-colors hover:text-ink">OpenStreetMap</a> contributors ·{" "}
             <a href="https://openfreemap.org" target="_blank" rel="noreferrer" className="transition-colors hover:text-ink">OpenFreeMap</a>

@@ -8,7 +8,7 @@ import { PlaceImage } from "@/components/media/place-image";
 import { Item, Reveal } from "@/components/motion/reveal";
 import { Carousel } from "@/components/ui/carousel";
 
-/** Every route as a tall photographic card with a glass caption; the row breathes past the right edge. */
+/** Every route as a tall photographic card with a solid caption plate; the row breathes past the right edge. */
 export function RoutesStrip({ t, locale, routes }: { t: Dictionary; locale: UiLocale; routes: RouteCardDto[] }) {
   if (!routes.length) return null;
   return (
@@ -32,12 +32,12 @@ export function RoutesStrip({ t, locale, routes }: { t: Dictionary; locale: UiLo
               className="group relative block overflow-hidden rounded-panel bg-surface-2 transition-transform duration-500 ease-out-quint hover:-translate-y-1"
               style={{ aspectRatio: "4 / 5" }}
             >
-              <PlaceImage media={route.cover} alt={pickText(route.name, locale)} mode="inset" className="transition-transform duration-700 ease-out-quint group-hover:scale-[1.05]" sizes="(min-width: 640px) 360px, 78vw" priority={i < 2} />
+              <PlaceImage media={route.cover} alt={pickText(route.name, locale)} mode="inset" className="transition-transform duration-700 ease-out-quint group-hover:scale-[1.05]" sizes="(min-width: 640px) 360px, 78vw" priority={i < 2} thumb />
               <div className="absolute inset-0 bg-gradient-to-t from-[rgba(8,9,13,0.55)] via-transparent to-transparent" aria-hidden />
-              <span className="absolute left-4 top-4 rounded-pill bg-[rgba(8,9,13,0.5)] px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.1em] text-white backdrop-blur-md">
+              <span className="photo-chip absolute left-4 top-4 rounded-pill px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.1em] text-white">
                 {t.explore.theme[route.theme]}
               </span>
-              <div className="absolute inset-x-3 bottom-3 rounded-[20px] border border-white/15 bg-[rgba(14,16,22,0.5)] p-4 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl">
+              <div className="photo-plate absolute inset-x-3 bottom-3 rounded-[20px] p-4 text-white">
                 <h3 className="display-sm">{pickText(route.name, locale)}</h3>
                 <p className="mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.8rem] text-white/75 tnum">
                   <span>{route.nodeCount} {t.explore.stops}</span>

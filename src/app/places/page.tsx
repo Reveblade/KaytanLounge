@@ -63,7 +63,7 @@ export default async function PlacesPage() {
                     <PartnerPlate business={b} name={pickText(b.name, locale)} />
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-[rgba(8,9,13,0.5)] to-transparent" aria-hidden />
-                  <div className="absolute inset-x-3 bottom-3 rounded-[20px] border border-white/15 bg-[rgba(14,16,22,0.5)] p-5 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl">
+                  <div className="glass-frost absolute inset-x-3 bottom-3 rounded-[20px] p-5 text-white">
                     <p className="label label-on-dark">{t.explore.partnerVenue} · {b.district}</p>
                     <p className="display-md mt-1">{pickText(b.name, locale)}</p>
                     <p className="mt-2 max-w-[48ch] text-sm text-white/75">{pickText(b.summary, locale)}</p>

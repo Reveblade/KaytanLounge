@@ -17,6 +17,38 @@ export interface Track {
   src: string;
 }
 
+/**
+ * The house radio lives in the root layout; the lounge reel only needs to ask it
+ * to pause or continue. A window event is the same shape as `biy-map-ready`, and
+ * a tiny store is enough for the TV chrome to know which glyph to show.
+ */
+export const MUSIC_TOGGLE_EVENT = "biy-music-toggle";
+
+type PlayingListener = () => void;
+const playingListeners = new Set<PlayingListener>();
+let playingNow = false;
+
+export function subscribeMusicPlaying(onStoreChange: () => void): () => void {
+  playingListeners.add(onStoreChange);
+  return () => {
+    playingListeners.delete(onStoreChange);
+  };
+}
+
+export function getMusicPlaying(): boolean {
+  return playingNow;
+}
+
+export function publishMusicPlaying(next: boolean): void {
+  if (playingNow === next) return;
+  playingNow = next;
+  playingListeners.forEach((fn) => fn());
+}
+
+export function toggleHouseMusic(): void {
+  window.dispatchEvent(new Event(MUSIC_TOGGLE_EVENT));
+}
+
 export const TRACKS: Track[] = [
   {
     id: "uskudara-gider-iken",
