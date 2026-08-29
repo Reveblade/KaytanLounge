@@ -1,48 +1,23 @@
 "use client";
 
-import { Component, useEffect, useState, useSyncExternalStore, type ComponentType, type ReactNode } from "react";
+import { Component, type ReactNode } from "react";
 import type { GeoJsonLineString } from "@/lib/contract/api";
-import { canUseWebGL, isLoungeDisplay } from "@/lib/lounge";
+import { HeroMap } from "@/components/landing/hero-map";
 import type { MapNode } from "@/components/map/lazy-route-map";
 
-function subscribe() {
-  return () => undefined;
-}
-
-function liveMapAllowed() {
-  return !isLoungeDisplay() && canUseWebGL();
-}
-
-type HeroMapProps = { path?: GeoJsonLineString; nodes: MapNode[] };
-
 /**
- * The living map is a backdrop, not the show. On a lounge television it is
- * never imported: WebGL there either never comes up or kills the tab, and
- * pulling MapLibre in would do that before the reel has a chance to start.
+ * The living map stays behind the reel. This page is the lounge wall, so the
+ * camera stays flat and the framebuffer stays 1× — a pitched 4K WebGL city
+ * is what goes black on the set. The ambient wash is only there until tiles
+ * arrive.
  */
-export function TvBackdrop({ path, nodes }: HeroMapProps) {
-  const mapOn = useSyncExternalStore(subscribe, liveMapAllowed, () => false);
-  const [HeroMap, setHeroMap] = useState<ComponentType<HeroMapProps> | null>(null);
-
-  useEffect(() => {
-    if (!mapOn) return;
-    let cancelled = false;
-    void import("@/components/landing/hero-map").then((mod) => {
-      if (!cancelled) setHeroMap(() => mod.HeroMap);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, [mapOn]);
-
+export function TvBackdrop({ path, nodes }: { path?: GeoJsonLineString; nodes: MapNode[] }) {
   return (
     <div className="absolute inset-0 z-0 overflow-hidden isolate" aria-hidden>
       <div className="tv-ambient absolute inset-0" />
-      {HeroMap ? (
-        <MapSafe>
-          <HeroMap path={path} nodes={nodes} />
-        </MapSafe>
-      ) : null}
+      <MapSafe>
+        <HeroMap path={path} nodes={nodes} lite />
+      </MapSafe>
     </div>
   );
 }

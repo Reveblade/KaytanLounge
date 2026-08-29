@@ -38,6 +38,11 @@ interface Props {
    * catalogue rather than an itinerary and joining them would invent a journey.
    */
   drawPath?: boolean;
+  /**
+   * Flat camera, 1× framebuffer, no orbit. Lounge TVs go black on a pitched
+   * 4K WebGL city; this is the same map, cheap enough to paint.
+   */
+  lite?: boolean;
 }
 
 const STYLE_LIGHT = process.env.NEXT_PUBLIC_MAP_STYLE_LIGHT ?? "https://tiles.openfreemap.org/styles/positron";
@@ -184,7 +189,7 @@ function boundsOf(nodes: MapNode[], path?: GeoJsonLineString): LngLatBoundsLike 
  * whenever the style (theme) swaps, and keeps DOM markers in sync with `nodes`.
  * No React state is touched per frame: the hero rotation runs on requestAnimationFrame.
  */
-function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore", padding, className, fitKey, drawPath = true }: Props) {
+function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore", padding, className, fitKey, drawPath = true, lite = false }: Props) {
   const { t } = useI18n();
   const container = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
@@ -192,10 +197,10 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
   const clusters = useRef<Map<string, maplibregl.Marker>>(new Map());
   // The map is built once; this keeps the newest props reachable from inside its
   // long-lived handlers without tearing the map down on every render.
-  const latest = useRef({ path, nodes, activeNodeId, onNodeClick, padding, mode, drawPath, t });
+  const latest = useRef({ path, nodes, activeNodeId, onNodeClick, padding, mode, drawPath, lite, t });
   useEffect(() => {
-    latest.current = { path, nodes, activeNodeId, onNodeClick, padding, mode, drawPath, t };
-  }, [path, nodes, activeNodeId, onNodeClick, padding, mode, drawPath, t]);
+    latest.current = { path, nodes, activeNodeId, onNodeClick, padding, mode, drawPath, lite, t };
+  }, [path, nodes, activeNodeId, onNodeClick, padding, mode, drawPath, lite, t]);
   /** Re-labels the 3D button when the language changes under a map that is never rebuilt. */
   const syncTilt = useRef<() => void>(() => {});
   /** The padding a refit last flew to, and when: the pan below tells its own work apart. */
@@ -207,6 +212,7 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
     if (!container.current || mapRef.current) return;
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const hero = mode === "hero";
+    const cheap = lite;
     let map: MapLibreMap;
     try {
       map = new maplibregl.Map({
@@ -214,18 +220,20 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
         style: styleFor(currentTheme()),
         center: ISTANBUL_CENTER,
         zoom: hero ? 12.2 : 11.5,
-        pitch: hero ? 58 : 0,
-        bearing: hero ? -18 : 0,
+        pitch: hero && !cheap ? 58 : 0,
+        bearing: hero && !cheap ? -18 : 0,
         // The product is an İstanbul guide: the camera stays inside the province.
         maxBounds: ISTANBUL_MAX_BOUNDS,
         minZoom: MIN_ZOOM,
         maxZoom: MAX_ZOOM,
-        maxPitch: MAX_PITCH,
+        maxPitch: cheap ? 0 : MAX_PITCH,
         interactive: mode === "explore",
         // The credit is a line of text under the controls, not a button to press: see globals.css.
         attributionControl: false,
         cooperativeGestures: false,
-        fadeDuration: 300,
+        fadeDuration: cheap ? 0 : 300,
+        // A 4K set at 2× is an 8K framebuffer. That is what goes black on lounge GPUs.
+        ...(cheap ? { pixelRatio: 1 } : {}),
       });
     } catch {
       return;
@@ -285,19 +293,26 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
       const casing = hero ? pinRim : bg;
       const casingWidth = hero ? 4.5 : 6;
       // Before the route, so the itinerary always draws over the rooftops.
-      buildings = buildingLayersOf(map);
+      buildings = cheap ? null : buildingLayersOf(map);
       if (buildings) addBuildingLayer(map, buildings, is3d());
       tilted = null;
       // At 60° the horizon is in frame; without this it is the void behind the tiles.
-      map.setSky({
-        "sky-color": bg,
-        "horizon-color": cssVar("--surface-2", root) || bg,
-        "fog-color": bg,
-        "sky-horizon-blend": 0.8,
-        "horizon-fog-blend": 0.6,
-        "fog-ground-blend": 0.02,
-        "atmosphere-blend": ["interpolate", ["linear"], ["zoom"], 10, 0.5, 16, 0.15],
-      });
+      // Atmosphere is a WebGL2 path some lounge sets do not have — skip it there.
+      if (!cheap) {
+        try {
+          map.setSky({
+            "sky-color": bg,
+            "horizon-color": cssVar("--surface-2", root) || bg,
+            "fog-color": bg,
+            "sky-horizon-blend": 0.8,
+            "horizon-fog-blend": 0.6,
+            "fog-ground-blend": 0.02,
+            "atmosphere-blend": ["interpolate", ["linear"], ["zoom"], 10, 0.5, 16, 0.15],
+          });
+        } catch {
+          /* Older WebGL: the city still draws, the void at the horizon stays dark. */
+        }
+      }
       const data = lineGeoJson(latest.current.path, latest.current.nodes, latest.current.drawPath);
       if (map.getSource("route")) {
         (map.getSource("route") as maplibregl.GeoJSONSource).setData(data);
@@ -351,7 +366,7 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
     map.on("load", () => {
       applyLayers();
       fitAt.current = performance.now();
-      fit(map, latest.current.nodes, latest.current.path, latest.current.padding, mode, true);
+      fit(map, latest.current.nodes, latest.current.path, latest.current.padding, mode, true, cheap);
       /* The house radio waits on this: the music arrives with the city, not before it.
          Deliberately not on `style.load`, which also fires on every theme swap. */
       window.dispatchEvent(new CustomEvent("biy-map-ready"));
@@ -376,9 +391,10 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
     };
     if (mode === "explore") container.current.addEventListener("wheel", onWheel, { passive: false, capture: true });
 
-    // Hero: a slow orbit, storytelling the route, unless motion is reduced.
+    // Hero: a slow orbit, storytelling the route, unless motion is reduced
+    // or the set cannot hold a turning WebGL camera.
     let raf = 0;
-    if (hero && !reduceMotion) {
+    if (hero && !reduceMotion && !cheap) {
       let last = performance.now();
       const tick = (now: number) => {
         const dt = now - last;
@@ -426,7 +442,7 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
       const source = map.getSource("route") as maplibregl.GeoJSONSource | undefined;
       if (source) source.setData(lineGeoJson(path, nodes, drawPath));
       fitAt.current = performance.now();
-      fit(map, nodes, path, latest.current.padding, mode, false);
+      fit(map, nodes, path, latest.current.padding, mode, false, latest.current.lite);
     };
     if (map.isStyleLoaded()) update();
     else map.once("load", update);
@@ -794,11 +810,17 @@ function reserve(map: MapLibreMap, bounds: LngLatBoundsLike, pad: NonNullable<Pr
   map.setPadding({ ...pad, top: Math.round(pad.top * keep), bottom: Math.round(pad.bottom * keep) });
 }
 
-function fit(map: MapLibreMap, nodes: MapNode[], path: GeoJsonLineString | undefined, padding: Props["padding"], mode: Props["mode"], initial: boolean) {
+function fit(map: MapLibreMap, nodes: MapNode[], path: GeoJsonLineString | undefined, padding: Props["padding"], mode: Props["mode"], initial: boolean, lite = false) {
   const bounds = boundsOf(nodes, path);
   if (!bounds) return;
   if (mode === "hero") {
-    map.fitBounds(bounds, { padding: { top: 120, right: 80, bottom: 80, left: 380 }, pitch: 58, bearing: map.getBearing(), duration: initial ? 0 : 1600, maxZoom: 13.4 });
+    map.fitBounds(bounds, {
+      padding: lite ? { top: 80, right: 80, bottom: 80, left: 80 } : { top: 120, right: 80, bottom: 80, left: 380 },
+      pitch: lite ? 0 : 58,
+      bearing: map.getBearing(),
+      duration: initial ? 0 : 1600,
+      maxZoom: 13.4,
+    });
     return;
   }
   /*

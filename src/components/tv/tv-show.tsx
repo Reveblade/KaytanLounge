@@ -15,12 +15,11 @@ const IDLE_MS = 3200;
 /**
  * A looping reel of the product, built for a television, a lounge wall, a booth.
  *
- * The living map stays up for the whole run on a capable screen — scenes that
- * need photography cover it, scenes that need the city simply dim it. Stills
- * stay still: a Ken Burns pan shimmers on a television. Motion that remains
- * (the filmstrip, the progress hairline) is CSS so a paused reel actually
- * freezes, and React only hears from the clock often enough to change which
- * stop is lit.
+ * The living map stays up for the whole run — scenes that need photography
+ * cover it, scenes that need the city simply dim it. On a lounge set the
+ * camera stays flat so WebGL actually paints. Stills stay still. Motion that
+ * remains (the filmstrip, the progress hairline) is CSS so a paused reel
+ * actually freezes.
  */
 export function TvShow(data: TvData) {
   const { t, locale } = useI18n();
