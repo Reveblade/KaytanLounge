@@ -207,24 +207,29 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
     if (!container.current || mapRef.current) return;
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const hero = mode === "hero";
-    const map = new maplibregl.Map({
-      container: container.current,
-      style: styleFor(currentTheme()),
-      center: ISTANBUL_CENTER,
-      zoom: hero ? 12.2 : 11.5,
-      pitch: hero ? 58 : 0,
-      bearing: hero ? -18 : 0,
-      // The product is an İstanbul guide: the camera stays inside the province.
-      maxBounds: ISTANBUL_MAX_BOUNDS,
-      minZoom: MIN_ZOOM,
-      maxZoom: MAX_ZOOM,
-      maxPitch: MAX_PITCH,
-      interactive: mode === "explore",
-      // The credit is a line of text under the controls, not a button to press: see globals.css.
-      attributionControl: false,
-      cooperativeGestures: false,
-      fadeDuration: 300,
-    });
+    let map: MapLibreMap;
+    try {
+      map = new maplibregl.Map({
+        container: container.current,
+        style: styleFor(currentTheme()),
+        center: ISTANBUL_CENTER,
+        zoom: hero ? 12.2 : 11.5,
+        pitch: hero ? 58 : 0,
+        bearing: hero ? -18 : 0,
+        // The product is an İstanbul guide: the camera stays inside the province.
+        maxBounds: ISTANBUL_MAX_BOUNDS,
+        minZoom: MIN_ZOOM,
+        maxZoom: MAX_ZOOM,
+        maxPitch: MAX_PITCH,
+        interactive: mode === "explore",
+        // The credit is a line of text under the controls, not a button to press: see globals.css.
+        attributionControl: false,
+        cooperativeGestures: false,
+        fadeDuration: 300,
+      });
+    } catch {
+      return;
+    }
     mapRef.current = map;
     // OpenFreeMap styles name a wood fill that the sprite never ships. MapLibre
     // logs every missing image; a transparent pixel keeps the style valid.

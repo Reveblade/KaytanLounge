@@ -3,34 +3,32 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { CaretLeft, CaretRight, MusicNotes, Pause, Play, X } from "@phosphor-icons/react";
 import { useI18n } from "@/lib/i18n/context";
-import { HeroMap } from "@/components/landing/hero-map";
 import { pickText } from "@/lib/i18n/pick";
 import { getMusicPlaying, subscribeMusicPlaying, toggleHouseMusic } from "@/lib/music";
+import { TvBackdrop } from "./tv-backdrop";
 import { Scene, type SceneId, type TvData } from "./tv-scenes";
 
-const EASE = [0.22, 1, 0.36, 1] as const;
 const IDLE_MS = 3200;
 
 /**
  * A looping reel of the product, built for a television, a lounge wall, a booth.
  *
- * The living map stays up for the whole run — scenes that need photography cover it,
- * scenes that need the city simply dim it. Motion is CSS where it can be (Ken Burns,
- * the filmstrip, the progress hairline) so a paused reel actually freezes, and React
- * only hears from the clock often enough to change which stop is lit.
+ * The living map stays up for the whole run on a capable screen — scenes that
+ * need photography cover it, scenes that need the city simply dim it. Stills
+ * stay still: a Ken Burns pan shimmers on a television. Motion that remains
+ * (the filmstrip, the progress hairline) is CSS so a paused reel actually
+ * freezes, and React only hears from the clock often enough to change which
+ * stop is lit.
  */
 export function TvShow(data: TvData) {
   const { t, locale } = useI18n();
   const router = useRouter();
-  const reduce = useReducedMotion();
   const rootRef = useRef<HTMLDivElement>(null);
   const pausedRef = useRef(false);
   const indexRef = useRef(0);
   const elapsedRef = useRef(0);
-  const armedRef = useRef(false);
   const [index, setIndex] = useState(0);
   const [beat, setBeat] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -163,7 +161,7 @@ export function TvShow(data: TvData) {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === " " || e.key === "k") {
+      if (e.key === " " || e.key === "k" || e.key === "Enter") {
         e.preventDefault();
         toggle();
       } else if (e.key === "ArrowRight" || e.key === "l") {
@@ -202,7 +200,6 @@ export function TvShow(data: TvData) {
 
   const scene = scenes[index] ?? scenes[0];
   const showChrome = awake || paused;
-  const fade = reduce ? 0.2 : 0.85;
 
   return (
     <div
@@ -210,34 +207,19 @@ export function TvShow(data: TvData) {
       data-theme="dark"
       data-paused={paused ? "true" : "false"}
       data-awake={showChrome ? "true" : "false"}
-      className="tv-root relative h-[100dvh] w-full overflow-hidden bg-bg text-ink"
+      className="tv-root relative h-[100vh] h-[100dvh] w-full overflow-hidden bg-bg text-ink"
       onPointerUp={(event) => {
         if ((event.target as HTMLElement).closest("a, button")) return;
-        if (!armedRef.current) {
-          armedRef.current = true;
-          return;
-        }
         toggle();
       }}
     >
-      <div className="absolute inset-0 z-0 overflow-hidden isolate" aria-hidden>
-        <HeroMap path={data.featured?.path} nodes={mapNodes} />
-      </div>
+      <TvBackdrop path={data.featured?.path} nodes={mapNodes} />
 
-      <AnimatePresence mode="wait">
-        {scene ? (
-          <motion.div
-            key={scene.id}
-            className="absolute inset-0 z-10"
-            initial={reduce ? { opacity: 0 } : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: fade, ease: EASE }}
-          >
-            <Scene id={scene.id} beat={beat} data={data} t={t} locale={locale} />
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
+      {scene ? (
+        <div key={scene.id} className="absolute inset-0 z-10 tv-scene">
+          <Scene id={scene.id} beat={beat} data={data} t={t} locale={locale} />
+        </div>
+      ) : null}
 
       <div className="tv-progress" aria-hidden>
         <i />

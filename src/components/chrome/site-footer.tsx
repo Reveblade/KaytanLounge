@@ -60,7 +60,7 @@ export function SiteFooter({ t, locale, settings, routes, sponsors }: Props) {
             <p className="label mb-4">{t.footer.company}</p>
             <ul className="space-y-2.5 text-[0.95rem]">
               <li><Link href="/about" className="text-ink-muted transition-colors hover:text-ink">{t.footer.about}</Link></li>
-              <li><Link href="/tv" className="text-ink-muted transition-colors hover:text-ink">{t.footer.tv}</Link></li>
+              <li><a href="/tv" className="text-ink-muted transition-colors hover:text-ink">{t.footer.tv}</a></li>
               <li><Link href="/terms" className="text-ink-muted transition-colors hover:text-ink">{t.footer.terms}</Link></li>
               <li><Link href="/privacy" className="text-ink-muted transition-colors hover:text-ink">{t.footer.privacy}</Link></li>
             </ul>

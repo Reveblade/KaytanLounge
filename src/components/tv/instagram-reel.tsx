@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
 import Image from "next/image";
 import { BookmarkSimple, ChatCircle, DotsThree, Heart, InstagramLogo, PaperPlaneTilt } from "@phosphor-icons/react";
+import { isLoungeDisplay } from "@/lib/lounge";
 
 const HANDLE = "@kaytanlounge";
 const PROFILE = "https://www.instagram.com/kaytanlounge/";
@@ -14,6 +15,7 @@ const POST = "https://www.instagram.com/p/Dbz2NJQsCCd/";
  */
 export function InstagramReel() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const lounge = useSyncExternalStore(() => () => undefined, isLoungeDisplay, () => false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -35,7 +37,7 @@ export function InstagramReel() {
       video.removeEventListener("canplay", sync);
       video.pause();
     };
-  }, []);
+  }, [lounge]);
 
   return (
     <figure className="tv-ig tv-rise tv-d2" aria-label={`${HANDLE} Instagram`}>
@@ -60,20 +62,24 @@ export function InstagramReel() {
           </header>
 
           <div className="tv-ig-stage">
-            <video
-              ref={videoRef}
-              className="tv-ig-video"
-              src="/tv/kaytan-reel.mp4"
-              poster="/tv/kaytan-reel.jpg"
-              muted
-              loop
-              playsInline
-              autoPlay
-              preload="auto"
-              disablePictureInPicture
-              disableRemotePlayback
-              controls={false}
-            />
+            {lounge ? (
+              <Image src="/tv/kaytan-reel.jpg" alt="" fill sizes="360px" className="tv-ig-video object-cover" />
+            ) : (
+              <video
+                ref={videoRef}
+                className="tv-ig-video"
+                src="/tv/kaytan-reel.mp4"
+                poster="/tv/kaytan-reel.jpg"
+                muted
+                loop
+                playsInline
+                autoPlay
+                preload="metadata"
+                disablePictureInPicture
+                disableRemotePlayback
+                controls={false}
+              />
+            )}
           </div>
 
           <footer className="tv-ig-bar tv-ig-foot">

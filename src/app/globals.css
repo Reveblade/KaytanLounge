@@ -1799,8 +1799,8 @@ select.field {
 
 /*
   A full-viewport loop of the product. The page locks scrolling, hides the cursor
-  once the chrome has slept, and freezes Ken Burns when the reel is paused — the
-  clock lives in React, the motion lives here, so a pause is a pause.
+  once the chrome has slept, and freezes the filmstrip when the reel is paused —
+  the clock lives in React, the motion lives here, so a pause is a pause.
 */
 html.tv-active,
 html.tv-active body {
@@ -1813,31 +1813,23 @@ html.tv-active body {
   cursor: none;
 }
 
-@keyframes tv-ken-a {
+.tv-ambient {
+  background:
+    radial-gradient(90% 70% at 72% 32%, rgba(255, 160, 122, 0.14), transparent 58%),
+    radial-gradient(70% 55% at 12% 88%, rgba(255, 255, 255, 0.06), transparent 50%),
+    #0e0e11;
+}
+
+@keyframes tv-scene {
   from {
-    transform: scale(1) translate3d(0, 0, 0);
+    opacity: 0;
   }
   to {
-    transform: scale(1.14) translate3d(-2.2%, 1.4%, 0);
+    opacity: 1;
   }
 }
-@keyframes tv-ken-b {
-  from {
-    transform: scale(1.12) translate3d(2%, -1%, 0);
-  }
-  to {
-    transform: scale(1) translate3d(-1.2%, 1%, 0);
-  }
-}
-.tv-ken {
-  animation: tv-ken-a 28s linear alternate both;
-}
-.tv-ken-b {
-  animation: tv-ken-b 34s linear alternate both;
-}
-.tv-root[data-paused="true"] .tv-ken,
-.tv-root[data-paused="true"] .tv-ken-b {
-  animation-play-state: paused;
+.tv-scene {
+  animation: tv-scene 0.7s var(--ease-out-quint) both;
 }
 
 .tv-film {
@@ -1863,13 +1855,11 @@ html.tv-active body {
 @keyframes tv-rise {
   from {
     opacity: 0;
-    transform: translateY(20px);
-    filter: blur(8px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
+    transform: none;
   }
 }
 .tv-rise {
@@ -2005,8 +1995,7 @@ html.tv-active body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tv-ken,
-  .tv-ken-b,
+  .tv-scene,
   .tv-rise,
   .tv-d1,
   .tv-d2,

@@ -95,7 +95,7 @@ function Routes({ t, locale, routes }: { t: Dictionary; locale: UiLocale; routes
         >
           {routes.map((route, i) => (
             <article key={route.id} className="relative h-[42vh] w-[min(72vw,340px)] shrink-0 overflow-hidden rounded-panel">
-              <Still media={route.cover} alt={pickText(route.name, locale)} variant={i % 2 ? "b" : "a"} />
+              <Still media={route.cover} alt={pickText(route.name, locale)} />
               <div className="absolute inset-0 bg-gradient-to-t from-[rgba(8,9,13,0.7)] via-transparent to-transparent" aria-hidden />
               <span className="glass-frost absolute left-4 top-4 rounded-pill px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.1em] text-white">
                 {t.explore.theme[route.theme]}
@@ -207,7 +207,7 @@ function Places({ t, locale, places }: { t: Dictionary; locale: UiLocale; places
             key={place.id}
             className={clsx("relative overflow-hidden rounded-card", i === 0 && "col-span-2 row-span-2")}
           >
-            <Still media={place.media[0]} alt={pickText(place.name, locale)} variant={i % 2 ? "b" : "a"} />
+            <Still media={place.media[0]} alt={pickText(place.name, locale)} />
             <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[rgba(8,9,13,0.7)] to-transparent px-3 pb-3 pt-10">
               <p className="title text-[0.95rem] text-white">{pickText(place.name, locale)}</p>
               <p className="text-xs text-white/65">
@@ -285,7 +285,7 @@ function Company({ t, locale, tour, beat }: { t: Dictionary; locale: UiLocale; t
 
         <div className="relative min-h-[140px] overflow-hidden rounded-panel md:col-span-5">
           {guide?.photo ? (
-            <Still media={guide.photo} alt={guide.displayName} variant="b" />
+            <Still media={guide.photo} alt={guide.displayName} />
           ) : (
             <div className="absolute inset-0 bg-[#101218]">
               <div
@@ -441,19 +441,15 @@ function visibleStops<T>(nodes: T[], active: number): { node: T; index: number }
 function Still({
   media,
   alt,
-  variant = "a",
   priority,
 }: {
   media?: MediaItem;
   alt: string;
-  variant?: "a" | "b";
   priority?: boolean;
 }) {
   return (
     <span className="absolute inset-0 overflow-hidden bg-[#101218]">
-      <span className={clsx("absolute -inset-[12%]", variant === "a" ? "tv-ken" : "tv-ken-b")}>
-        <PlaceImage media={media} alt={alt} mode="inset" sizes="100vw" priority={priority} />
-      </span>
+      <PlaceImage media={media} alt={alt} mode="inset" sizes="100vw" priority={priority} />
     </span>
   );
 }
