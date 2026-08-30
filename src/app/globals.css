@@ -1872,6 +1872,8 @@ video.tv-city {
   }
 }
 .tv-scene {
+  isolation: isolate;
+  overflow: hidden;
   animation: tv-scene 0.7s var(--ease-out-quint) both;
 }
 @keyframes tv-scene-out {
@@ -1883,6 +1885,8 @@ video.tv-city {
   }
 }
 .tv-scene-out {
+  isolation: isolate;
+  overflow: hidden;
   animation: tv-scene-out 0.7s var(--ease-out-quint) both;
   pointer-events: none;
 }
@@ -2102,9 +2106,9 @@ video.tv-city {
 }
 
 /*
-  A television waits under the loading screen until the city is already
-  playing and the type has settled. Entrance motion would run after the
-  curtain lifts and look like the page was still arriving.
+  A television homepage waits under the loading screen. Kill the site's
+  arrival motion so the page is already seated when the curtain lifts.
+  Do not touch `.tv-scene` / `.tv-rise` — those are the reel's cuts.
 */
 html[data-lounge] .rise,
 html[data-lounge] .rise-2,
@@ -2112,13 +2116,6 @@ html[data-lounge] .rise-3,
 html[data-lounge] .rise-4,
 html[data-lounge] .page-in,
 html[data-lounge] .reveal,
-html[data-lounge] .stagger > *,
-html[data-lounge] .tv-scene,
-html[data-lounge] .tv-scene-out,
-html[data-lounge] .tv-rise,
-html[data-lounge] .tv-d1,
-html[data-lounge] .tv-d2,
-html[data-lounge] .tv-d3,
-html[data-lounge] .tv-d4 {
+html[data-lounge] .stagger > * {
   animation: none;
 }

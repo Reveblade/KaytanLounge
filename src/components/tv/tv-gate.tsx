@@ -60,12 +60,12 @@ export function TvGate({
   const stage = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!hold) return;
+    if (!useVideo) return;
     document.documentElement.dataset.lounge = "";
     return () => {
       delete document.documentElement.dataset.lounge;
     };
-  }, [hold]);
+  }, [useVideo]);
 
   useEffect(() => {
     if (!hold || open) return;

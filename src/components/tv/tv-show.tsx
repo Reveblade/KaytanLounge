@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { CaretLeft, CaretRight, MusicNotes, Pause, Play, X } from "@phosphor-icons/react";
 import { useI18n } from "@/lib/i18n/context";
 import { pickText } from "@/lib/i18n/pick";
@@ -93,14 +93,20 @@ export function TvShow(data: TvData & { loop?: boolean }) {
     pausedRef.current = paused;
   }, [paused]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const html = document.documentElement;
     const body = document.body;
+    const theme = html.dataset.theme;
     html.classList.add("tv-active");
     body.classList.add("tv-active");
+    html.dataset.theme = "dark";
+    window.dispatchEvent(new CustomEvent("biy-theme", { detail: "dark" }));
     return () => {
       html.classList.remove("tv-active");
       body.classList.remove("tv-active");
+      if (theme) html.dataset.theme = theme;
+      else delete html.dataset.theme;
+      window.dispatchEvent(new CustomEvent("biy-theme", { detail: theme ?? "dark" }));
     };
   }, []);
 
@@ -232,7 +238,7 @@ export function TvShow(data: TvData & { loop?: boolean }) {
         </div>
       ) : null}
       {scene ? (
-        <div key={scene.id} className="absolute inset-0 z-10 tv-scene">
+        <div key={scene.id} className="absolute inset-0 z-[11] tv-scene">
           <Scene id={scene.id} beat={beat} data={data} t={t} locale={locale} />
         </div>
       ) : null}

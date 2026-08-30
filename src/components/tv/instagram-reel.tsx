@@ -24,7 +24,8 @@ export function InstagramReel() {
     video.muted = true;
 
     const sync = () => {
-      if (root?.getAttribute("data-paused") === "true") video.pause();
+      const leaving = video.closest(".tv-scene-out");
+      if (leaving || root?.getAttribute("data-paused") === "true") video.pause();
       else void video.play().catch(() => undefined);
     };
 
