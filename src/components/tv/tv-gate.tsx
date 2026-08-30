@@ -2,16 +2,17 @@
 
 import { useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
 import { LoadingScreen } from "@/components/chrome/loading-screen";
+import { CITY_LOOP_READY, CITY_VIDEO, CityLoopProvider } from "@/components/map/city-loop";
 import { isLoungeDisplay } from "@/lib/lounge";
 import { isPageCurtainUp } from "@/lib/page-ready";
-import { CITY_LOOP_READY, CityLoopProvider, loadCityLoop } from "@/components/map/city-loop";
 
 function subscribe() {
   return () => undefined;
 }
 
 async function settleLayout(root: HTMLElement) {
-  await document.fonts.ready.catch(() => undefined);
+  const fonts = document.fonts?.ready;
+  if (fonts) await fonts.catch(() => undefined);
   const images = [...root.querySelectorAll("img")].filter((img) => {
     const box = img.getBoundingClientRect();
     return box.bottom > 0 && box.top < window.innerHeight + 80;
@@ -19,10 +20,13 @@ async function settleLayout(root: HTMLElement) {
   await Promise.all(
     images.map((img) => {
       if (img.complete && img.naturalWidth) return Promise.resolve();
-      return img.decode().catch(() => undefined);
+      return img.decode?.().catch(() => undefined) ?? Promise.resolve();
     }),
   );
-  await new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve())));
+  await Promise.race([
+    new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))),
+    new Promise<void>((resolve) => window.setTimeout(resolve, 200)),
+  ]);
 }
 
 function Curtain() {
@@ -55,7 +59,6 @@ export function TvGate({
   const covered = useSyncExternalStore(subscribe, isPageCurtainUp, () => false);
   const useVideo = required || lounge;
   const hold = wait === "city" || useVideo;
-  const [src, setSrc] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
   const stage = useRef<HTMLDivElement>(null);
 
@@ -78,26 +81,7 @@ export function TvGate({
   }, [hold, open]);
 
   useEffect(() => {
-    if (!hold || !useVideo) return;
-    const ac = new AbortController();
-    let blob: string | null = null;
-    loadCityLoop(ac.signal)
-      .then((url) => {
-        blob = url;
-        setSrc(url);
-      })
-      .catch(() => {
-        if (!ac.signal.aborted) setSrc("/tv/city-dark.mp4");
-      });
-    return () => {
-      ac.abort();
-      if (blob?.startsWith("blob:")) URL.revokeObjectURL(blob);
-    };
-  }, [hold, useVideo]);
-
-  useEffect(() => {
     if (!hold || !mounted || open) return;
-    if (useVideo && !src) return;
     const root = stage.current;
     if (!root) return;
     let done = false;
@@ -110,13 +94,13 @@ export function TvGate({
     if (useVideo && video && !video.paused && video.readyState >= 2) finish();
     window.addEventListener(CITY_LOOP_READY, finish, { once: true });
     window.addEventListener("biy-map-idle", finish, { once: true });
-    const fallback = window.setTimeout(finish, 16_000);
+    const fallback = window.setTimeout(finish, 8_000);
     return () => {
       window.removeEventListener(CITY_LOOP_READY, finish);
       window.removeEventListener("biy-map-idle", finish);
       window.clearTimeout(fallback);
     };
-  }, [hold, mounted, useVideo, src, open]);
+  }, [hold, mounted, useVideo, open]);
 
   if (!hold) return children;
 
@@ -128,19 +112,14 @@ export function TvGate({
     );
   }
 
-  const stageReady = !useVideo || !!src;
-  const tree = useVideo && src ? <CityLoopProvider src={src}>{children}</CityLoopProvider> : children;
+  const tree = useVideo ? <CityLoopProvider src={CITY_VIDEO}>{children}</CityLoopProvider> : children;
 
   return (
     <div className="relative min-h-[100dvh] bg-bg">
       {!open && !covered ? <Curtain /> : null}
-      {stageReady ? (
-        <div ref={stage} aria-hidden={!open}>
-          {tree}
-        </div>
-      ) : (
-        <div className="min-h-[100dvh]" data-city={useVideo ? "loop" : "map"} />
-      )}
+      <div ref={stage} aria-hidden={!open}>
+        {tree}
+      </div>
     </div>
   );
 }

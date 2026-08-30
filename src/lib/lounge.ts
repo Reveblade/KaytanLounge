@@ -4,7 +4,7 @@
  * appears. A pre-rendered loop of that same camera is what they play.
  */
 const LOUNGE_UA =
-  /Tizen|Web0S|WebOS|SmartTV|SMART-TV|Smart-TV|BRAVIA|HbbTV|VIDAA|CrKey|AFT|Silk\/|TV Safari|NetCast|Viera|Hisense|PhilipsTV|AppleTV|DTV|MiTV|Sony-TV/i;
+  /Tizen|Web0S|WebOS|SmartTV|SMART-TV|Smart-TV|BRAVIA|HbbTV|VIDAA|CrKey|AFT|Silk\/|TV Safari|NetCast|Viera|Hisense|PhilipsTV|AppleTV|DTV|MiTV|Sony-TV|BeyondTV|Android TV|GoogleTV|MIBOX|MiBOX|SHIELD Android|NETTV|Opera TV|TV Store|SmartHub|Orsay|Maple|WebBrowserForAndroid|SamsungBrowser\/.*TV|AOSP on.*TV|sdk_google_atv|Chromecast|Vewd|WhaleTV|Xumo|PlayStation|Xbox/i;
 
 export function isLoungeUA(ua: string): boolean {
   return LOUNGE_UA.test(ua);
@@ -12,7 +12,13 @@ export function isLoungeUA(ua: string): boolean {
 
 export function isLoungeDisplay(): boolean {
   if (typeof navigator === "undefined") return false;
-  return isLoungeUA(navigator.userAgent);
+  if (isLoungeUA(navigator.userAgent)) return true;
+  try {
+    if (window.matchMedia("tv").matches) return true;
+  } catch {
+    /* Old engines throw on an unknown media type. */
+  }
+  return false;
 }
 
 let webgl: boolean | null = null;

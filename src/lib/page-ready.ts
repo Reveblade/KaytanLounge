@@ -22,13 +22,16 @@ export function isPageCurtainUp() {
 }
 
 function frames(n: number) {
-  return new Promise<void>((resolve) => {
-    const step = (left: number) => {
-      if (left <= 0) resolve();
-      else requestAnimationFrame(() => step(left - 1));
-    };
-    step(n);
-  });
+  return Promise.race([
+    new Promise<void>((resolve) => {
+      const step = (left: number) => {
+        if (left <= 0) resolve();
+        else requestAnimationFrame(() => step(left - 1));
+      };
+      step(n);
+    }),
+    new Promise<void>((resolve) => window.setTimeout(resolve, 250)),
+  ]);
 }
 
 function waitEvent(name: string, already: () => boolean, ms: number, signal?: AbortSignal) {

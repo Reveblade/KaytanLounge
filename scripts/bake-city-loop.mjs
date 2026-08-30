@@ -1,5 +1,6 @@
 /**
- * Record the live hero camera at 60fps — dark only, TV-sized.
+ * Record the live hero camera at 60fps, then encode a TV-safe H.264 loop
+ * (Constrained Baseline, 30fps, no B-frames). Dark only, 1080p.
  *
  *   npx playwright install chromium
  *   npm run bake:city
@@ -103,13 +104,17 @@ await run("ffmpeg", [
   "-vf",
   `fps=${FPS},scale=${WIDTH}:${HEIGHT}:flags=lanczos,format=yuv420p`,
   "-r",
-  String(FPS),
+  "30",
   "-c:v",
   "libx264",
   "-profile:v",
-  "main",
+  "baseline",
   "-level",
   "4.0",
+  "-bf",
+  "0",
+  "-g",
+  "30",
   "-preset",
   "slow",
   "-crf",

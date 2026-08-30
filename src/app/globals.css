@@ -1830,8 +1830,15 @@ html.tv-active body {
   object-position: 50% 45%;
   border: 0;
 }
+img.tv-city-still {
+  z-index: 0;
+}
 video.tv-city {
   z-index: 1;
+  opacity: 0;
+}
+video.tv-city[data-playing="true"] {
+  opacity: 1;
 }
 
 /*
@@ -2065,6 +2072,13 @@ video.tv-city {
   height: 100%;
   object-fit: cover;
 }
+video.tv-ig-video {
+  z-index: 1;
+  opacity: 0;
+}
+video.tv-ig-video[data-playing="true"] {
+  opacity: 1;
+}
 .tv-ig-foot {
   display: block;
   padding: 8px 10px 11px;
@@ -2089,17 +2103,17 @@ video.tv-city {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tv-scene,
-  .tv-scene-out,
-  .tv-still-layer,
-  .tv-rise,
-  .tv-d1,
-  .tv-d2,
-  .tv-d3,
-  .tv-d4 {
+  html:not([data-lounge]) .tv-scene,
+  html:not([data-lounge]) .tv-scene-out,
+  html:not([data-lounge]) .tv-still-layer,
+  html:not([data-lounge]) .tv-rise,
+  html:not([data-lounge]) .tv-d1,
+  html:not([data-lounge]) .tv-d2,
+  html:not([data-lounge]) .tv-d3,
+  html:not([data-lounge]) .tv-d4 {
     animation: none;
   }
-  .tv-film {
+  html:not([data-lounge]) .tv-film {
     transform: none;
     will-change: auto;
   }

@@ -1,45 +1,14 @@
 "use client";
 
 import { createContext, useContext, useEffect, useRef, type ReactNode } from "react";
+import { isLoungeDisplay } from "@/lib/lounge";
 import { noteLoopReady } from "@/lib/page-ready";
 
-const CACHE = "biy-city-loop-v4";
-const CITY_VIDEO = "/tv/city-dark.mp4";
+export const CITY_VIDEO = "/tv/city-dark.mp4";
+export const CITY_STILL = "/tv/city-dark.jpg";
 const Preloaded = createContext<string | null>(null);
 
 export const CITY_LOOP_READY = "biy-city-loop-ready";
-
-/** Fills the Cache API so the lounge gate does not start from zero. */
-export function prefetchCityLoop() {
-  void (async () => {
-    try {
-      const cache = await caches.open(CACHE);
-      if (await cache.match(CITY_VIDEO)) return;
-      const res = await fetch(CITY_VIDEO);
-      if (res.ok) await cache.put(CITY_VIDEO, res.clone());
-    } catch {
-      /* Private mode, old TV, offline: the gate will fetch again. */
-    }
-  })();
-}
-
-/** Resolves only after the whole file is on the device. */
-export async function loadCityLoop(signal?: AbortSignal): Promise<string> {
-  let res: Response | undefined;
-  try {
-    const cache = await caches.open(CACHE);
-    res = await cache.match(CITY_VIDEO);
-    if (!res) {
-      res = await fetch(CITY_VIDEO, { signal });
-      if (!res.ok) throw new Error("city loop");
-      void cache.put(CITY_VIDEO, res.clone()).catch(() => undefined);
-    }
-  } catch {
-    res = await fetch(CITY_VIDEO, { signal });
-  }
-  if (!res?.ok) throw new Error("city loop");
-  return URL.createObjectURL(await res.blob());
-}
 
 export function CityLoopProvider({ src, children }: { src: string; children: ReactNode }) {
   return <Preloaded.Provider value={src}>{children}</Preloaded.Provider>;
@@ -52,78 +21,88 @@ function announceReady() {
 
 /**
  * The hero camera, already turned. A television plays this on the homepage
- * and the reel. No poster — a still behind the decoder is what flashed black
- * every time the file restarted.
+ * and the reel. The JPEG sits underneath so a decoder that never starts
+ * still shows the city, not a black field.
  */
 export function CityLoop({ className }: { className?: string }) {
   const preloaded = useContext(Preloaded);
   const src = preloaded ?? CITY_VIDEO;
   const video = useRef<HTMLVideoElement>(null);
+  const still = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const img = still.current;
+    if (img?.complete && img.naturalWidth) announceReady();
+    else img?.addEventListener("load", announceReady, { once: true });
+  }, []);
 
   useEffect(() => {
     const el = video.current;
     if (!el) return;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const lounge = isLoungeDisplay();
+    const reduce = !lounge && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) {
       el.pause();
       el.removeAttribute("autoplay");
       announceReady();
       return;
     }
+
     el.muted = true;
     el.defaultMuted = true;
-    el.loop = false;
-    el.removeAttribute("poster");
+    el.playsInline = true;
+    el.loop = true;
     el.setAttribute("webkit-playsinline", "true");
+    el.removeAttribute("poster");
 
-    const play = () => void el.play().catch(() => undefined);
-    const restart = () => {
-      if (!el.duration || el.duration < 0.2) return;
-      if (el.currentTime >= el.duration - 0.08) {
-        el.currentTime = 0.04;
-        play();
-      }
+    const hasFrame = () => el.videoWidth > 0 && el.readyState >= 2;
+    const painted = () => {
+      if (!hasFrame()) return;
+      el.dataset.playing = "true";
+      announceReady();
     };
-    const onEnded = () => {
-      el.currentTime = 0.04;
-      play();
+    const play = () => {
+      void el.play()?.catch(() => undefined);
     };
-    const onPainted = () => announceReady();
 
-    el.addEventListener("timeupdate", restart);
-    el.addEventListener("ended", onEnded);
+    el.addEventListener("playing", painted);
     el.addEventListener("canplay", play);
-    el.addEventListener("playing", onPainted, { once: true });
+    el.addEventListener("loadeddata", play);
+    el.addEventListener("error", announceReady);
     if ("requestVideoFrameCallback" in el) {
-      el.requestVideoFrameCallback(() => onPainted());
+      el.requestVideoFrameCallback(() => painted());
     }
     play();
+    const kick = window.setInterval(() => {
+      if (el.paused) play();
+      else painted();
+    }, 1500);
+
     return () => {
-      el.removeEventListener("timeupdate", restart);
-      el.removeEventListener("ended", onEnded);
+      window.clearInterval(kick);
+      el.removeEventListener("playing", painted);
       el.removeEventListener("canplay", play);
-      el.removeEventListener("playing", onPainted);
+      el.removeEventListener("loadeddata", play);
+      el.removeEventListener("error", announceReady);
       el.pause();
     };
   }, [src]);
 
   return (
     <div className={className ?? "absolute inset-0 overflow-hidden bg-bg"} data-city="loop" aria-hidden>
+      <img ref={still} className="tv-city tv-city-still" src={CITY_STILL} alt="" />
       <video
         ref={video}
         key={src}
         className="tv-city"
         src={src}
         muted
+        loop
         playsInline
         autoPlay
         preload="auto"
-        disablePictureInPicture
-        disableRemotePlayback
         controls={false}
-      >
-        <source src={src} type="video/mp4" />
-      </video>
+      />
     </div>
   );
 }

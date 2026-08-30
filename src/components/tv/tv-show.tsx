@@ -62,8 +62,11 @@ export function TvShow(data: TvData & { loop?: boolean }) {
   const paint = useCallback((b: number, i: number, n: number) => {
     const el = rootRef.current;
     if (!el) return;
+    const loop = (i + b) / n;
     el.style.setProperty("--tv-beat", b.toFixed(4));
-    el.style.setProperty("--tv-loop", ((i + b) / n).toFixed(4));
+    el.style.setProperty("--tv-loop", loop.toFixed(4));
+    const bar = el.querySelector<HTMLElement>(".tv-progress > i");
+    if (bar) bar.style.width = `${(loop * 100).toFixed(2)}%`;
   }, []);
 
   const go = useCallback(
@@ -132,10 +135,11 @@ export function TvShow(data: TvData & { loop?: boolean }) {
 
   useEffect(() => {
     let raf = 0;
-    let last = performance.now();
+    let last = Date.now();
     let lastPaint = 0;
-    const tick = (now: number) => {
-      const dt = now - last;
+    const tick = () => {
+      const now = Date.now();
+      const dt = Math.min(250, Math.max(0, now - last));
       last = now;
       if (!pausedRef.current) {
         elapsedRef.current += dt;
@@ -157,10 +161,17 @@ export function TvShow(data: TvData & { loop?: boolean }) {
           }
         }
       }
-      raf = requestAnimationFrame(tick);
     };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+    const loop = () => {
+      tick();
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
+    const interval = window.setInterval(tick, 100);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.clearInterval(interval);
+    };
   }, [paint, scenes]);
 
   useEffect(() => {

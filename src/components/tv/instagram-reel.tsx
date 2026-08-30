@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useSyncExternalStore } from "react";
-import Image from "next/image";
+import { useEffect, useRef } from "react";
 import { BookmarkSimple, ChatCircle, DotsThree, Heart, InstagramLogo, PaperPlaneTilt } from "@phosphor-icons/react";
-import { isLoungeDisplay } from "@/lib/lounge";
 
 const HANDLE = "@kaytanlounge";
 const PROFILE = "https://www.instagram.com/kaytanlounge/";
 const POST = "https://www.instagram.com/p/Dbz2NJQsCCd/";
+const REEL = "/tv/kaytan-reel.mp4";
+const STILL = "/tv/kaytan-reel.jpg";
 
 /**
  * A vertical Instagram post, built for a lounge wall: the reel plays muted so
@@ -15,30 +15,40 @@ const POST = "https://www.instagram.com/p/Dbz2NJQsCCd/";
  */
 export function InstagramReel() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const lounge = useSyncExternalStore(() => () => undefined, isLoungeDisplay, () => false);
 
   useEffect(() => {
     const video = videoRef.current;
     const root = video?.closest(".tv-root");
     if (!video) return;
     video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.setAttribute("webkit-playsinline", "true");
 
+    const play = () => {
+      void video.play()?.catch(() => undefined);
+    };
+    const painted = () => {
+      if (video.videoWidth > 0) video.dataset.playing = "true";
+    };
     const sync = () => {
       const leaving = video.closest(".tv-scene-out");
       if (leaving || root?.getAttribute("data-paused") === "true") video.pause();
-      else void video.play().catch(() => undefined);
+      else play();
     };
 
     const obs = root ? new MutationObserver(sync) : null;
     if (root && obs) obs.observe(root, { attributes: true, attributeFilter: ["data-paused"] });
     video.addEventListener("canplay", sync);
+    video.addEventListener("playing", painted);
     sync();
     return () => {
       obs?.disconnect();
       video.removeEventListener("canplay", sync);
+      video.removeEventListener("playing", painted);
       video.pause();
     };
-  }, [lounge]);
+  }, []);
 
   return (
     <figure className="tv-ig tv-rise tv-d2" aria-label={`${HANDLE} Instagram`}>
@@ -48,7 +58,7 @@ export function InstagramReel() {
             <span className="tv-ig-who">
               <span className="tv-ig-ring" aria-hidden>
                 <span className="tv-ig-avatar">
-                  <Image src="/tv/kaytan-avatar.jpg" alt="" width={36} height={36} />
+                  <img src="/tv/kaytan-avatar.jpg" alt="" width={36} height={36} />
                 </span>
               </span>
               <span>
@@ -63,24 +73,18 @@ export function InstagramReel() {
           </header>
 
           <div className="tv-ig-stage">
-            {lounge ? (
-              <Image src="/tv/kaytan-reel.jpg" alt="" fill sizes="360px" className="tv-ig-video object-cover" />
-            ) : (
-              <video
-                ref={videoRef}
-                className="tv-ig-video"
-                src="/tv/kaytan-reel.mp4"
-                poster="/tv/kaytan-reel.jpg"
-                muted
-                loop
-                playsInline
-                autoPlay
-                preload="metadata"
-                disablePictureInPicture
-                disableRemotePlayback
-                controls={false}
-              />
-            )}
+            <img src={STILL} alt="" className="tv-ig-video" />
+            <video
+              ref={videoRef}
+              className="tv-ig-video"
+              src={REEL}
+              muted
+              loop
+              playsInline
+              autoPlay
+              preload="auto"
+              controls={false}
+            />
           </div>
 
           <footer className="tv-ig-bar tv-ig-foot">
