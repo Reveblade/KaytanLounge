@@ -36,7 +36,7 @@ export function HeroMap({
 
   if (shouldLoopCity(!!loop, lounge)) {
     return (
-      <div className="absolute inset-0 isolate overflow-hidden" data-city="loop">
+      <div className="absolute inset-0 overflow-hidden" data-city="loop">
         <CityLoop />
         {fade}
       </div>
@@ -44,7 +44,7 @@ export function HeroMap({
   }
 
   return (
-    <div className="absolute inset-0 isolate overflow-hidden" data-city="map">
+    <div className="absolute inset-0 overflow-hidden" data-city="map">
       <div className={budget ? "tv-map-budget" : "h-full w-full"}>
         <RouteMap mode="hero" lite={lite} budget={budget} path={path} nodes={nodes} className="h-full w-full" fitKey={nodes.map((n) => n.id).join("|")} />
       </div>

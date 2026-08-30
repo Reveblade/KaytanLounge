@@ -46,7 +46,7 @@ export function TvBackdrop({
     <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden>
       <div className="tv-ambient absolute inset-0" />
       {video ? (
-        <CityLoop />
+        <CityLoop className="tv-city-wrap" />
       ) : capable ? (
         <MapSafe>
           <div className="tv-map-live" data-painted={painted ? "true" : "false"}>

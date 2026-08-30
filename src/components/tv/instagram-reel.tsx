@@ -73,11 +73,11 @@ export function InstagramReel() {
           </header>
 
           <div className="tv-ig-stage">
-            <img src={STILL} alt="" className="tv-ig-video" />
             <video
               ref={videoRef}
               className="tv-ig-video"
               src={REEL}
+              poster={STILL}
               muted
               loop
               playsInline

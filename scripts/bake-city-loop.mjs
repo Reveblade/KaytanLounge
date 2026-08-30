@@ -1,6 +1,6 @@
 /**
  * Record the live hero camera at 60fps, then encode a TV-safe H.264 loop
- * (Constrained Baseline, 30fps, no B-frames). Dark only, 1080p.
+ * (Constrained Baseline, 30fps, no B-frames). Dark only, 720p for lounge decoders.
  *
  *   npx playwright install chromium
  *   npm run bake:city
@@ -18,8 +18,8 @@ const ORIGIN = process.env.BAKE_ORIGIN ?? "http://localhost:3302";
 const SECONDS = Number(process.env.BAKE_SECONDS ?? 20);
 const WARMUP_MS = 600;
 const FPS = 60;
-const WIDTH = 1920;
-const HEIGHT = 1080;
+const WIDTH = 1280;
+const HEIGHT = 720;
 const OUT_DIR = join(process.cwd(), "public", "tv");
 
 function run(cmd, args) {

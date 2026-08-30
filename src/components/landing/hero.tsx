@@ -4,6 +4,7 @@ import type { RouteDetailDto } from "@/lib/contract/api";
 import { fareFrom, formatDateTime, formatDuration, formatMoney } from "@/lib/format";
 import { pickText } from "@/lib/i18n/pick";
 import type { Dictionary, UiLocale } from "@/lib/i18n/dictionaries";
+import { CityLoop } from "@/components/map/city-loop";
 import { PlaceImage } from "@/components/media/place-image";
 import { Reveal } from "@/components/motion/reveal";
 import { HeroMap } from "./hero-map";
@@ -38,7 +39,7 @@ export function Hero({
   return (
     <section className="relative min-h-[100dvh] overflow-hidden bg-bg">
       <div id="header-sentinel" className="absolute top-0 h-px w-full" aria-hidden />
-      <HeroMap path={route?.path} nodes={nodes} loop={loop} />
+      {loop ? <CityLoop /> : <HeroMap path={route?.path} nodes={nodes} />}
       <div className="pointer-events-none absolute inset-0 hidden md:block scrim-l" aria-hidden />
       <div className="pointer-events-none absolute inset-0 md:hidden scrim-b" aria-hidden />
 
