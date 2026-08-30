@@ -22,6 +22,11 @@ function apiPattern(): RemotePattern[] {
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  // A lockfile in the user home makes Next treat C:\Users\<name> as the workspace
+  // root, so standalone lands at .next/standalone/Workspace/... and Cloud Run's
+  // COPY of server.js fails. Pin both roots to this repo, same as the website.
+  outputFileTracingRoot: process.cwd(),
+  turbopack: { root: process.cwd() },
   images: {
     remotePatterns: [
       ...apiPattern(),
