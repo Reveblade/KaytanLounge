@@ -1827,8 +1827,11 @@ html.tv-active body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 68% 42%;
+  object-position: 50% 45%;
   border: 0;
+}
+video.tv-city {
+  z-index: 1;
 }
 
 /*
@@ -1870,6 +1873,53 @@ html.tv-active body {
 }
 .tv-scene {
   animation: tv-scene 0.7s var(--ease-out-quint) both;
+}
+@keyframes tv-scene-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.tv-scene-out {
+  animation: tv-scene-out 0.7s var(--ease-out-quint) both;
+  pointer-events: none;
+}
+
+.tv-still {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #101218;
+}
+.tv-still-layer {
+  position: absolute;
+  inset: 0;
+}
+.tv-still-layer[data-state="in"] {
+  animation: tv-still-in 0.9s var(--ease-out-quint) both;
+}
+.tv-still-layer[data-state="out"] {
+  animation: tv-still-out 0.9s var(--ease-out-quint) both;
+}
+@keyframes tv-still-in {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes tv-still-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 .tv-film {
@@ -2036,6 +2086,8 @@ html.tv-active body {
 
 @media (prefers-reduced-motion: reduce) {
   .tv-scene,
+  .tv-scene-out,
+  .tv-still-layer,
   .tv-rise,
   .tv-d1,
   .tv-d2,
@@ -2047,4 +2099,26 @@ html.tv-active body {
     transform: none;
     will-change: auto;
   }
+}
+
+/*
+  A television waits under the loading screen until the city is already
+  playing and the type has settled. Entrance motion would run after the
+  curtain lifts and look like the page was still arriving.
+*/
+html[data-lounge] .rise,
+html[data-lounge] .rise-2,
+html[data-lounge] .rise-3,
+html[data-lounge] .rise-4,
+html[data-lounge] .page-in,
+html[data-lounge] .reveal,
+html[data-lounge] .stagger > *,
+html[data-lounge] .tv-scene,
+html[data-lounge] .tv-scene-out,
+html[data-lounge] .tv-rise,
+html[data-lounge] .tv-d1,
+html[data-lounge] .tv-d2,
+html[data-lounge] .tv-d3,
+html[data-lounge] .tv-d4 {
+  animation: none;
 }

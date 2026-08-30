@@ -11,6 +11,10 @@ type Theme = "dark" | "light";
 
 const ThemeContext = createContext<{ theme: Theme; setTheme: (next: Theme) => void } | null>(null);
 
+export function useTheme(): Theme {
+  return useContext(ThemeContext)?.theme ?? "dark";
+}
+
 /** Same value the server wrote on <html data-theme>. Shared so every toggle hydrates alike. */
 export function ThemeProvider({ initial, children }: { initial: Theme; children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>(initial);

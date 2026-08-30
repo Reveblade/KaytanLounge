@@ -62,6 +62,8 @@ const WRITE = [
  * screen is never cut off half-written, it is left when it has just finished.
  */
 export const LOADING_CYCLE_MS = 2600;
+/** Matches `--loading-delay`. A navigation that settles inside this window never plays. */
+export const LOADING_DELAY_MS = 240;
 
 export function LoadingScreen({ label = "Loading", immediate = false }: { label?: string; immediate?: boolean }) {
   return (

@@ -17,6 +17,7 @@ import { ReadingSheet, type Snap } from "./reading-sheet";
 import { DecideBar, RoutePanel } from "./route-panel";
 import { RouteSwitcher } from "./route-switcher";
 import { LOADING_CYCLE_MS, LoadingScreen } from "@/components/chrome/loading-screen";
+import { isPageCurtainUp } from "@/lib/page-ready";
 import { Wordmark } from "@/components/chrome/wordmark";
 
 interface Props {
@@ -81,7 +82,7 @@ export function ExploreApp({ cards, initialRoute, initialStop, places, startInOv
   const [sheet, setSheet] = useState({ height: 0, mapInset: 0 });
   const [isWide, setIsWide] = useState(true);
   // "up" until the map has drawn a city AND the word has finished writing itself.
-  const [curtain, setCurtain] = useState<"up" | "lifting" | "gone">("up");
+  const [curtain, setCurtain] = useState<"up" | "lifting" | "gone">(() => (isPageCurtainUp() ? "gone" : "up"));
   const [cityDrawn, setCityDrawn] = useState(false);
   const curtainSince = useRef(0);
   const cache = useRef(new Map<string, RouteDetailDto>(initialRoute ? [[initialRoute.slug, initialRoute]] : []));

@@ -13,7 +13,18 @@ import { HeroMap } from "./hero-map";
  * slowly turning behind the headline. On the right, one glass card — the route the map
  * is drawing — so the frosted surface has something real to sit on.
  */
-export function Hero({ t, route, locale }: { t: Dictionary; route: RouteDetailDto | null; locale: UiLocale }) {
+export function Hero({
+  t,
+  route,
+  locale,
+  loop,
+}: {
+  t: Dictionary;
+  route: RouteDetailDto | null;
+  locale: UiLocale;
+  /** Television: the baked city loop instead of WebGL. */
+  loop?: boolean;
+}) {
   const nodes = (route?.nodes ?? []).map((n) => ({
     id: `${n.kind}:${n.refId}`,
     order: n.order,
@@ -27,7 +38,7 @@ export function Hero({ t, route, locale }: { t: Dictionary; route: RouteDetailDt
   return (
     <section className="relative min-h-[100dvh] overflow-hidden bg-bg">
       <div id="header-sentinel" className="absolute top-0 h-px w-full" aria-hidden />
-      <HeroMap path={route?.path} nodes={nodes} />
+      <HeroMap path={route?.path} nodes={nodes} loop={loop} />
       <div className="pointer-events-none absolute inset-0 hidden md:block scrim-l" aria-hidden />
       <div className="pointer-events-none absolute inset-0 md:hidden scrim-b" aria-hidden />
 

@@ -17,7 +17,8 @@ export function RoutesStrip({ t, locale, routes }: { t: Dictionary; locale: UiLo
         label={t.landing.routesTitle}
         prevLabel={t.common.previous}
         nextLabel={t.common.next}
-        trackClassName="mt-12 gap-4 px-5 pb-6 scroll-px-5 sm:gap-5 sm:px-8 sm:scroll-px-8 lg:px-[max(2rem,calc((100vw-1440px)/2+2rem))] lg:scroll-px-[max(2rem,calc((100vw-1440px)/2+2rem))]"
+        trackClassName="mt-12 pb-6 scroll-px-5 sm:scroll-px-8 lg:scroll-px-[max(2rem,calc((100vw-1440px)/2+2rem))]"
+        railClassName="gap-4 px-5 sm:gap-5 sm:px-8 lg:px-[max(2rem,calc((100vw-1440px)/2+2rem))]"
         header={
           <Reveal>
             <h2 className="display-lg max-w-[18ch]">{t.landing.routesTitle}</h2>

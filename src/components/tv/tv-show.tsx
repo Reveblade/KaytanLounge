@@ -15,11 +15,10 @@ const IDLE_MS = 3200;
 /**
  * A looping reel of the product, built for a television, a lounge wall, a booth.
  *
- * The city is the homepage map: OpenFreeMap behind the reel. A lounge set
- * gets the same pitched city at a 1080p budget; the baked still holds the
- * frame until WebGL paints.
+ * The city is the homepage map. Capable browsers keep the live orbit; a lounge
+ * set plays the baked loop of that same camera.
  */
-export function TvShow(data: TvData) {
+export function TvShow(data: TvData & { loop?: boolean }) {
   const { t, locale } = useI18n();
   const router = useRouter();
   const rootRef = useRef<HTMLDivElement>(null);
@@ -30,6 +29,8 @@ export function TvShow(data: TvData) {
   const [beat, setBeat] = useState(0);
   const [paused, setPaused] = useState(false);
   const [awake, setAwake] = useState(true);
+  const [ghost, setGhost] = useState<{ id: SceneId; beat: number } | null>(null);
+  const hold = useRef<{ id?: SceneId; beat: number }>({ beat: 0 });
   const musicPlaying = useSyncExternalStore(subscribeMusicPlaying, getMusicPlaying, () => false);
 
   const mapNodes = useMemo(
@@ -195,8 +196,21 @@ export function TvShow(data: TvData) {
     };
   }, [paused]);
 
+  useEffect(() => {
+    if (!ghost) return;
+    const timer = window.setTimeout(() => setGhost(null), 750);
+    return () => window.clearTimeout(timer);
+  }, [ghost]);
+
   const scene = scenes[index] ?? scenes[0];
   const showChrome = awake || paused;
+
+  if (scene && hold.current.id !== scene.id) {
+    if (hold.current.id) setGhost({ id: hold.current.id, beat: hold.current.beat });
+    hold.current = { id: scene.id, beat: 0 };
+  } else if (scene) {
+    hold.current.beat = beat;
+  }
 
   return (
     <div
@@ -210,8 +224,13 @@ export function TvShow(data: TvData) {
         toggle();
       }}
     >
-      <TvBackdrop path={data.featured?.path} nodes={mapNodes} />
+      <TvBackdrop path={data.featured?.path} nodes={mapNodes} loop={data.loop} />
 
+      {ghost ? (
+        <div key={`out-${ghost.id}`} className="absolute inset-0 z-10 tv-scene-out" aria-hidden>
+          <Scene id={ghost.id} beat={ghost.beat} data={data} t={t} locale={locale} />
+        </div>
+      ) : null}
       {scene ? (
         <div key={scene.id} className="absolute inset-0 z-10 tv-scene">
           <Scene id={scene.id} beat={beat} data={data} t={t} locale={locale} />

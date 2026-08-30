@@ -6,6 +6,7 @@ import { memo, useEffect, useRef } from "react";
 import type { GeoJsonLineString, GeoPoint, RouteNodeKind } from "@/lib/contract/api";
 import { useI18n } from "@/lib/i18n/context";
 import { ISTANBUL_CENTER, ISTANBUL_MAX_BOUNDS, MAX_ZOOM, MIN_ZOOM, clampBounds, clampToIstanbul } from "@/lib/geo";
+import { noteMapIdle } from "@/lib/page-ready";
 
 export interface MapNode {
   id: string;
@@ -48,6 +49,11 @@ interface Props {
    * software GL. Pair with a CSS-scaled 1080p box on lounge TVs.
    */
   budget?: boolean;
+  /**
+   * Hero orbit period in ms. The live site is ~164s per turn. The bake
+   * page uses a shorter closed turn so the video file can loop.
+   */
+  orbitMs?: number;
 }
 
 const STYLE_LIGHT = process.env.NEXT_PUBLIC_MAP_STYLE_LIGHT ?? "https://tiles.openfreemap.org/styles/positron";
@@ -178,6 +184,27 @@ function lineGeoJson(path?: GeoJsonLineString, nodes?: MapNode[], draw = true): 
   return { type: "Feature", properties: {}, geometry: { type: "LineString", coordinates } };
 }
 
+/** Hero stops live on the canvas so a baked loop (captureStream) keeps the rings. */
+function stopsGeoJson(nodes: MapNode[]): GeoJSON.FeatureCollection {
+  const ordered = [...nodes].sort((a, b) => a.order - b.order);
+  const ends = new Set([ordered[0]?.id, ordered[ordered.length - 1]?.id]);
+  return {
+    type: "FeatureCollection",
+    features: nodes.map((node) => ({
+      type: "Feature" as const,
+      properties: { partner: node.kind === "BUSINESS" || ends.has(node.id) ? "yes" : "no" },
+      geometry: { type: "Point" as const, coordinates: [node.location.lng, node.location.lat] },
+    })),
+  };
+}
+
+function setStops(map: MapLibreMap, nodes: MapNode[]) {
+  const data = stopsGeoJson(nodes);
+  const source = map.getSource("stops") as maplibregl.GeoJSONSource | undefined;
+  if (source) source.setData(data);
+  else map.addSource("stops", { type: "geojson", data });
+}
+
 function boundsOf(nodes: MapNode[], path?: GeoJsonLineString): LngLatBoundsLike | null {
   const raw: [number, number][] = path?.coordinates?.length ? path.coordinates : nodes.map((n) => [n.location.lng, n.location.lat]);
   if (!raw.length) return null;
@@ -194,7 +221,7 @@ function boundsOf(nodes: MapNode[], path?: GeoJsonLineString): LngLatBoundsLike 
  * whenever the style (theme) swaps, and keeps DOM markers in sync with `nodes`.
  * No React state is touched per frame: the hero rotation runs on requestAnimationFrame.
  */
-function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore", padding, className, fitKey, drawPath = true, lite = false, budget = false }: Props) {
+function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore", padding, className, fitKey, drawPath = true, lite = false, budget = false, orbitMs }: Props) {
   const { t } = useI18n();
   const container = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
@@ -202,10 +229,10 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
   const clusters = useRef<Map<string, maplibregl.Marker>>(new Map());
   // The map is built once; this keeps the newest props reachable from inside its
   // long-lived handlers without tearing the map down on every render.
-  const latest = useRef({ path, nodes, activeNodeId, onNodeClick, padding, mode, drawPath, lite, budget, t });
+  const latest = useRef({ path, nodes, activeNodeId, onNodeClick, padding, mode, drawPath, lite, budget, orbitMs, t });
   useEffect(() => {
-    latest.current = { path, nodes, activeNodeId, onNodeClick, padding, mode, drawPath, lite, budget, t };
-  }, [path, nodes, activeNodeId, onNodeClick, padding, mode, drawPath, lite, budget, t]);
+    latest.current = { path, nodes, activeNodeId, onNodeClick, padding, mode, drawPath, lite, budget, orbitMs, t };
+  }, [path, nodes, activeNodeId, onNodeClick, padding, mode, drawPath, lite, budget, orbitMs, t]);
   /** Re-labels the 3D button when the language changes under a map that is never rebuilt. */
   const syncTilt = useRef<() => void>(() => {});
   /** The padding a refit last flew to, and when: the pan below tells its own work apart. */
@@ -368,6 +395,37 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
         }
       }
       applyTilt();
+      if (hero) {
+        setStops(map, latest.current.nodes);
+        if (!map.getLayer("stop-glow")) {
+          map.addLayer({
+            id: "stop-glow",
+            type: "circle",
+            source: "stops",
+            paint: {
+              "circle-color": accent,
+              "circle-radius": ["case", ["==", ["get", "partner"], "yes"], 20, 10],
+              "circle-opacity": 0.4,
+              "circle-blur": 0.7,
+              "circle-pitch-alignment": "viewport",
+            },
+          });
+        }
+        if (!map.getLayer("stop-fill")) {
+          map.addLayer({
+            id: "stop-fill",
+            type: "circle",
+            source: "stops",
+            paint: {
+              "circle-color": accent,
+              "circle-radius": ["case", ["==", ["get", "partner"], "yes"], 8.5, 5],
+              "circle-stroke-color": pinRim,
+              "circle-stroke-width": ["case", ["==", ["get", "partner"], "yes"], 2.4, 1.2],
+              "circle-pitch-alignment": "viewport",
+            },
+          });
+        }
+      }
     };
 
     map.on("style.load", applyLayers);
@@ -378,7 +436,10 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
       /* The house radio waits on this: the music arrives with the city, not before it.
          Deliberately not on `style.load`, which also fires on every theme swap. */
       window.dispatchEvent(new CustomEvent("biy-map-ready"));
-      map.once("idle", () => window.dispatchEvent(new CustomEvent("biy-map-idle")));
+      map.once("idle", () => {
+        noteMapIdle();
+        window.dispatchEvent(new CustomEvent("biy-map-idle"));
+      });
     });
     map.on("pitch", applyTilt);
 
@@ -405,10 +466,11 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
     let raf = 0;
     if (hero && !reduceMotion && !cheap) {
       let last = performance.now();
+      const degPerMs = 360 / (latest.current.orbitMs ?? 163_636);
       const tick = (now: number) => {
         const dt = now - last;
         last = now;
-        map.setBearing(map.getBearing() + dt * 0.0022);
+        map.setBearing(map.getBearing() + dt * degPerMs);
         raf = requestAnimationFrame(tick);
       };
       map.once("load", () => {
@@ -450,6 +512,7 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
     const update = () => {
       const source = map.getSource("route") as maplibregl.GeoJSONSource | undefined;
       if (source) source.setData(lineGeoJson(path, nodes, drawPath));
+      if (mode === "hero") setStops(map, nodes);
       fitAt.current = performance.now();
       fit(map, nodes, path, latest.current.padding, mode, false, latest.current.lite, latest.current.budget);
     };
@@ -480,6 +543,11 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
   useEffect(() => {
     const map = mapRef.current;
     if (!map) return;
+    if (mode === "hero") {
+      markers.current.forEach((marker) => marker.remove());
+      markers.current.clear();
+      return;
+    }
     const seen = new Set<string>();
     for (const node of nodes) {
       seen.add(node.id);
@@ -736,7 +804,7 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
     });
   }, [activeNodeId, nodes, mode, padding]);
 
-  return <div ref={container} className={className} aria-hidden={mode === "hero"} />;
+  return <div ref={container} data-city="map" className={className} aria-hidden={mode === "hero"} />;
 }
 
 /**

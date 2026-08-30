@@ -7,6 +7,7 @@ import { getLocale, getTheme } from "@/lib/i18n/server";
 import { SessionProvider } from "@/lib/session/context";
 import { currentCustomer } from "@/lib/session/server";
 import { MusicPlayer } from "@/components/music/music-player";
+import { PageCurtain } from "@/components/chrome/page-curtain";
 import { ThemeProvider } from "@/components/chrome/prefs-toggles";
 
 /** One family for everything: 600 tight for display, 400/500 for the interface. */
@@ -60,6 +61,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <ThemeProvider initial={theme}>
             <SessionProvider initial={customer}>
               {children}
+              <PageCurtain />
               {/* Outside the page tree on purpose: the layout never remounts, so a piece
                   keeps playing across every navigation. */}
               <MusicPlayer />

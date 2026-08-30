@@ -1,6 +1,6 @@
 "use client";
 
-import type { CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { clsx } from "clsx";
 import type { AttractionDto, BusinessDto, MediaItem, RouteCardDto, RouteDetailDto, TourDetailDto } from "@/lib/contract/api";
 import { clockAt, formatDuration, formatMoney, languageName } from "@/lib/format";
@@ -62,12 +62,12 @@ export function Scene({
 function Open({ t }: { t: Dictionary }) {
   return (
     <div className="absolute inset-0 flex flex-col justify-end px-8 pb-[12vh] sm:px-14 md:px-20">
-      <div className="pointer-events-none absolute inset-0 hidden md:block scrim-l" aria-hidden />
-      <div className="pointer-events-none absolute inset-0 md:hidden scrim-b" aria-hidden />
-      <p className="label tv-rise">{t.hero.eyebrow}</p>
-      <h1 className="tv-rise tv-d1 mt-5 font-script leading-none text-[clamp(2.6rem,8vw,6.4rem)] text-ink">Başka İstanbul Yok</h1>
-      <p className="lede tv-rise tv-d2 mt-6">{t.hero.lede}</p>
-      <ul className="tv-rise tv-d3 mt-10 flex flex-wrap gap-2">
+      <div className="pointer-events-none absolute inset-0 z-0 hidden md:block scrim-l" aria-hidden />
+      <div className="pointer-events-none absolute inset-0 z-0 md:hidden scrim-b" aria-hidden />
+      <p className="relative z-10 label tv-rise">{t.hero.eyebrow}</p>
+      <h1 className="relative z-10 tv-rise tv-d1 mt-5 font-script leading-none text-[clamp(2.6rem,8vw,6.4rem)] text-ink">Başka İstanbul Yok</h1>
+      <p className="relative z-10 lede tv-rise tv-d2 mt-6">{t.hero.lede}</p>
+      <ul className="relative z-10 tv-rise tv-d3 mt-10 flex flex-wrap gap-2">
         {t.hero.points.map((point) => (
           <li key={point} className="stat">
             <span className="h-1.5 w-1.5 rounded-pill bg-accent" aria-hidden />
@@ -134,7 +134,12 @@ function Day({ t, locale, route, beat }: { t: Dictionary; locale: UiLocale; rout
   if (!node) return null;
   return (
     <div className="absolute inset-0 grid md:grid-cols-12">
-      <Still media={node.place.media[0]} alt={pickText(node.place.name, locale)} />
+      <Still
+        media={node.place.media[0]}
+        alt={pickText(node.place.name, locale)}
+        prefetch={nodes[active + 1]?.place.media[0]}
+        dissolve
+      />
       <div className="absolute inset-0 bg-gradient-to-r from-[rgba(8,9,13,0.88)] via-[rgba(8,9,13,0.45)] to-[rgba(8,9,13,0.12)]" aria-hidden />
       <div className="relative col-span-5 flex flex-col justify-end px-8 py-[12vh] sm:px-14 md:px-16">
         <p className="label tv-rise">{t.landing.dayTitle}</p>
@@ -146,11 +151,13 @@ function Day({ t, locale, route, beat }: { t: Dictionary; locale: UiLocale; rout
           <span className="stat">{formatDuration(route.durationMinutes, locale)}</span>
           <span className="stat">{t.explore.pace[route.pace]}</span>
         </div>
-        <p className="tv-rise tv-d3 mt-10 font-semibold tracking-[-0.04em] text-accent tnum text-[clamp(2.4rem,5vw,4.2rem)]">
-          {clockAt(start, node.arrivalOffsetMinutes, locale)}
-        </p>
-        <p className="display-md tv-rise tv-d3 mt-1">{pickText(node.place.name, locale)}</p>
-        <p className="tv-rise tv-d4 mt-3 max-w-[36ch] text-ink-muted">{pickText(node.place.summary, locale)}</p>
+        <div key={`${node.kind}:${node.refId}`}>
+          <p className="tv-rise tv-d3 mt-10 font-semibold tracking-[-0.04em] text-accent tnum text-[clamp(2.4rem,5vw,4.2rem)]">
+            {clockAt(start, node.arrivalOffsetMinutes, locale)}
+          </p>
+          <p className="display-md tv-rise tv-d3 mt-1">{pickText(node.place.name, locale)}</p>
+          <p className="tv-rise tv-d4 mt-3 max-w-[36ch] text-ink-muted">{pickText(node.place.summary, locale)}</p>
+        </div>
       </div>
       <ol className="relative col-span-7 hidden flex-col justify-end gap-1 px-10 py-[12vh] md:flex">
         {visibleStops(nodes, active).map(({ node: n, index: i }) => (
@@ -416,12 +423,12 @@ function Music({ t, locale }: { t: Dictionary; locale: UiLocale }) {
 function Close({ t, host }: { t: Dictionary; host: string }) {
   return (
     <div className="absolute inset-0 flex flex-col items-start justify-end px-8 pb-[14vh] sm:px-14 md:px-20">
-      <div className="pointer-events-none absolute inset-0 hidden md:block scrim-l" aria-hidden />
-      <div className="pointer-events-none absolute inset-0 md:hidden scrim-b" aria-hidden />
-      <p className="tv-rise font-script leading-none text-[clamp(2.6rem,8vw,6.4rem)] text-ink">Başka İstanbul Yok</p>
-      <p className="lede tv-rise tv-d1 mt-5">{t.tv.closeCta}</p>
-      {host ? <p className="tv-rise tv-d2 mt-6 text-2xl font-semibold tracking-[-0.03em] text-accent sm:text-3xl">{host}</p> : null}
-      <div className="tv-rise tv-d3 mt-8 flex flex-wrap gap-2">
+      <div className="pointer-events-none absolute inset-0 z-0 hidden md:block scrim-l" aria-hidden />
+      <div className="pointer-events-none absolute inset-0 z-0 md:hidden scrim-b" aria-hidden />
+      <p className="relative z-10 tv-rise font-script leading-none text-[clamp(2.6rem,8vw,6.4rem)] text-ink">Başka İstanbul Yok</p>
+      <p className="relative z-10 lede tv-rise tv-d1 mt-5">{t.tv.closeCta}</p>
+      {host ? <p className="relative z-10 tv-rise tv-d2 mt-6 text-2xl font-semibold tracking-[-0.03em] text-accent sm:text-3xl">{host}</p> : null}
+      <div className="relative z-10 tv-rise tv-d3 mt-8 flex flex-wrap gap-2">
         <span className="stat">{t.tv.langs}</span>
         <span className="stat">{t.theme.dark}</span>
         <span className="stat">{t.theme.light}</span>
@@ -438,18 +445,72 @@ function visibleStops<T>(nodes: T[], active: number): { node: T; index: number }
   return nodes.slice(start, start + cap).map((node, i) => ({ node, index: start + i }));
 }
 
+const STILL_MS = 900;
+
+function stillKey(media?: MediaItem) {
+  return media?.id ?? media?.url ?? "";
+}
+
 function Still({
   media,
   alt,
   priority,
+  prefetch,
+  dissolve,
 }: {
   media?: MediaItem;
   alt: string;
   priority?: boolean;
+  prefetch?: MediaItem;
+  dissolve?: boolean;
 }) {
+  const key = stillKey(media);
+  const [shown, setShown] = useState({ media, alt, key });
+  const [leaving, setLeaving] = useState<typeof shown | null>(null);
+  const shownRef = useRef(shown);
+  shownRef.current = shown;
+
+  useEffect(() => {
+    if (!dissolve) {
+      setShown({ media, alt, key });
+      setLeaving(null);
+      return;
+    }
+    if (key === shownRef.current.key) {
+      if (alt !== shownRef.current.alt) setShown({ media, alt, key });
+      return;
+    }
+    setLeaving(shownRef.current);
+    setShown({ media, alt, key });
+    const timer = window.setTimeout(() => setLeaving(null), STILL_MS);
+    return () => window.clearTimeout(timer);
+  }, [alt, dissolve, key, media]);
+
+  useEffect(() => {
+    const url = prefetch?.url;
+    if (!url) return;
+    const img = new window.Image();
+    img.src = url;
+  }, [prefetch]);
+
+  if (!dissolve) {
+    return (
+      <span className="absolute inset-0 overflow-hidden bg-[#101218]">
+        <PlaceImage media={media} alt={alt} mode="inset" sizes="100vw" priority={priority} />
+      </span>
+    );
+  }
+
   return (
-    <span className="absolute inset-0 overflow-hidden bg-[#101218]">
-      <PlaceImage media={media} alt={alt} mode="inset" sizes="100vw" priority={priority} />
+    <span className="tv-still">
+      {leaving ? (
+        <span key={leaving.key} className="tv-still-layer" data-state="out" aria-hidden>
+          <PlaceImage media={leaving.media} alt="" mode="inset" sizes="100vw" />
+        </span>
+      ) : null}
+      <span key={shown.key} className="tv-still-layer" data-state={leaving ? "in" : "hold"}>
+        <PlaceImage media={shown.media} alt={alt} mode="inset" sizes="100vw" priority={priority || Boolean(leaving)} />
+      </span>
     </span>
   );
 }

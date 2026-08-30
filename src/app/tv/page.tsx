@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { apiGetOrNull } from "@/lib/api/server";
 import type { TourDetailDto } from "@/lib/contract/api";
+import { isLoungeUA } from "@/lib/lounge";
 import { loadBootstrap, loadRoute, loadRouteCards } from "@/lib/public-data";
+import { TvGate } from "@/components/tv/tv-gate";
 import { TvShow } from "@/components/tv/tv-show";
 
 export const revalidate = 60;
@@ -15,11 +18,13 @@ export async function generateMetadata(): Promise<Metadata> {
 
 /**
  * A full-viewport reel of the product. No chrome of the site itself — the house
- * radio still plays underneath, the map still turns, and the loop is meant to run
- * unattended on a lounge screen or a booth. Lounge TVs get the same pitched
- * city at a 1080p budget.
+ * radio still plays underneath, the city still turns, and the loop is meant to run
+ * unattended on a lounge screen or a booth. Lounge TVs play a baked loop of the
+ * same orbit; they do not start WebGL.
  */
-export default async function TvPage() {
+export default async function TvPage({ searchParams }: { searchParams: Promise<{ bg?: string }> }) {
+  const query = await searchParams;
+  const lounge = query.bg === "loop" || isLoungeUA((await headers()).get("user-agent") ?? "");
   const [bootstrap, cards] = await Promise.all([loadBootstrap(), loadRouteCards()]);
   const featuredSlug = bootstrap.featuredRoutes[0]?.slug ?? cards[0]?.slug;
   const featured = featuredSlug ? await loadRoute(featuredSlug) : null;
@@ -30,14 +35,17 @@ export default async function TvPage() {
   const titleSponsor = bootstrap.sponsors.find((b) => b.sponsorTier === "TITLE") ?? null;
 
   return (
-    <TvShow
-      routes={cards}
-      featured={featured}
-      tour={sampleTour}
-      highlights={bootstrap.highlights}
-      titleSponsor={titleSponsor}
-      host={publicHost()}
-    />
+    <TvGate wait="city" required={lounge}>
+      <TvShow
+        routes={cards}
+        featured={featured}
+        tour={sampleTour}
+        highlights={bootstrap.highlights}
+        titleSponsor={titleSponsor}
+        host={publicHost()}
+        loop={lounge}
+      />
+    </TvGate>
   );
 }
 

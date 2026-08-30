@@ -1,13 +1,18 @@
 /**
- * Lounge TVs (Tizen, webOS, Android TV, Fire TV). The reel still wants the
- * pitched city; what goes black is a 4K canvas at 2×, not the tilt itself.
- * Callers keep the still underneath and paint WebGL at a 1080p budget.
+ * Lounge TVs (Tizen, webOS, Android TV, Fire TV). Their browsers often
+ * report WebGL and then paint a black canvas — the pitched city never
+ * appears. A pre-rendered loop of that same camera is what they play.
  */
+const LOUNGE_UA =
+  /Tizen|Web0S|WebOS|SmartTV|SMART-TV|Smart-TV|BRAVIA|HbbTV|VIDAA|CrKey|AFT|Silk\/|TV Safari|NetCast|Viera|Hisense|PhilipsTV|AppleTV|DTV|MiTV|Sony-TV/i;
+
+export function isLoungeUA(ua: string): boolean {
+  return LOUNGE_UA.test(ua);
+}
+
 export function isLoungeDisplay(): boolean {
   if (typeof navigator === "undefined") return false;
-  return /Tizen|Web0S|WebOS|SmartTV|SMART-TV|Smart-TV|BRAVIA|HbbTV|VIDAA|CrKey|AFT|Silk\/|TV Safari|NetCast|Viera|Hisense|PhilipsTV|AppleTV|DTV|HbbTV|MiTV|Sony-TV/i.test(
-    navigator.userAgent,
-  );
+  return isLoungeUA(navigator.userAgent);
 }
 
 let webgl: boolean | null = null;
@@ -23,4 +28,9 @@ export function canPaintWebGL(): boolean {
     webgl = false;
   }
   return webgl;
+}
+
+/** The baked loop is only for a real television, never a phone or a laptop. */
+export function shouldLoopCity(loop: boolean, lounge: boolean): boolean {
+  return loop || lounge;
 }
