@@ -82,7 +82,7 @@ function Open({ t }: { t: Dictionary }) {
 function Routes({ t, locale, routes }: { t: Dictionary; locale: UiLocale; routes: RouteCardDto[] }) {
   return (
     <div className="absolute inset-0 flex flex-col justify-end pb-[10vh]">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgba(8,9,13,0.88)] via-[rgba(8,9,13,0.35)] to-transparent" aria-hidden />
+      <div className="pointer-events-none absolute inset-0 tv-scrim-rise" aria-hidden />
       <div className="relative px-8 sm:px-14 md:px-20">
         <p className="label tv-rise">{t.nav.routes}</p>
         <h2 className="display-lg tv-rise tv-d1 mt-3 max-w-[18ch]">{t.landing.routesTitle}</h2>
@@ -141,8 +141,8 @@ function Day({ t, locale, route, beat }: { t: Dictionary; locale: UiLocale; rout
         dissolve
       />
       <div className="absolute inset-0 bg-gradient-to-r from-[rgba(8,9,13,0.88)] via-[rgba(8,9,13,0.45)] to-[rgba(8,9,13,0.12)]" aria-hidden />
-      <div className="relative col-span-5 flex flex-col justify-end px-8 py-[12vh] sm:px-14 md:px-16">
-        <p className="label tv-rise">{t.landing.dayTitle}</p>
+      <div className="relative col-span-5 flex flex-col justify-end px-8 py-[12vh] sm:px-14 md:px-16 text-white">
+        <p className="label label-on-dark tv-rise">{t.landing.dayTitle}</p>
         <h2 className="display-lg tv-rise tv-d1 mt-3">{pickText(route.name, locale)}</h2>
         <div className="tv-rise tv-d2 mt-4 flex flex-wrap gap-1.5">
           <span className="stat">
@@ -156,10 +156,10 @@ function Day({ t, locale, route, beat }: { t: Dictionary; locale: UiLocale; rout
             {clockAt(start, node.arrivalOffsetMinutes, locale)}
           </p>
           <p className="display-md tv-rise tv-d3 mt-1">{pickText(node.place.name, locale)}</p>
-          <p className="tv-rise tv-d4 mt-3 max-w-[36ch] text-ink-muted">{pickText(node.place.summary, locale)}</p>
+          <p className="tv-rise tv-d4 mt-3 max-w-[36ch] text-white/70">{pickText(node.place.summary, locale)}</p>
         </div>
       </div>
-      <ol className="relative col-span-7 hidden flex-col justify-end gap-1 px-10 py-[12vh] md:flex">
+      <ol className="relative col-span-7 hidden flex-col justify-end gap-1 px-10 py-[12vh] md:flex text-white">
         {visibleStops(nodes, active).map(({ node: n, index: i }) => (
           <li
             key={`${n.kind}:${n.refId}`}
@@ -182,7 +182,7 @@ function MapBeat({ t, locale, route, beat }: { t: Dictionary; locale: UiLocale; 
   const shown = Math.min(nodes.length, Math.max(1, Math.ceil(beat * nodes.length)));
   return (
     <div className="absolute inset-0 flex flex-col justify-between px-8 py-[12vh] sm:px-14 md:px-20">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgba(8,9,13,0.72)] via-transparent to-[rgba(8,9,13,0.35)]" aria-hidden />
+      <div className="pointer-events-none absolute inset-0 tv-scrim-frame" aria-hidden />
       <div className="relative max-w-[640px]">
         <p className="label tv-rise">{t.common.map}</p>
         <h2 className="display-lg tv-rise tv-d1 mt-3">{t.tv.mapTitle}</h2>
@@ -258,7 +258,7 @@ function Company({ t, locale, tour, beat }: { t: Dictionary; locale: UiLocale; t
   const selected = labels.slice(2, 2 + lit);
   return (
     <div className="absolute inset-0 flex flex-col px-6 pb-[8vh] pt-[5.5rem] sm:px-10">
-      <div className="pointer-events-none absolute inset-0 bg-[rgba(8,9,13,0.28)]" aria-hidden />
+      <div className="pointer-events-none absolute inset-0 tv-wash-soft" aria-hidden />
       <div className="relative shrink-0">
         <p className="label tv-rise">{t.explore.guide} · {t.explore.vehicle}</p>
         <h2 className="display-lg tv-rise tv-d1 mt-2 max-w-[16ch]">{t.landing.fleetTitle}</h2>
@@ -348,7 +348,7 @@ function Book({ t, locale, route, beat }: { t: Dictionary; locale: UiLocale; rou
   ] as const;
   return (
     <div className="absolute inset-0 flex flex-col justify-center px-8 sm:px-14 md:px-20">
-      <div className="pointer-events-none absolute inset-0 bg-[rgba(8,9,13,0.55)]" aria-hidden />
+      <div className="pointer-events-none absolute inset-0 tv-wash" aria-hidden />
       <div className="relative">
         <p className="label tv-rise">{t.booking.title}</p>
         <h2 className="display-lg tv-rise tv-d1 mt-3 max-w-[18ch]">{t.tv.bookTitle}</h2>
@@ -384,7 +384,7 @@ function Book({ t, locale, route, beat }: { t: Dictionary; locale: UiLocale; rou
 function Music({ t, locale }: { t: Dictionary; locale: UiLocale }) {
   return (
     <div className="absolute inset-0 flex flex-col justify-center px-8 sm:px-14 md:px-20">
-      <div className="pointer-events-none absolute inset-0 bg-[rgba(8,9,13,0.5)]" aria-hidden />
+      <div className="pointer-events-none absolute inset-0 tv-wash" aria-hidden />
       <div className="relative grid items-center gap-12 md:grid-cols-12">
         <div className="md:col-span-6">
           <span className="player-art tv-rise grid h-28 w-28 place-items-center rounded-panel border border-line">

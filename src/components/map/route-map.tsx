@@ -6,6 +6,7 @@ import { memo, useEffect, useRef } from "react";
 import type { GeoJsonLineString, GeoPoint, RouteNodeKind } from "@/lib/contract/api";
 import { useI18n } from "@/lib/i18n/context";
 import { ISTANBUL_CENTER, ISTANBUL_MAX_BOUNDS, MAX_ZOOM, MIN_ZOOM, clampBounds, clampToIstanbul } from "@/lib/geo";
+import { HERO_ORBIT_MS } from "@/lib/hero-orbit";
 import { noteMapIdle } from "@/lib/page-ready";
 
 export interface MapNode {
@@ -49,10 +50,7 @@ interface Props {
    * software GL. Pair with a CSS-scaled 1080p box on lounge TVs.
    */
   budget?: boolean;
-  /**
-   * Hero orbit period in ms. The live site is ~164s per turn. The bake
-   * page uses a shorter closed turn so the video file can loop.
-   */
+  /** Hero orbit period in ms. Defaults to the live turn (`HERO_ORBIT_MS`). */
   orbitMs?: number;
 }
 
@@ -466,7 +464,7 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
     let raf = 0;
     if (hero && !reduceMotion && !cheap) {
       let last = performance.now();
-      const degPerMs = 360 / (latest.current.orbitMs ?? 163_636);
+      const degPerMs = 360 / (latest.current.orbitMs ?? HERO_ORBIT_MS);
       const tick = (now: number) => {
         const dt = now - last;
         last = now;

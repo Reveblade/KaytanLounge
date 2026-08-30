@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { CaretLeft, CaretRight, MusicNotes, Pause, Play, X } from "@phosphor-icons/react";
+import { useTheme } from "@/components/chrome/prefs-toggles";
 import { useI18n } from "@/lib/i18n/context";
 import { pickText } from "@/lib/i18n/pick";
 import { getMusicPlaying, subscribeMusicPlaying, toggleHouseMusic } from "@/lib/music";
@@ -20,6 +21,7 @@ const IDLE_MS = 3200;
  */
 export function TvShow(data: TvData & { loop?: boolean }) {
   const { t, locale } = useI18n();
+  const theme = useTheme();
   const router = useRouter();
   const rootRef = useRef<HTMLDivElement>(null);
   const pausedRef = useRef(false);
@@ -99,17 +101,11 @@ export function TvShow(data: TvData & { loop?: boolean }) {
   useLayoutEffect(() => {
     const html = document.documentElement;
     const body = document.body;
-    const theme = html.dataset.theme;
     html.classList.add("tv-active");
     body.classList.add("tv-active");
-    html.dataset.theme = "dark";
-    window.dispatchEvent(new CustomEvent("biy-theme", { detail: "dark" }));
     return () => {
       html.classList.remove("tv-active");
       body.classList.remove("tv-active");
-      if (theme) html.dataset.theme = theme;
-      else delete html.dataset.theme;
-      window.dispatchEvent(new CustomEvent("biy-theme", { detail: theme ?? "dark" }));
     };
   }, []);
 
@@ -232,7 +228,7 @@ export function TvShow(data: TvData & { loop?: boolean }) {
   return (
     <div
       ref={rootRef}
-      data-theme="dark"
+      data-theme={theme}
       data-paused={paused ? "true" : "false"}
       data-awake={showChrome ? "true" : "false"}
       className="tv-root relative h-[100vh] h-[100dvh] w-full overflow-hidden bg-bg text-ink"

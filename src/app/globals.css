@@ -1817,14 +1817,41 @@ html.tv-active body {
   background:
     radial-gradient(90% 70% at 72% 32%, rgba(255, 160, 122, 0.14), transparent 58%),
     radial-gradient(70% 55% at 12% 88%, rgba(255, 255, 255, 0.06), transparent 50%),
-    #0e0e11;
+    var(--bg);
+}
+
+/*
+  Plates behind TV copy that sits on the city. --bg follows the page theme so
+  --ink stays readable in light. Photograph scenes keep their own dark frost.
+*/
+.tv-wash {
+  background: color-mix(in srgb, var(--bg) 58%, transparent);
+}
+.tv-wash-soft {
+  background: color-mix(in srgb, var(--bg) 28%, transparent);
+}
+.tv-scrim-rise {
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--bg) 88%, transparent) 0%,
+    color-mix(in srgb, var(--bg) 38%, transparent) 42%,
+    transparent 100%
+  );
+}
+.tv-scrim-frame {
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--bg) 72%, transparent) 0%,
+    transparent 42%,
+    color-mix(in srgb, var(--bg) 38%, transparent) 100%
+  );
 }
 
 .tv-city-wrap {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  background: #0e0e11;
+  background: var(--bg);
 }
 .tv-city {
   position: absolute;

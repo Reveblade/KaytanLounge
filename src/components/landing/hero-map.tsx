@@ -1,47 +1,28 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
 import type { GeoJsonLineString } from "@/lib/contract/api";
-import { isLoungeDisplay, shouldLoopCity } from "@/lib/lounge";
-import { CityLoop } from "@/components/map/city-loop";
 import { RouteMap, type MapNode } from "@/components/map/lazy-route-map";
 
-function subscribe() {
-  return () => undefined;
-}
-
-/** Client boundary for the hero: MapLibre needs the DOM, the hero itself stays a server component. */
+/**
+ * Live WebGL hero camera. Televisions never mount this — the homepage
+ * swaps in `CityLoop` before this file is reached.
+ */
 export function HeroMap({
   path,
   nodes,
   lite,
   budget,
-  loop,
   veil = true,
 }: {
   path?: GeoJsonLineString;
   nodes: MapNode[];
   lite?: boolean;
-  /** Pitched city, 1× framebuffer, canvas capped at 1080p and scaled up. */
   budget?: boolean;
-  /** Server already knows this is a television. */
-  loop?: boolean;
-  /** Homepage hero fades the city under the headline. The TV reel keeps the map clean. */
   veil?: boolean;
 }) {
-  const lounge = useSyncExternalStore(subscribe, isLoungeDisplay, () => !!loop);
   const fade = veil ? (
     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_70%_40%,transparent_40%,var(--bg)_100%)] opacity-70" aria-hidden />
   ) : null;
-
-  if (shouldLoopCity(!!loop, lounge)) {
-    return (
-      <div className="absolute inset-0 overflow-hidden" data-city="loop">
-        <CityLoop />
-        {fade}
-      </div>
-    );
-  }
 
   return (
     <div className="absolute inset-0 overflow-hidden" data-city="map">
