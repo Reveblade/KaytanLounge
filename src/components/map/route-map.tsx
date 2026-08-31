@@ -557,46 +557,32 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
         // button instead, and subpixel positioning keeps them from snapping between pixels.
         const wrap = document.createElement("div");
         wrap.className = "node-marker-wrap";
-        wrap.dataset.hero = String(mode === "hero");
         // Stacking belongs on the wrapper, not the button inside it: MapLibre lays the
         // markers out as absolutely positioned siblings, so a z-index one level down
         // cannot lift a partner over the marker — or the cluster — drawn after it.
         wrap.dataset.kind = node.kind;
         const el = document.createElement("button");
         el.type = "button";
-        el.className = mode === "hero" ? "node-dot" : "node-marker";
+        el.className = "node-marker";
         el.dataset.kind = node.kind;
         el.setAttribute("aria-label", node.label);
-        if (mode === "hero") {
-          // Even at hero scale the two partner venues read as the anchors of the day:
-          // a wider dot, hollowed to a ring so it is a different shape and not just a
-          // bigger version of the stops between them.
-          const partner = node.kind === "BUSINESS";
-          const d = partner ? 17 : 10;
-          wrap.style.width = `${d}px`;
-          wrap.style.height = `${d}px`;
-          el.style.width = `${d}px`;
-          el.style.height = `${d}px`;
-        } else {
-          // A photo of the place in the circle, the stop number as a badge on its rim.
-          const photo = document.createElement("span");
-          photo.className = "node-marker-photo";
-          const num = document.createElement("span");
-          num.className = "node-marker-num";
-          el.append(photo, num);
-          // Partner venues are named on the map itself. The point of the partnership is
-          // that people can see where the day starts and ends without opening anything,
-          // and a photo disc alone does not say whose door it is.
-          if (node.kind === "BUSINESS") {
-            const name = document.createElement("span");
-            name.className = "node-marker-name";
-            el.appendChild(name);
-          }
-          el.addEventListener("click", (e) => {
-            e.stopPropagation();
-            latest.current.onNodeClick?.(node.id);
-          });
+        const photo = document.createElement("span");
+        photo.className = "node-marker-photo";
+        const num = document.createElement("span");
+        num.className = "node-marker-num";
+        el.append(photo, num);
+        // Partner venues are named on the map itself. The point of the partnership is
+        // that people can see where the day starts and ends without opening anything,
+        // and a photo disc alone does not say whose door it is.
+        if (node.kind === "BUSINESS") {
+          const name = document.createElement("span");
+          name.className = "node-marker-name";
+          el.appendChild(name);
         }
+        el.addEventListener("click", (e) => {
+          e.stopPropagation();
+          latest.current.onNodeClick?.(node.id);
+        });
         wrap.appendChild(el);
         marker = new maplibregl.Marker({ element: wrap, anchor: "center", subpixelPositioning: true }).setLngLat([node.location.lng, node.location.lat]).addTo(map);
         markers.current.set(node.id, marker);
@@ -604,8 +590,10 @@ function RouteMapImpl({ path, nodes, activeNodeId, onNodeClick, mode = "explore"
         marker.setLngLat([node.location.lng, node.location.lat]);
       }
       const button = marker.getElement().firstElementChild as HTMLElement | null;
-      if (button && mode !== "hero") syncMarker(button, node);
-      if (button) button.dataset.active = String(node.id === activeNodeId);
+      if (button) {
+        syncMarker(button, node);
+        button.dataset.active = String(node.id === activeNodeId);
+      }
     }
     for (const [id, marker] of markers.current) {
       if (!seen.has(id)) {
