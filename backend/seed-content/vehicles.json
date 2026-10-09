@@ -1,0 +1,90 @@
+{
+  "sprinter": [
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Mercedes-Benz_Sprinter_VS30_317_CDI_Primera_Klasse_Black_01.jpg/1920px-Mercedes-Benz_Sprinter_VS30_317_CDI_Primera_Klasse_Black_01.jpg",
+      "credit": "Ethan Llamas",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mercedes-Benz_Sprinter_VS30_317_CDI_Primera_Klasse_Black_01.jpg",
+      "alt": {
+        "en": "Black Mercedes-Benz Sprinter VS30 luxury passenger minibus with tinted windows, parked front three-quarter view",
+        "tr": "Camları füme, siyah Mercedes-Benz Sprinter VS30 lüks yolcu minibüsü, önden çapraz görünüm"
+      }
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Mercedes-Benz_Sprinter_Altas_VIP_Shuttle_IAA_2016_%283%29_Travelarz.JPG/1920px-Mercedes-Benz_Sprinter_Altas_VIP_Shuttle_IAA_2016_%283%29_Travelarz.JPG",
+      "credit": "Travelarz",
+      "license": "CC BY-SA 3.0 PL",
+      "source": "https://commons.wikimedia.org/wiki/File:Mercedes-Benz_Sprinter_Altas_VIP_Shuttle_IAA_2016_(3)_Travelarz.JPG",
+      "alt": {
+        "en": "Interior of a Mercedes-Benz Sprinter VIP shuttle with reclining leather captain's seats and wood trim",
+        "tr": "Deri koltukları ve ahşap kaplamalarıyla Mercedes-Benz Sprinter VIP servis aracının iç mekânı"
+      }
+    }
+  ],
+  "vito": [
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Mercedes-Benz_V-Class_%28W447%2C_2023%29_DSC_7977.jpg/1920px-Mercedes-Benz_V-Class_%28W447%2C_2023%29_DSC_7977.jpg",
+      "credit": "Alexander Migl",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mercedes-Benz_V-Class_(W447,_2023)_DSC_7977.jpg",
+      "alt": {
+        "en": "Black Mercedes-Benz V-Class (W447) van, 2023 model, seen from the front three-quarter angle",
+        "tr": "Siyah Mercedes-Benz V-Serisi (W447) minivan, 2023 modeli, önden çapraz görünüm"
+      }
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Mercedes-Benz_V-Class_%28W447%29_VIP_Shuttle_by_Auto_Cuby_IAA_2016_%283%29_Travelarz.JPG/1920px-Mercedes-Benz_V-Class_%28W447%29_VIP_Shuttle_by_Auto_Cuby_IAA_2016_%283%29_Travelarz.JPG",
+      "credit": "Travelarz",
+      "license": "CC BY-SA 3.0 PL",
+      "source": "https://commons.wikimedia.org/wiki/File:Mercedes-Benz_V-Class_(W447)_VIP_Shuttle_by_Auto_Cuby_IAA_2016_(3)_Travelarz.JPG",
+      "alt": {
+        "en": "VIP interior of a Mercedes-Benz V-Class shuttle with quilted leather seats, folding tables and a screen",
+        "tr": "Kapitone deri koltukları, katlanır masaları ve ekranıyla Mercedes-Benz V-Serisi VIP transfer aracının iç mekânı"
+      }
+    }
+  ],
+  "midibus": [
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Isuzu_Novo.jpg/1920px-Isuzu_Novo.jpg",
+      "credit": "Milhouse35",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Isuzu_Novo.jpg",
+      "alt": {
+        "en": "White Isuzu Novo midibus on a street in Alanya, Turkey, front three-quarter view",
+        "tr": "Alanya'da bir caddede beyaz Isuzu Novo midibüs, önden çapraz görünüm"
+      }
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/ISUZU_NovoLUX_TransExpo_2016_%283%29_Travelarz.JPG/1920px-ISUZU_NovoLUX_TransExpo_2016_%283%29_Travelarz.JPG",
+      "credit": "Travelarz",
+      "license": "CC BY-SA 3.0 PL",
+      "source": "https://commons.wikimedia.org/wiki/File:ISUZU_NovoLUX_TransExpo_2016_(3)_Travelarz.JPG",
+      "alt": {
+        "en": "Passenger cabin of an Isuzu Novo Lux midi coach with reclining seats and curtained windows",
+        "tr": "Yatar koltukları ve perdeli camlarıyla Isuzu Novo Lux midibüsün yolcu kabini"
+      }
+    }
+  ],
+  "yacht": [
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Bosphore_-_Etoile.jpg/1920px-Bosphore_-_Etoile.jpg",
+      "credit": "Remi Jouan",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bosphore_-_Etoile.jpg",
+      "alt": {
+        "en": "The white motor yacht Etoile flying the Turkish flag on the Bosphorus in Istanbul",
+        "tr": "İstanbul Boğazı'nda Türk bayrağı çeken beyaz motor yat Etoile"
+      }
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Black_motorboat%2C_Istanbul%2C_Turkey_%289606771426%29.jpg/1920px-Black_motorboat%2C_Istanbul%2C_Turkey_%289606771426%29.jpg",
+      "credit": "l0da_ralta",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Black_motorboat,_Istanbul,_Turkey_(9606771426).jpg",
+      "alt": {
+        "en": "Sleek black motor yacht moored in front of waterfront houses on the Bosphorus in Istanbul",
+        "tr": "İstanbul Boğazı'nda sahil evlerinin önünde demirlemiş şık siyah motor yat"
+      }
+    }
+  ]
+}

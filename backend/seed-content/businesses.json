@@ -1,0 +1,188 @@
+[
+  {
+    "slug": "kaytan-lounge",
+    "category": "RESTAURANT",
+    "sponsorTier": "TITLE",
+    "name": {
+      "tr": "Kaytan Lounge",
+      "en": "Kaytan Lounge"
+    },
+    "summary": {
+      "tr": "Ortaköy'de Boğaz kıyısında, köprü manzaralı bir lounge; kahvaltıdan gece nargilesine uzanan servis ve yat kenarı kahvaltı imkânı.",
+      "en": "A Bosphorus-front lounge in Ortaköy with the bridge as backdrop, serving breakfast through late-night shisha, with breakfast aboard moored yachts."
+    },
+    "description": {
+      "tr": "Kaytan Lounge, Ortaköy sahilinde Muallim Naci Caddesi üzerinde yer alır; açık hava terasından 15 Temmuz Şehitler Köprüsü manzaranın tamamını doldurur. Mekân sabah kahvaltısından gece geç saatlere kadar hizmet verir: sabahları zengin serpme kahvaltı, gün boyunca Türk, Akdeniz ve dünya mutfağından bir menü, tatlılar, kokteyller ve gece yarısını geçen saatlere kadar nargile.\n\nTeras doğrudan suyun üzerindedir; mekân, kendi paylaşımlarında yanına yanaşan yatlarda kahvaltı servisi duyurur ve denizden gelen misafirler tekneyle ulaşabilir. Akşamlara DJ performansı ve köprünün ışıkları eşlik eder. Su kenarındaki masalar için rezervasyon önerilir. Mekânın kendi sloganı olan Başka İstanbul Yok, bu turun da adıdır.",
+      "en": "Kaytan Lounge occupies a stretch of the Ortaköy waterfront on Muallim Naci Caddesi, with the 15 July Martyrs Bridge filling the view from its open-air terrace. The venue runs from breakfast to late night: a generous Turkish serpme kahvaltı in the morning, a Turkish, Mediterranean and international menu through the day, then desserts, cocktails and shisha into the small hours.\n\nThe terrace sits directly on the water, and the lounge advertises breakfast served aboard yachts moored alongside, with arrival by boat for guests coming from the sea. Evenings bring a DJ and the lights of the bridge. Reservations are recommended for tables at the water's edge, and the venue's own motto, Başka İstanbul Yok, gives this tour its name."
+    },
+    "district": "Beşiktaş",
+    "address": "Ortaköy, Muallim Naci Cd. No:24, 34353 Beşiktaş/İstanbul",
+    "location": {
+      "lat": 41.0487,
+      "lng": 29.0278
+    },
+    "contact": {
+      "phone": "+90 212 327 85 71",
+      "whatsapp": "+90 535 627 71 15",
+      "instagram": "@kaytanlounge",
+      "website": "https://www.kaytanlounge.com/",
+      "email": ""
+    },
+    "openingHours": "Daily 09:00-03:00 per the official site (Instagram bio lists 08:00-02:00); breakfast weekdays 08:00-16:00, weekends 08:00-17:00",
+    "cuisine": [
+      "Turkish",
+      "Mediterranean",
+      "International",
+      "Turkish breakfast"
+    ],
+    "features": {
+      "tr": [
+        "15 Temmuz Şehitler Köprüsü'ne bakan Boğaz kıyısı terası",
+        "Yanaşan yatlarda kahvaltı servisi, tekneyle ulaşım imkânı",
+        "Açık hava oturma alanı",
+        "Nargile",
+        "Akşamları DJ",
+        "Kokteyl ve bar",
+        "Su kenarı masalar için rezervasyon önerilir",
+        "Vale hizmeti (misafir bildirimi)"
+      ],
+      "en": [
+        "Bosphorus waterfront terrace facing the 15 July Martyrs Bridge",
+        "Breakfast served aboard moored yachts, arrival by boat possible",
+        "Open-air seating",
+        "Shisha lounge",
+        "DJ in the evenings",
+        "Cocktails and full bar",
+        "Reservations recommended for waterside tables",
+        "Valet parking (reported by guests)"
+      ]
+    },
+    "visitMinutes": 120,
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Istanbul_Emin%C3%B6n%C3%BC_to_Sar%C4%B1yer_30_Ortak%C3%B6y_Mosque_3181.jpg/1920px-Istanbul_Emin%C3%B6n%C3%BC_to_Sar%C4%B1yer_30_Ortak%C3%B6y_Mosque_3181.jpg",
+        "credit": "Dosseman",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Istanbul_Emin%C3%B6n%C3%BC_to_Sar%C4%B1yer_30_Ortak%C3%B6y_Mosque_3181.jpg",
+        "alt": {
+          "en": "The Ortaköy waterfront seen from the Bosphorus, the shore Kaytan Lounge's terrace stands on",
+          "tr": "Boğaz'dan görünen Ortaköy sahili; Kaytan Lounge'un terasının bulunduğu kıyı"
+        }
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Istanbul_%2815710954139%29.jpg/1920px-Istanbul_%2815710954139%29.jpg",
+        "credit": "Karsten Wentink",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Istanbul_(15710954139).jpg",
+        "alt": {
+          "en": "The Bosphorus at night from the Ortaköy shore, with the lit bridge across the water",
+          "tr": "Ortaköy kıyısından gece Boğaz ve suyun üzerinde ışıklandırılmış köprü"
+        }
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Bosphorus_Bridge_20250709_%285%29.jpg/1920px-Bosphorus_Bridge_20250709_%285%29.jpg",
+        "credit": "Zafer",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bosphorus_Bridge_20250709_(5).jpg",
+        "alt": {
+          "en": "A full moon over the Bosphorus bridge, the view along the Ortaköy waterfront after dark",
+          "tr": "Boğaz Köprüsü üzerinde dolunay; karanlık bastıktan sonra Ortaköy sahilinden görünüm"
+        }
+      }
+    ],
+    "researchNotes": "Verified 2026-08-27. Only one venue with this name exists in Istanbul; every listing resolves to the same phone number. Official site kaytanlounge.com confirms the Ortaköy / Muallim Naci Cd. address (postcode 34353), phone +90 212 327 85 71, daily hours 09:00-03:00, Bosphorus-view open-air terrace and shisha. House number 24 comes from Yandex Maps, Apple Maps, tikla.com.tr and a 2020 social post (the official site omits the number). Instagram @kaytanlounge (about 137K followers) lists both numbers and 08:00-02:00; the venue's own TikTok captions (read via oEmbed) label +90 535 627 71 15 as 'Telefon & WhatsApp' and give the breakfast hours. Coordinates 41.0487, 29.0278 are Yandex Maps values, cross-checked against aroundus.com, tikla.com.tr and OpenStreetMap node 10253385009, all within about 70 m. Cuisine and features come from the official site, TripAdvisor (listed as 'Kaytan Shisha & Food Lounge', 2.4/5 from 76 reviews) and Restaurant Guru (Google 4.4/5 from about 6,200 reviews, price around TRY 1,000 per person). MEDIUM confidence items: yacht breakfast (1,400 TL per person), hourly yacht rental and arrival by boat come from search snippets of the venue's TikTok posts that could not be read directly; the DJ comes from a corner.inc listing snippet; valet parking is a guest report of a 400 TL charge. Not found on any source: email address, dress code, live music (left empty or omitted). Reviewers praise the view, breakfast and cocktails and repeatedly complain about inconsistent service and surprise charges. The Instagram bio carries the tagline 'Başka İstanbul Yok'. Overall confidence 0.9."
+  },
+  {
+    "slug": "green-corner",
+    "category": "RESTAURANT",
+    "sponsorTier": "PARTNER",
+    "name": {
+      "tr": "Green Corner Cafe & Restaurant",
+      "en": "Green Corner Cafe & Restaurant"
+    },
+    "summary": {
+      "tr": "Yerebatan Sarnıcı'nın yanında ağaç gölgeli bir bahçe kafe-restoran; Türk kahvaltısı, kebaplar, akşamları canlı müzik ve nargile.",
+      "en": "A tree-shaded garden café and restaurant beside the Basilica Cistern, serving Turkish breakfast, kebabs and evening shisha with live music."
+    },
+    "description": {
+      "tr": "Green Corner, Yerebatan Sarnıcı'nın yanındaki sakin Caferiye Sokak'ta, Ayasofya'ya yaklaşık 150 metre mesafede yer alır; bu konum onu her Sultanahmet rotasının doğal molası yapar. Masalar, eski şehrin en yoğun bölgesinde ender bulunan bir ayrıcalık olan yaşlı ağaçların gölgesindeki bahçeye kurulur. Mutfak Türk kahvaltısını, hünkâr beğendi, İskender ve Topkapı kebabı gibi Osmanlı klasiklerini ve daha sade pizza ile makarnaları kapsar.\n\nServis sabahtan gece yarısından sonrasına kadar sürer; akşamları terasta canlı Türk müziği ve nargile vardır. Burası ince mutfak restoranından çok orta segment, aile dostu bir mekândır ve ziyaretçiler tarafından anıtlar arasında sakin bir sığınak olarak değer görür. Rezervasyon kabul edilir, Wi-Fi ücretsizdir; glutensiz, vejetaryen ve helal seçenekler bulunur.",
+      "en": "Green Corner sits on Caferiye Sokak, a quiet lane beside the Basilica Cistern and about 150 metres from Hagia Sophia, which makes it a natural pause on any Sultanahmet itinerary. Tables are set in a garden shaded by mature trees, a rare privilege in the densest part of the old city. The kitchen covers Turkish breakfast, Ottoman classics such as hünkar beğendi, İskender and Topkapı kebabs, and simpler pizzas and pastas.\n\nService runs from morning until after midnight, with live Turkish music and shisha on the terrace in the evenings. It is a mid-range, family-friendly venue rather than a fine-dining one, valued by visitors as a calm refuge between the monuments. Reservations are accepted, Wi-Fi is free, and gluten-free, vegetarian and halal dishes are available."
+    },
+    "district": "Fatih",
+    "address": "Cankurtaran, Alemdar Cd. Caferiye Sk. No:14, 34122 Fatih/İstanbul",
+    "location": {
+      "lat": 41.0088,
+      "lng": 28.9788
+    },
+    "contact": {
+      "phone": "+90 212 519 69 58",
+      "whatsapp": "",
+      "instagram": "@greencornerrestaurant",
+      "website": "",
+      "email": ""
+    },
+    "openingHours": "Daily from 09:00; closing time reported between 22:00 and 02:00 depending on source (confirm by phone)",
+    "cuisine": [
+      "Turkish",
+      "Ottoman",
+      "Café",
+      "Turkish breakfast"
+    ],
+    "features": {
+      "tr": [
+        "Ağaç gölgeli bahçe terası",
+        "Akşamları canlı Türk müziği",
+        "Nargile servisi",
+        "Türk kahvaltısı ve kebap menüsü",
+        "Ücretsiz Wi-Fi ve rezervasyon",
+        "Glutensiz, vejetaryen ve helal seçenekler",
+        "Aile dostu (mama sandalyesi)",
+        "Ayasofya'ya 150 metre"
+      ],
+      "en": [
+        "Tree-shaded garden terrace",
+        "Live Turkish music in the evenings",
+        "Shisha service",
+        "Turkish breakfast and kebab menu",
+        "Free Wi-Fi and reservations",
+        "Gluten-free, vegetarian and halal options",
+        "Family friendly (highchairs)",
+        "150 metres from Hagia Sophia"
+      ]
+    },
+    "visitMinutes": 75,
+    "media": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Ayasofya_-_%E3%82%A2%E3%83%A4%E3%82%BD%E3%83%95%E3%82%A3%E3%82%A2_-_panoramio_-_mayatomo.jpg/1920px-Ayasofya_-_%E3%82%A2%E3%83%A4%E3%82%BD%E3%83%95%E3%82%A3%E3%82%A2_-_panoramio_-_mayatomo.jpg",
+        "credit": "mayatomo",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Ayasofya_-_%E3%82%A2%E3%83%A4%E3%82%BD%E3%83%95%E3%82%A3%E3%82%A2_-_panoramio_-_mayatomo.jpg",
+        "alt": {
+          "en": "The flowered garden beside Hagia Sophia, a minute's walk from the restaurant's door",
+          "tr": "Ayasofya'nın yanındaki çiçekli bahçe; restoranın kapısına bir dakika yürüme mesafesinde"
+        }
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/2013-01-03_Istanbul_166.jpg/1920px-2013-01-03_Istanbul_166.jpg",
+        "credit": "Maksym Kozlenko",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:2013-01-03_Istanbul_166.jpg",
+        "alt": {
+          "en": "A cobbled lane of wooden houses and shaded seating in Sultanahmet, the quarter Green Corner sits in",
+          "tr": "Sultanahmet'te ahşap evlerin ve gölgeli oturma alanlarının olduğu arnavut kaldırımlı sokak; Green Corner'ın bulunduğu semt"
+        }
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/2013-01-02_Istanbul_154.jpg/1920px-2013-01-02_Istanbul_154.jpg",
+        "credit": "Maksym Kozlenko",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:2013-01-02_Istanbul_154.jpg",
+        "alt": {
+          "en": "Street life on the Sultanahmet side, a few minutes from Caferiye Sokak",
+          "tr": "Sultanahmet tarafında sokak hayatı; Caferiye Sokak'a birkaç dakika mesafede"
+        }
+      }
+    ],
+    "researchNotes": "Verified 2026-08-27. Candidates found for 'Green Corner' in Istanbul: (1) Green Corner Cafe & Restaurant, Caferiye Sk., Sultanahmet, a long-established standalone garden cafe-restaurant (TripAdvisor listing since about 2010, 574 reviews, 3.8/5; Google 3.9/5 from about 1,700 reviews); (2) Green Corner Go, a delivery-only cloud kitchen with no dining room and no published city; (3) greencorner.com.tr, an online retail shop; (4) an Istanbul firm-directory entry 'M. Salih Karahan Müessesesi Ltd. Şti. - Green (Yeşil) Corner' in Sultanahmet, most likely the legal entity behind candidate 1; plus namesakes abroad. Candidate 1 was chosen as the only real, seatable restaurant of that name in the city; confidence 0.85, lower because the brief's partner could be a newer venue not yet indexed and because this is a mid-range tourist cafe rather than a luxury venue. Address: Alemdar Cad. Caferiye Sok. No:14 per TripAdvisor, Restaurant Guru, Trip.com and Google-derived listings (Yelp and mekan.com say No:12, same row); postcode 34122 per OpenStreetMap (some listings say 34096). Coordinates 41.0088, 28.9788 from OSM node 3090853855, matching wanderlog/Google 41.008898, 28.978812. Phone +90 212 519 69 58 from Restaurant Guru and TripAdvisor. Instagram @greencornerrestaurant (bio: 'Cafe Restaurant', Sultanahmet, 09:00-01:00) also lists a mobile number 0531 363 85 95 that is not labelled WhatsApp, so the whatsapp field is left empty. No official website exists. TripAdvisor shows a personal Hotmail address for the venue; it was deliberately not published and should be confirmed with the owner. Opening hours conflict across sources (TripAdvisor 09:00-22:00, Instagram 09:00-01:00, Restaurant Guru and Trip.com 08:00-02:00). Features and menu items come from TripAdvisor, Trip.com, Restaurant Guru and mekanlar.com; no sea view or boat access."
+  }
+]
